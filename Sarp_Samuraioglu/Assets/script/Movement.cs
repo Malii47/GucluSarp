@@ -7,18 +7,12 @@ public class Movement : MonoBehaviour
 
     public float FollowSpeed = 5f;
 
-    Rigidbody2D rb;
-    private Camera am;
+    public Rigidbody2D rb;
+    public Camera am;
         
     Vector2 MousePosition;
     Vector2 Position;
     
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        am = GetComponent<Camera>();
-    }
 
     
     void Update()
