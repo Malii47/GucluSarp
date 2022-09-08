@@ -8,12 +8,6 @@ public class EnemyShooting : MonoBehaviour
     public GameObject kola;
 
     float Timer;
-
-    void Start()
-    {
-        kola = GameObject.Find("kolaa 1");
-    }
-
     
     void Update()
     {
