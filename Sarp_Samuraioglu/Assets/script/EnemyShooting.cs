@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Start()
     {
-        
+        kola = GameObject.Find("kolaa 1");
     }
 
     
