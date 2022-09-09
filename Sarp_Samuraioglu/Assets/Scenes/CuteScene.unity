@@ -190,7 +190,7 @@ SpriteRenderer:
   m_Size: {x: 3.5, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1173971967
@@ -411,7 +411,7 @@ SpriteRenderer:
   m_Size: {x: 3.5, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1296682634
@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 1337861496}
   - component: {fileID: 1337861495}
   - component: {fileID: 1337861499}
+  - component: {fileID: 1337861500}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -461,9 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93353a078cf42bb43a2bd2bafc32a87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   rigidBody: {fileID: 1337861496}
   animator: {fileID: 1337861499}
+  cam: {fileID: 1185193557}
 --- !u!50 &1337861496
 Rigidbody2D:
   serializedVersion: 4
@@ -572,3 +574,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1337861500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337861494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8879fa9959a2fa4fb252706251450c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 50
+  dashTime: 0
+  startDashTime: 0.1
+  rigidBody: {fileID: 1337861496}
+  direction: 0
