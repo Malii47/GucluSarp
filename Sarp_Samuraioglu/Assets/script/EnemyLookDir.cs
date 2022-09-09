@@ -29,7 +29,7 @@ public class EnemyLookDir : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 LookDir = PlayerPosition - rb.position;
-        float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
 
     }

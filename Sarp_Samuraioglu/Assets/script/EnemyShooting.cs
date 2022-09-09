@@ -6,6 +6,7 @@ public class EnemyShooting : MonoBehaviour
 {
     public Transform enemy_attackposition;
     public GameObject kola;
+    public Animator animator;
 
     float Timer;
     
@@ -17,7 +18,7 @@ public class EnemyShooting : MonoBehaviour
     private void FixedUpdate()
     {
         Timer = Time.time;
-        if (Timer % 3 == 0)
+        if (Timer % 3 == 1)
         {
             Shoot();
         }
@@ -28,6 +29,7 @@ public class EnemyShooting : MonoBehaviour
     void Shoot()
     {
         Instantiate(kola, enemy_attackposition.position, Quaternion.identity);
+        animator.SetTrigger("Gun");
     }
 
 }
