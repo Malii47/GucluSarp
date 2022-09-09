@@ -34,6 +34,6 @@ public class MovementWASD : MonoBehaviour
         float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
 
-        rb.MovePosition(rb.position + Movement * Speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + Movement.normalized * Speed * Time.fixedDeltaTime);
     }
 }
