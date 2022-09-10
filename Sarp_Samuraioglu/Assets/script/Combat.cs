@@ -45,7 +45,7 @@ public class Combat : MonoBehaviour
 
     void Attack()
     {
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
@@ -57,7 +57,7 @@ public class Combat : MonoBehaviour
 
     void Deflect_Block()
     {
-        animator.SetTrigger("Deflect");
+        //animator.SetTrigger("Deflect");
 
 
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
@@ -72,7 +72,7 @@ public class Combat : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(DeflectPoint2.position, boyut);
+        //Gizmos.DrawCube(DeflectPoint2.position, boyut);
     }
 
 }

@@ -21,13 +21,15 @@ public class EnemyLookDir : MonoBehaviour
     
     void Update()
     {
-        PlayerPosition = playerrb.position;
+        
 
         
     }
 
     void FixedUpdate()
     {
+        PlayerPosition = playerrb.position;
+
         Vector2 LookDir = PlayerPosition - rb.position;
         float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;

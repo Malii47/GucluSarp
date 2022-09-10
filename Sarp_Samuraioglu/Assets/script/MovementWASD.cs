@@ -22,14 +22,16 @@ public class MovementWASD : MonoBehaviour
     
     void Update()
     {
-        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        Movement.x = Input.GetAxisRaw("Horizontal");
-        Movement.y = Input.GetAxisRaw("Vertical");
+        
     }
 
     private void FixedUpdate()
     {
+        MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        Movement.x = Input.GetAxisRaw("Horizontal");
+        Movement.y = Input.GetAxisRaw("Vertical");
+
         Vector2 LookDir = MousePosition - rb.position;
         float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TrailRenderer trailRenderer;
 
     Vector2 movement;
-    //Vector2 mousePos;
+    Vector2 mousePos;
 
     void Start()
     {
@@ -31,11 +31,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
+        
+    }
+
+    private void FixedUpdate()
+    {
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
 
-        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -44,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(dashCoolCounter<=0 && dashCounter <= 0)
+            if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 temp = moveSpeed;
                 activeMoveSpeed = dashSpeed;
@@ -71,16 +77,13 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
-    }
 
-    private void FixedUpdate()
-    {       
         rigidBody.MovePosition(rigidBody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         rigidBody.velocity = movement * moveSpeed;
 
 
-        /*Vector2 lookDir = mousePos - rigidBody.position;
+        Vector2 lookDir = mousePos - rigidBody.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
-        rigidBody.rotation = angle;*/
+        rigidBody.rotation = angle;
     }
 }
