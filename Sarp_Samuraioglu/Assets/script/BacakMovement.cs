@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementWASD : MonoBehaviour
+public class BacakMovement : MonoBehaviour
 {
 
     public float Speed = 5f;
 
     Rigidbody2D rb;
-    private Camera cam;
+    Camera cam;
+    Animator animator;
 
     Vector2 MousePosition;
     Vector2 Movement;
+
+    bool Walk;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        animator = GetComponent<Animator>();
     }
 
-    
+
     void Update()
     {
         
@@ -38,5 +42,11 @@ public class MovementWASD : MonoBehaviour
         rb.rotation = angle;
 
         rb.MovePosition(rb.position + Movement.normalized * Speed * Time.fixedDeltaTime);
+
+        if (Movement.x != 0 || Movement.y != 0)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else animator.SetBool("IsWalking", false);
     }
 }

@@ -6,7 +6,7 @@ public class kola : MonoBehaviour
 {
 
     public float speed = 7f;
-    MovementWASD target;
+    PlayerMovement target;
     Vector2 moveDirection, PlayerPos;
     Rigidbody2D rb, playerrb;
     Camera cam;
@@ -17,7 +17,7 @@ public class kola : MonoBehaviour
         cam = GetComponent<Camera>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
-        target = GameObject.FindObjectOfType<MovementWASD>();
+        target = GameObject.FindObjectOfType<PlayerMovement>();
 
         PlayerPos = playerrb.position;
 
