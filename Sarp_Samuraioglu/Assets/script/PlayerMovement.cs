@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -27,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        cam = GameObject.FindObjectOfType<Camera>();
+
         activeMoveSpeed = moveSpeed;
     }
 
@@ -74,8 +80,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        
-
         rigidBody.MovePosition(rigidBody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         rigidBody.velocity = movement * moveSpeed;
 
@@ -86,8 +90,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement.x != 0 || movement.y != 0)
         {
+            GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().Anan(true);
             animator.SetBool("IsWalking", true);
         }
-        else animator.SetBool("IsWalking", false);
+        else
+        {
+            animator.SetBool("IsWalking", false);
+            GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().Anan(false); }
+
+
     }
 }
