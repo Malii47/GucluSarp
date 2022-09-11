@@ -9,6 +9,9 @@ public class Combat : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem particle = null;
+    [SerializeField] ParticleSystem particle2 = null;
+    [SerializeField] ParticleSystem particle3 = null;
+    [SerializeField] ParticleSystem particle4 = null;
 
     public Animator animator;
 
@@ -66,13 +69,16 @@ public class Combat : MonoBehaviour
             bullet.GetComponent<kola>().OnCollisionEnter();
             Debug.Log("Kursun blok");
             particle.Play();
+            particle2.Play();
+            particle3.Play();
+            particle4.Play();
         }
 
     }
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawCube(DeflectPoint2.position, boyut);
+        Gizmos.DrawCube(DeflectPoint2.position, boyut);
     }
 
 }
