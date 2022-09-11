@@ -72,7 +72,7 @@ public class Combat : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(DeflectPoint2.position, boyut);
+        //Gizmos.DrawCube(DeflectPoint2.position, boyut);
     }
 
 }
