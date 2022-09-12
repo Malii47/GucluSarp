@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        cam = GameObject.FindObjectOfType<Camera>();
 
         activeMoveSpeed = moveSpeed;
     }

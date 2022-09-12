@@ -327,6 +327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sarp Miami(Mali)
       objectReference: {fileID: 0}
+    - target: {fileID: 7339336265246184382, guid: 0004ec3b8c6400f41991fabe536679b7, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1185193557}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0004ec3b8c6400f41991fabe536679b7, type: 3}
 --- !u!1001 &6813505165290170487
