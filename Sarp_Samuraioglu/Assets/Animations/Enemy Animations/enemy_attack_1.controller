@@ -36,7 +36,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1171596046393299306}
-    m_Position: {x: 30, y: 260, z: 0}
+    m_Position: {x: 30, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1816421806900917145}
     m_Position: {x: 30, y: 190, z: 0}
@@ -59,12 +59,6 @@ AnimatorController:
   m_Name: enemy_attack_1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Shoot
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: Gun
     m_Type: 9
     m_DefaultFloat: 0
@@ -105,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8b7228e64f79a834cae7e77d9ecf6db1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3deb4f42604335a4c9c233348b5e8824, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -132,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5fdb1f3cc9d422f47868e16155a34bab, type: 2}
+  m_Motion: {fileID: 7400000, guid: 71a3b02fd8ead804e813dc4632d5fc1a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
