@@ -9,6 +9,7 @@ public class EnemyShooting : MonoBehaviour
     public Animator animator;
 
     float Timer;
+    float Timer2;
     
     void Update()
     {
@@ -18,7 +19,7 @@ public class EnemyShooting : MonoBehaviour
     private void FixedUpdate()
     {
         Timer = Time.time;
-        if (Timer % 3 == 1)
+        if (Timer % 2.8 == 1)
         {
             Shoot();
         }
@@ -28,8 +29,14 @@ public class EnemyShooting : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(kola, enemy_attackposition.position, Quaternion.identity);
         animator.SetTrigger("Gun");
+        Timer2 = Time.time;
+        if (Timer2 % 3 == 1)
+        {
+            Instantiate(kola, enemy_attackposition.position, Quaternion.identity);
+        }
+        
+        
     }
 
 }
