@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class KatanaAttackAnimation : MonoBehaviour
 {
-
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
 
     public Animator animator;
     float count;
@@ -18,16 +19,22 @@ public class KatanaAttackAnimation : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time >= nextAttackTime)
         {
-            count++;
-            if (count % 2 == 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                Attack1();
-            }
-            if (count % 2 == 1)
-            {
-                Attack2();
+                count++;
+                if (count % 2 == 0)
+                {
+                    Attack1();
+                    nextAttackTime = Time.time + 1f / attackRate;
+
+                }
+                if (count % 2 == 1)
+                {
+                    Attack2();
+                    nextAttackTime = Time.time + 1f / attackRate;
+                }
             }
         }
     }
