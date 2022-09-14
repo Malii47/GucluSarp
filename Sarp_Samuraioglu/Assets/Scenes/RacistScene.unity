@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8449251730199103617, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 336839879}
     - target: {fileID: 8597012529904460096, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -186,8 +190,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7138835390377886386, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+    - {fileID: 3540418281487696458, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+    - {fileID: 3439360271217739728, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+--- !u!95 &336839879 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8040374272999115835, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+  m_PrefabInstance: {fileID: 183575042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &350628056 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 152697573343911265, guid: 30c683a542cbab44981d276fb40f1e02, type: 3}
