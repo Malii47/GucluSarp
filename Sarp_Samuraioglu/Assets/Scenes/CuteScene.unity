@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1185193557}
+    - target: {fileID: 4408806176254063921, guid: 0004ec3b8c6400f41991fabe536679b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4408806176254063925, guid: 0004ec3b8c6400f41991fabe536679b7, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)

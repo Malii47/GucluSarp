@@ -43,12 +43,12 @@ public class Combat : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Deflect_Block();
-        }        
+        }
     }
 
     void Attack()
     {
-        //animator.SetTrigger("Attack");
+        animator.SetTrigger("isAttack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
@@ -80,5 +80,4 @@ public class Combat : MonoBehaviour
     {
         Gizmos.DrawCube(DeflectPoint2.position, boyut);
     }
-
 }
