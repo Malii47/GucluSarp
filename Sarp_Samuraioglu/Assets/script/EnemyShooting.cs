@@ -18,8 +18,10 @@ public class EnemyShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Timer2 = Time.time;
         Timer = Time.time;
-        if (Timer % 2.8 == 1)
+
+        if (Timer % 3 == 1)
         {
             Shoot();
         }
@@ -30,7 +32,7 @@ public class EnemyShooting : MonoBehaviour
     void Shoot()
     {
         animator.SetTrigger("Gun");
-        Timer2 = Time.time;
+        
         if (Timer2 % 3 == 1)
         {
             Instantiate(kola, enemy_attackposition.position, Quaternion.identity);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,6 +21,8 @@ public class Combat : MonoBehaviour
     
     public float AttackRadius = 0.5f;
     public float damage = 10f;
+    public float timer;
+    public float count;
 
     public LayerMask EnemyLayer;
     public LayerMask BulletLayer;
@@ -27,17 +30,30 @@ public class Combat : MonoBehaviour
     public Vector2 boyut;
 
 
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        count = 1;
     }
 
+    void FixedUpdate()
+    {
 
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Attack();
+            count++;
+            if (count % 2 == 0)
+            {
+                Attack1();
+            }
+            if (count % 2 == 1)
+            {
+                Attack2();
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -46,9 +62,20 @@ public class Combat : MonoBehaviour
         }
     }
 
-    void Attack()
+    void Attack1()
     {
         animator.SetTrigger("isAttack");
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(damage);
+        }
+    }
+    void Attack2()
+    {
+        animator.SetTrigger("isAttack2");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
@@ -60,9 +87,6 @@ public class Combat : MonoBehaviour
 
     void Deflect_Block()
     {
-        //animator.SetTrigger("Deflect");
-
-
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
         foreach (Collider2D bullet in deflectBullets)
         {
@@ -73,11 +97,10 @@ public class Combat : MonoBehaviour
             particle3.Play();
             particle4.Play();
         }
-
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(DeflectPoint2.position, boyut);
+        //Gizmos.DrawCube(DeflectPoint2.position, boyut);
     }
 }

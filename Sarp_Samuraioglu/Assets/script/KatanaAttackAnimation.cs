@@ -7,10 +7,12 @@ public class KatanaAttackAnimation : MonoBehaviour
 
 
     public Animator animator;
+    float count;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        count = 1;
     }
 
 
@@ -18,7 +20,23 @@ public class KatanaAttackAnimation : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetTrigger("isAttack");
+            count++;
+            if (count % 2 == 0)
+            {
+                Attack1();
+            }
+            if (count % 2 == 1)
+            {
+                Attack2();
+            }
         }
+    }
+    void Attack1()
+    {
+        animator.SetTrigger("isAttack");
+    }
+    void Attack2()
+    {
+        animator.SetTrigger("isAttack2");
     }
 }
