@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 336839879}
+    - target: {fileID: 8449251730199103617, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+      propertyPath: attackRate
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8597012529904460096, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -177,6 +181,14 @@ PrefabInstance:
     - target: {fileID: 8597012529904460096, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597012529904460098, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+      propertyPath: attackRate
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597012529904460098, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
+      propertyPath: deflectRate
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 8597012529904460123, guid: 4910b3818fda74a418889706e04d4fa7, type: 3}
       propertyPath: m_Name
@@ -353,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9994ea13248fa744d8d0d681163a033c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deflectRate: 2
+  deflectRate: 1.7
   animator: {fileID: 0}
 --- !u!1001 &4349558472403201304
 PrefabInstance:

@@ -22,7 +22,7 @@ public class KatanaDeflectAnimation : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        count = 1;
+        count = 2;
     }
 
     void Update()

@@ -39,7 +39,7 @@ public class Combat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         count = 1;
-        count2 = 1;
+        count2 = 2;
     }
 
     void FixedUpdate()
@@ -52,7 +52,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                count2++;
+                count++;
                 if (count % 2 == 0)
                 {
                     Attack1();
