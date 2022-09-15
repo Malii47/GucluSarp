@@ -24,6 +24,9 @@ public class Combat : MonoBehaviour
     public float count;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+    public float deflectRate = 2f;
+    float nextDeflectTime = 0f;
+    public float count2;
 
     public LayerMask EnemyLayer;
     public LayerMask BulletLayer;
@@ -36,6 +39,7 @@ public class Combat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         count = 1;
+        count2 = 1;
     }
 
     void FixedUpdate()
@@ -48,7 +52,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                count++;
+                count2++;
                 if (count % 2 == 0)
                 {
                     Attack1();
@@ -63,9 +67,23 @@ public class Combat : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Time.time > nextDeflectTime)
         {
-            Deflect_Block();
+            if (Input.GetMouseButtonDown(1))
+            {
+                count2++;
+                if (count2 % 2 == 0)
+                {
+                    Deflect1();
+                    nextDeflectTime = Time.time + 1f / deflectRate;
+                }
+
+                if (count2 % 2 == 1)
+                {
+                    Deflect2();
+                    nextDeflectTime = Time.time + 1f / deflectRate;
+                }
+            }
         }
     }
 
@@ -92,8 +110,25 @@ public class Combat : MonoBehaviour
         }
     }
 
-    void Deflect_Block()
+    void Deflect1()
     {
+        animator.SetTrigger("isDeflect");
+
+        Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
+        foreach (Collider2D bullet in deflectBullets)
+        {
+            bullet.GetComponent<kola>().OnCollisionEnter();
+            Debug.Log("Kursun blok");
+            particle.Play();
+            particle2.Play();
+            particle3.Play();
+            particle4.Play();
+        }
+    }
+    void Deflect2()
+    {
+        animator.SetTrigger("isDeflect2");
+
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
         foreach (Collider2D bullet in deflectBullets)
         {
