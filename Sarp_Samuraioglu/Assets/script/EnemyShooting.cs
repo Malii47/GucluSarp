@@ -23,22 +23,16 @@ public class EnemyShooting : MonoBehaviour
 
         if (Timer % 3 == 1)
         {
-            Shoot();
+            animator.SetTrigger("Gun");
+            Invoke("Shoot", 1.6f);
         }
 
 
     }
 
     void Shoot()
-    {
-        animator.SetTrigger("Gun");
-        
-        if (Timer2 % 3 == 1)
-        {
-            Instantiate(kola, enemy_attackposition.position, Quaternion.identity);
-        }
-        
-        
+    {       
+        Instantiate(kola, enemy_attackposition.position, Quaternion.identity);      
     }
 
 }
