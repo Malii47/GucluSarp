@@ -23,11 +23,11 @@ public class Combat : MonoBehaviour
     public float AttackRadius = 0.5f;
     public float damage = 10f;
     public float count;
+    public float count2;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     public float deflectRate = 2f;
     float nextDeflectTime = 0f;
-    public float count2;
 
     public LayerMask EnemyLayer;
     public LayerMask BulletLayer;
