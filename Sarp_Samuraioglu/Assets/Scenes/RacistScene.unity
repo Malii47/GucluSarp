@@ -298,6 +298,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 172769246401206649, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1770519640}
+    - target: {fileID: 172769246401206649, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8442971592663819203, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -345,6 +353,18 @@ PrefabInstance:
     - target: {fileID: 8442971592663819224, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442971592663819229, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2030715207}
+    - target: {fileID: 8584996789158283778, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949790820772268452, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
@@ -493,6 +513,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 871dc8cf3fc426a4f8a36318d56f23b4, type: 3}
+--- !u!1 &1770519635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6863009084629098165, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+  m_PrefabInstance: {fileID: 175571136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1770519640 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7922088461731106488, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
+  m_PrefabInstance: {fileID: 175571136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1770519642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770519635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9cdbb23d415e34ea37b5dcd353f501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRate: 1.7
+  deflectRate: 1.7
+  animator: {fileID: 1770519640}
 --- !u!4 &1904586163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8442971592663819203, guid: dcd9acf3378237149b6cabdbacea0e7c, type: 3}
@@ -559,6 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6defc0b9d6a28004a9a2c5638affb0d3, type: 3}
+--- !u!20 &2030715207 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6721620860730812903, guid: 871dc8cf3fc426a4f8a36318d56f23b4, type: 3}
+  m_PrefabInstance: {fileID: 1423101958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &470729236199143120
 PrefabInstance:
   m_ObjectHideFlags: 0

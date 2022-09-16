@@ -73,14 +73,14 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                count2++;
-                if (count2 % 2 == 0)
+                count++;
+                if (count % 2 == 0)
                 {
                     Deflect1();
                     nextDeflectTime = Time.time + 1f / deflectRate;
                 }
 
-                if (count2 % 2 == 1)
+                if (count % 2 == 1)
                 {
                     Deflect2();
                     nextDeflectTime = Time.time + 1f / deflectRate;
