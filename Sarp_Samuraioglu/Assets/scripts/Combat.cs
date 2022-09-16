@@ -5,6 +5,7 @@ using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
+using EZCameraShake;
 
 public class Combat : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class Combat : MonoBehaviour
                 }
                 if (count % 2 == 1)
                 {
+                    
                     Attack2();
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
@@ -90,13 +92,16 @@ public class Combat : MonoBehaviour
     void Attack1()
     {
         animator.SetTrigger("isAttack");
+        
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
+            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
         }
+        
     }
     void Attack2()
     {
@@ -107,7 +112,9 @@ public class Combat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
+            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
         }
+        
     }
 
     void Deflect1()

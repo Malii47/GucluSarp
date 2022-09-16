@@ -76,11 +76,12 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
+
+        
     }
 
     private void FixedUpdate()
     {
-
         rigidBody.MovePosition(rigidBody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         rigidBody.velocity = movement * moveSpeed;
 
@@ -97,8 +98,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("IsWalking", false);
-            GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().Anan(false); }
-
-
+            GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().Anan(false);
+        }
     }
 }
