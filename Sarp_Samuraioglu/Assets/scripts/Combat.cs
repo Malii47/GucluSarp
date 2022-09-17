@@ -14,7 +14,7 @@ public class Combat : MonoBehaviour
     [SerializeField] ParticleSystem particle2 = null;
     [SerializeField] ParticleSystem particle3 = null;
     [SerializeField] ParticleSystem particle4 = null;
-
+    
     public Animator animator;
 
     public Transform attackPoint;
@@ -115,7 +115,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
             Invoke("Shake", .3f);
-
+            
         }
         
     }
