@@ -113,6 +113,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            
         }
         
     }

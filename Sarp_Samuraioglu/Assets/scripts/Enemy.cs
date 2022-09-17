@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
         if (CurrentHealt <= 0)
         {
-            Die();
+            Invoke("Die",.3f);
         }
     }
 
