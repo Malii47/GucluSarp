@@ -34,13 +34,15 @@ public class Combat : MonoBehaviour
 
     public Vector2 boyut;
 
-
+    void Shake()
+    {
+        CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+    }
 
     void Start()
     {
         animator = GetComponent<Animator>();
         count = 1;
-        count2 = 2;
     }
 
     void FixedUpdate()
@@ -99,7 +101,7 @@ public class Combat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            Invoke("Shake", .3f);
         }
         
     }
@@ -112,8 +114,8 @@ public class Combat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            
+            Invoke("Shake", .3f);
+
         }
         
     }

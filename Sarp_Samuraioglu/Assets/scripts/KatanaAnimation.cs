@@ -12,7 +12,6 @@ public class KatanaAnimation : MonoBehaviour
     float nextDeflectTime = 0f;
 
     float count;
-    float count2;
 
     public Animator animator;
 
@@ -22,7 +21,6 @@ public class KatanaAnimation : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         count = 1;
-        count2 = 2;
     }
 
 
