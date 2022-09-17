@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public float maxhealth = 100f;
     float CurrentHealt;
+
+
     void Start()
     {
         CurrentHealt = maxhealth;
@@ -14,7 +16,9 @@ public class Enemy : MonoBehaviour
    
     void Update()
     {
-        
+        Vector3 pos = transform.position;
+        pos.z = 0;
+        transform.position = pos;
     }
 
     public void TakeDamage(float damage)
