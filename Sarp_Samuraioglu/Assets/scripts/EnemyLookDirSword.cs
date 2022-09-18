@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLookDir : MonoBehaviour
+public class EnemyLookDirSword : MonoBehaviour
 {
-
     Rigidbody2D rb;
     Rigidbody2D playerrb;
 
@@ -16,12 +15,12 @@ public class EnemyLookDir : MonoBehaviour
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
-    
+
     void Update()
     {
-        
 
-        
+
+
     }
 
     void FixedUpdate()
@@ -29,7 +28,7 @@ public class EnemyLookDir : MonoBehaviour
         PlayerPosition = playerrb.position;
 
         Vector2 LookDir = PlayerPosition - rb.position;
-        float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg-90f;
         rb.rotation = angle;
 
     }

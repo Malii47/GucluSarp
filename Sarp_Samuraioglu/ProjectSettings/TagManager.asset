@@ -9,6 +9,7 @@ TagManager:
   - Katana
   - Bullet
   - Fade
+  - Obstacle
   layers:
   - Default
   - TransparentFX

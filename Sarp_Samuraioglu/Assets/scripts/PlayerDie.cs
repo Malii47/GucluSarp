@@ -8,6 +8,16 @@ public class PlayerDie : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
 
     public Animator animator;
+    public PlayerMovement pm;
+    public Rigidbody2D rb;
+    Collider2D cd;
+
+    private void Start()
+    {
+        pm = GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody2D>();
+
+    }
 
     public void SarpDie()
     {
@@ -18,6 +28,9 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            pm.enabled = !pm.enabled;
+            GetComponent<PlayerMovement>().StopOnDeath();
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
             

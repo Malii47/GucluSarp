@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class kola : MonoBehaviour
 {
+    [SerializeField] ParticleSystem particle = null;
 
     public float speed = 7f;
     PlayerMovement target;
     Vector2 moveDirection, PlayerPos;
     Rigidbody2D rb, playerrb;
     Camera cam;
+    SpriteRenderer sp;
+    Collider2D cd;
 
     void Start()
     {
-
+        cd = GetComponent<Collider2D>();
+        sp = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         cam = GetComponent<Camera>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -45,9 +49,20 @@ public class kola : MonoBehaviour
         Destroy(gameObject, 10f);
     }
 
-    
-    public void OnCollisionEnter()
+    public void Die()
     {
         Destroy(gameObject);
+    }
+    
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
+        {
+            sp.enabled = !sp.enabled;
+            cd.enabled = !cd.enabled;
+            particle.Play();
+            Invoke("Die", 2f);
+        }
+
     }
 }

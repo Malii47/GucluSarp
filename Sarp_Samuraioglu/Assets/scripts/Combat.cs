@@ -134,7 +134,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D bullet in deflectBullets)
         {
-            bullet.GetComponent<kola>().OnCollisionEnter();
+            bullet.GetComponent<kola>().Die();
 
             ParticlePlay();
         }
@@ -146,7 +146,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D bullet in deflectBullets)
         {
-            bullet.GetComponent<kola>().OnCollisionEnter();
+            bullet.GetComponent<kola>().Die();
 
             ParticlePlay();
         }
@@ -154,7 +154,7 @@ public class Combat : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawCube(DeflectPoint2.position, boyut);
+        Gizmos.DrawCube(DeflectPoint2.position, boyut);
         //Gizmos.DrawSphere(attackPoint.position, AttackRadius);
     }
 }
