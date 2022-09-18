@@ -27,13 +27,13 @@ public class Enemy : MonoBehaviour
 
         if (CurrentHealt <= 0)
         {
-            Invoke("Die",.3f);
+            Die();
+
         }
     }
 
     void Die()
     {
-        Debug.Log("ABDUHAMID OLDU");
         Destroy(gameObject);
     }
 }

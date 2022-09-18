@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &234418388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 197854938367292860, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &448581407
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +212,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1234323101 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 197854938270172637, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1389621098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 197854939564252387, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1443220002 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 197854938239548748, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1629711239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197854938104527184, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1656503966 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 197854938040619259, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1743196786 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 197854939529276070, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+  m_PrefabInstance: {fileID: 8616962694875726086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2013564433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -502,6 +537,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 197854938104527179, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
   m_PrefabInstance: {fileID: 8616962694875726086}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8442971591500544087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629711239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe476f6be8a7394a9036edfcf408fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1443220002}
+  particle2: {fileID: 1656503966}
+  particle3: {fileID: 1743196786}
+  particle4: {fileID: 1234323101}
+  animator: {fileID: 0}
+  attackPoint: {fileID: 1389621098}
+  DeflectPoint2: {fileID: 234418388}
+  AttackRadius: 0.8
+  damage: 10
+  count: 0
+  count2: 0
+  attackRate: 2.1
+  deflectRate: 2.1
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  BulletLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  boyut: {x: 1.24, y: 1}
 --- !u!1001 &8616962694875726086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -509,6 +576,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153160362260838113, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1389621098}
+    - target: {fileID: 153160362260838113, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: AttackRadius
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 153160362260838113, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: DeflectPoint2
+      value: 
+      objectReference: {fileID: 234418388}
     - target: {fileID: 197854938104527179, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -557,7 +636,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sarp Miami(Mali)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 197854939564252387, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 197854939564252387, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.654
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616962696435719158, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: attackRate
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616962696435719158, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
+      propertyPath: deflectRate
+      value: 2.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 153160362260838113, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79812b8326f0ad44e90f35c558f2138c, type: 3}
 --- !u!1001 &9134445088729307216
 PrefabInstance:

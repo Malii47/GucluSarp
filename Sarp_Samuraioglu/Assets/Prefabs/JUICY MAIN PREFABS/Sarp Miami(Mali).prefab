@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 197854938104527179}
   - component: {fileID: 197854938104527176}
-  - component: {fileID: 197854938104527177}
   - component: {fileID: 197854938104527190}
   - component: {fileID: 197854938104527191}
   - component: {fileID: 197854938104527188}
@@ -98,38 +97,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &197854938104527177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197854938104527184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe476f6be8a7394a9036edfcf408fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 197854938239548748}
-  particle2: {fileID: 197854938040619259}
-  particle3: {fileID: 197854939529276070}
-  particle4: {fileID: 197854938270172637}
-  animator: {fileID: 197854938104527190}
-  attackPoint: {fileID: 197854939564252387}
-  DeflectPoint2: {fileID: 197854938367292860}
-  AttackRadius: 0.5
-  damage: 10
-  count: 0
-  count2: 0
-  attackRate: 2
-  deflectRate: 2
-  EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  BulletLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  boyut: {x: 1.24, y: 1}
 --- !u!95 &197854938104527190
 Animator:
   serializedVersion: 4
@@ -435,11 +402,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419b5f7b48d60484080037346a475d5b, type: 3}
---- !u!198 &197854938270172637 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2113244495181950913, guid: 419b5f7b48d60484080037346a475d5b, type: 3}
-  m_PrefabInstance: {fileID: 2300544087448103452}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &197854938270172639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2113244495181950915, guid: 419b5f7b48d60484080037346a475d5b, type: 3}
@@ -564,11 +526,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca223e8a914423c4a850572ec90c4a12, type: 3}
---- !u!198 &197854939529276070 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3683121679192748346, guid: ca223e8a914423c4a850572ec90c4a12, type: 3}
-  m_PrefabInstance: {fileID: 3576983608153349020}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &197854939529276120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3683121679192748356, guid: ca223e8a914423c4a850572ec90c4a12, type: 3}
@@ -631,11 +588,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebf622ddbe3cef40af053e47d6cd66e, type: 3}
---- !u!198 &197854938239548748 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5128948723543187646, guid: bebf622ddbe3cef40af053e47d6cd66e, type: 3}
-  m_PrefabInstance: {fileID: 5013425250821414386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &197854938239548750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5128948723543187644, guid: bebf622ddbe3cef40af053e47d6cd66e, type: 3}
@@ -760,11 +712,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7d6f84658fd6c0448ed3d162b6563aa, type: 3}
---- !u!198 &197854938040619259 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8875285961613853107, guid: a7d6f84658fd6c0448ed3d162b6563aa, type: 3}
-  m_PrefabInstance: {fileID: 8761108261357654344}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &197854938040619261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8875285961613853109, guid: a7d6f84658fd6c0448ed3d162b6563aa, type: 3}
