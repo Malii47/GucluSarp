@@ -1,15 +1,10 @@
-using System;
+using EZCameraShake;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
-using EZCameraShake;
 
-public class Combat : MonoBehaviour
+public class denemecombat : MonoBehaviour
 {
-
     [SerializeField] ParticleSystem particle = null;
     [SerializeField] ParticleSystem particle2 = null;
     [SerializeField] ParticleSystem particle3 = null;
@@ -34,13 +29,6 @@ public class Combat : MonoBehaviour
 
     public Vector2 boyut;
 
-    void ParticlePlay()
-    {
-        particle.Play();
-        particle2.Play();
-        particle3.Play();
-        particle4.Play();
-    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -57,7 +45,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
+                
                 count++;
                 if (count % 2 == 0)
                 {
@@ -83,15 +71,14 @@ public class Combat : MonoBehaviour
                 if (count % 2 == 0)
                 {
                     animator.SetTrigger("isDeflect");
-                    Deflect1();
+                    Invoke("Deflect1", .1f);
                     nextDeflectTime = Time.time + 1f / deflectRate;
                 }
 
                 if (count % 2 == 1)
                 {
                     animator.SetTrigger("isDeflect2");
-                    Deflect2();
-
+                    Invoke("Deflect2", .1f);
                     nextDeflectTime = Time.time + 1f / deflectRate;
                 }
             }
@@ -100,7 +87,7 @@ public class Combat : MonoBehaviour
 
     void Attack1()
     {
-
+        
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -112,7 +99,7 @@ public class Combat : MonoBehaviour
     }
     void Attack2()
     {
-
+        
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -125,26 +112,32 @@ public class Combat : MonoBehaviour
 
     void Deflect1()
     {
-
+        
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
         foreach (Collider2D bullet in deflectBullets)
         {
             bullet.GetComponent<kola>().OnCollisionEnter();
 
-            ParticlePlay();
+            particle.Play();
+            particle2.Play();
+            particle3.Play();
+            particle4.Play();
         }
     }
     void Deflect2()
     {
-
+        
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
         foreach (Collider2D bullet in deflectBullets)
         {
             bullet.GetComponent<kola>().OnCollisionEnter();
 
-            ParticlePlay();
+            particle.Play();
+            particle2.Play();
+            particle3.Play();
+            particle4.Play();
         }
     }
 
