@@ -14,7 +14,6 @@ public class kola : MonoBehaviour
     void Start()
     {
 
-
         rb = GetComponent<Rigidbody2D>();
         cam = GetComponent<Camera>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();

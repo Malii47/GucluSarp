@@ -29,10 +29,13 @@ public class Combat : MonoBehaviour
     public float deflectRate = 2f;
     float nextDeflectTime = 0f;
 
+    
+
     public LayerMask EnemyLayer;
     public LayerMask BulletLayer;
 
     public Vector2 boyut;
+
 
     void Shake()
     {
@@ -43,12 +46,14 @@ public class Combat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         count = 1;
+
     }
 
     void FixedUpdate()
     {
 
     }
+    
     void Update()
     {
         if (Time.time >= nextAttackTime) 
