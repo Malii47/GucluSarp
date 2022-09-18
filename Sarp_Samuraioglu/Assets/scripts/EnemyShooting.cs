@@ -10,7 +10,7 @@ public class EnemyShooting : MonoBehaviour
 
     float Timer;
     float Timer2;
-    
+
     void Update()
     {
         
@@ -32,7 +32,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Shoot()
     {       
-        Instantiate(kola, enemy_attackposition.position, Quaternion.identity);      
+        Instantiate(kola, enemy_attackposition.position, Quaternion.identity);
     }
 
 }
