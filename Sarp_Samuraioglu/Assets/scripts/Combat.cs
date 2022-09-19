@@ -135,7 +135,7 @@ public class Combat : MonoBehaviour
         foreach (Collider2D bullet in deflectBullets)
         {
             bullet.GetComponent<kola>().Die();
-
+            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
         }
     }
@@ -147,7 +147,7 @@ public class Combat : MonoBehaviour
         foreach (Collider2D bullet in deflectBullets)
         {
             bullet.GetComponent<kola>().Die();
-
+            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
         }
     }
