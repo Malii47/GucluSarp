@@ -9,7 +9,6 @@ public class EnemyShooting : MonoBehaviour
     public Animator animator;
 
     float Timer;
-    float Timer2;
 
     void Update()
     {
@@ -18,7 +17,6 @@ public class EnemyShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Timer2 = Time.time;
         Timer = Time.time;
 
         if (Timer % 3 == 1)
