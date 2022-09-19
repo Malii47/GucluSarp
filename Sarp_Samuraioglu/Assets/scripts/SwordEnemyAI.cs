@@ -1,26 +1,101 @@
+using EZCameraShake;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SwordEnemyAI : MonoBehaviour
 {
     Animator anim;
     public Transform target;
+    public Transform attackPoint;
+    public LayerMask playerLayer;
 
+    public float attackRadius = 0.5f;
+    public float speed;
+    public float stoppingDist;
+    public float attackDist;
 
-    private void Start()
+    float timeBtwAttacks;
+    public float starttimeBtwAttacks;
+
+    bool a;
+
+    void Start()
     {
-        target = FindObjectOfType<PlayerMovement>().transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
+
+        timeBtwAttacks = starttimeBtwAttacks;
+
+        a = true;
     }
 
-    private void Update()
+    void Update()
     {
-        if (Vector2.Distance(target.position, transform.position) < 5)
+            
+        /*if (Vector2.Distance(transform.position, target.position) > stoppingDist)
         {
-            anim.Play("Attack");
-        }   
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+
+        else if (Vector2.Distance(transform.position, target.position) < stoppingDist)
+        {
+            transform.position = this.transform.position;
+        }
+        */
+
+        if (Vector2.Distance(transform.position, target.position) < attackDist)
+        {
+            if (a)
+            {
+                anim.SetBool("attackBool", true);
+                Debug.Log("Attacking");
+                anim.SetBool("walkBool", false);
+                Invoke("Attack", .5f);
+                a= false;
+            }
+            if (!a)
+            {
+                if (timeBtwAttacks <= 0)
+                {
+                    Invoke("Attack", .5f);
+                    Debug.Log("Attacking");
+                    timeBtwAttacks = starttimeBtwAttacks;
+                }
+                else
+                {
+                    timeBtwAttacks -= Time.deltaTime;
+                }
+            }
+        }
+        else if (Vector2.Distance(transform.position, target.position) > attackDist)
+        {
+            anim.SetBool("attackBool", false);
+            anim.SetBool("walkBool", true);
+            a=true;
+        }
+
+        
+    }
+
+
+    void Attack()
+    {
+        
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            Debug.Log("Hit by Enemy");
+        }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(attackPoint.position, attackRadius);
     }
 }
 
