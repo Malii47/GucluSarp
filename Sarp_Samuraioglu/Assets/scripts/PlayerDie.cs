@@ -10,11 +10,12 @@ public class PlayerDie : MonoBehaviour
     public Animator animator;
     public PlayerMovement pm;
     public Rigidbody2D rb;
-    Collider2D cd;
+    public Collider2D cd;
 
     private void Start()
     {
         pm = GetComponent<PlayerMovement>();
+        cd = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -39,6 +40,7 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
+            cd.enabled= !cd.enabled;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             pm.enabled = !pm.enabled;
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
