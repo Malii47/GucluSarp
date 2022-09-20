@@ -51,7 +51,8 @@ public class SwordEnemyAI : MonoBehaviour
         {
             if (a)
             {
-                anim.SetBool("attackBool", true);
+                //anim.SetBool("attackBool", true);
+                anim.SetTrigger("attackTrigger");
                 Debug.Log("Attacking");
                 anim.SetBool("walkBool", false);
                 Invoke("Attack", .5f);
@@ -61,6 +62,7 @@ public class SwordEnemyAI : MonoBehaviour
             {
                 if (timeBtwAttacks <= 0)
                 {
+                    anim.SetTrigger("attackTrigger");
                     Invoke("Attack", .5f);
                     Debug.Log("Attacking");
                     timeBtwAttacks = starttimeBtwAttacks;
@@ -73,7 +75,7 @@ public class SwordEnemyAI : MonoBehaviour
         }
         else if (Vector2.Distance(transform.position, target.position) > attackDist)
         {
-            anim.SetBool("attackBool", false);
+            anim.SetTrigger("attackTriggerExit");
             anim.SetBool("walkBool", true);
             a=true;
         }
@@ -91,8 +93,12 @@ public class SwordEnemyAI : MonoBehaviour
         {
             Debug.Log("Hit by Enemy");
         }
+        Invoke("exitanim", .3f);
     }
-    
+    void exitanim()
+    {
+        anim.SetTrigger("attackTriggerExit");
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(attackPoint.position, attackRadius);
