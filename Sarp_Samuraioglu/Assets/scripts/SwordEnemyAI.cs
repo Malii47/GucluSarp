@@ -1,6 +1,7 @@
 using EZCameraShake;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -18,86 +19,71 @@ public class SwordEnemyAI : MonoBehaviour
     public float stoppingDist;
     public float attackDist;
 
-    float timeBtwAttacks;
-    public float starttimeBtwAttacks;
-
     bool a;
+    bool b;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
 
-        timeBtwAttacks = starttimeBtwAttacks;
 
+        b = true;
         a = true;
     }
 
     void Update()
     {
-            
-        /*if (Vector2.Distance(transform.position, target.position) > stoppingDist)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-
-        else if (Vector2.Distance(transform.position, target.position) < stoppingDist)
-        {
-            transform.position = this.transform.position;
-        }
-        */
 
         if (Vector2.Distance(transform.position, target.position) < attackDist)
         {
-            if (a)
+            if (b)
             {
-                //anim.SetBool("attackBool", true);
-                anim.SetTrigger("attackTrigger");
-                Debug.Log("Attacking");
-                anim.SetBool("walkBool", false);
-                Invoke("Attack", .5f);
-                a= false;
-            }
-            if (!a)
-            {
-                if (timeBtwAttacks <= 0)
-                {
-                    anim.SetTrigger("attackTrigger");
-                    Invoke("Attack", .5f);
-                    Debug.Log("Attacking");
-                    timeBtwAttacks = starttimeBtwAttacks;
-                }
-                else
-                {
-                    timeBtwAttacks -= Time.deltaTime;
-                }
+                a = true;
+                MainAttack();
+                b = false;
             }
         }
         else if (Vector2.Distance(transform.position, target.position) > attackDist)
         {
-            anim.SetTrigger("attackTriggerExit");
             anim.SetBool("walkBool", true);
-            a=true;
         }
 
         
     }
-
-
-    void Attack()
+    void MainAttack()
     {
-        
+        if (a)
+        {
+            anim.SetBool("walkBool", false);
+            anim.SetBool("attackBool", true);
+            Debug.Log("Attacking");
+            StartCoroutine(Attacking());
+        }
+    }
+    void Attack()
+    {       
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
 
         foreach (Collider2D player in hitPlayer)
         {
             Debug.Log("Hit by Enemy");
         }
-        Invoke("exitanim", .3f);
     }
-    void exitanim()
+
+    IEnumerator Attacking()
     {
-        anim.SetTrigger("attackTriggerExit");
+        yield return new WaitForSeconds(.5f);
+        Attack();
+        yield return new WaitForSeconds(.28f);
+        anim.SetBool("attackBool", false);
+        StartCoroutine(AttackDelay());
+    }
+    IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(1);
+        b = true;
+        a = false;
     }
     private void OnDrawGizmos()
     {
