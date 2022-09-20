@@ -43,7 +43,13 @@ public class PlayerDie : MonoBehaviour
             pm.enabled = !pm.enabled;
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
-
         }
+    }
+    public void DeathbySwordEnemy()
+    {
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        pm.enabled = !pm.enabled;
+        GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
+        Invoke("SarpDie", 1f);
     }
 }

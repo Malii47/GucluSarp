@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float maxhealth = 100f;
+    public float maxhealth = 30f;
     float CurrentHealt;
 
 
@@ -25,14 +25,15 @@ public class Enemy : MonoBehaviour
     {
         CurrentHealt = CurrentHealt - damage;
 
-        if (CurrentHealt <= 0)
+        if (CurrentHealt < 30)
         {
             Die();
-
         }
+        
+        
     }
 
-    void Die()
+    public void Die()
     {
         Destroy(gameObject);
     }

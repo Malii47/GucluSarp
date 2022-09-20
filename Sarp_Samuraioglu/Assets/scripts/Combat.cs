@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using EZCameraShake;
+using Unity.VisualScripting;
 
 public class Combat : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Combat : MonoBehaviour
 
     public LayerMask EnemyLayer;
     public LayerMask BulletLayer;
+    public LayerMask SwordLayer;
 
     public Vector2 boyut;
 
@@ -138,15 +140,34 @@ public class Combat : MonoBehaviour
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
         }
+
+        Collider2D[] deflectSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, SwordLayer);
+
+        foreach (Collider2D sword in deflectSword)
+        {
+            sword.GetComponentInParent<EnemyStun>().Stun();
+            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+            ParticlePlay();
+        }
     }
+
     void Deflect2()
     {
 
-        Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
+        Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer, SwordLayer);
 
         foreach (Collider2D bullet in deflectBullets)
         {
             bullet.GetComponent<kola>().Die();
+            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+            ParticlePlay();
+        }
+
+        Collider2D[] deflectSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, SwordLayer);
+
+        foreach (Collider2D sword in deflectSword)
+        {
+            sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
         }

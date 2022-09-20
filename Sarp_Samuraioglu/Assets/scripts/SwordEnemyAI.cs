@@ -6,27 +6,35 @@ using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class SwordEnemyAI : MonoBehaviour
 {
     Animator anim;
+    public BoxCollider2D cd;
     public Transform target;
     public Transform attackPoint;
     public LayerMask playerLayer;
+    public LayerMask enemy;
 
     public float attackRadius = 0.5f;
     public float speed;
     public float stoppingDist;
     public float attackDist;
+    bool a = true;
+    bool b = true;
 
-    bool a;
-    bool b;
-
+    void OnEnable()
+    {
+        b = true;
+        a = true;
+    }
+    
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
-
+        //cd = GameObject.FindGameObjectWithTag("Sword").GetComponentInChildren<BoxCollider2D>();
 
         b = true;
         a = true;
@@ -34,7 +42,6 @@ public class SwordEnemyAI : MonoBehaviour
 
     void Update()
     {
-
         if (Vector2.Distance(transform.position, target.position) < attackDist)
         {
             if (b)
@@ -55,8 +62,8 @@ public class SwordEnemyAI : MonoBehaviour
     {
         if (a)
         {
-            anim.SetBool("walkBool", false);
             anim.SetBool("attackBool", true);
+            anim.SetBool("walkBool", false);
             Debug.Log("Attacking");
             StartCoroutine(Attacking());
         }
@@ -67,15 +74,20 @@ public class SwordEnemyAI : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            Debug.Log("Hit by Enemy");
+            Debug.Log("Hit");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDie>().DeathbySwordEnemy();
         }
     }
 
     IEnumerator Attacking()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
+        cd.enabled = true;
+        yield return new WaitForSeconds(.4f);
+        cd.enabled = !cd.enabled;
+        yield return null;
         Attack();
-        yield return new WaitForSeconds(.28f);
+        yield return new WaitForSeconds(.27f);
         anim.SetBool("attackBool", false);
         StartCoroutine(AttackDelay());
     }
@@ -85,9 +97,15 @@ public class SwordEnemyAI : MonoBehaviour
         b = true;
         a = false;
     }
+    public void stoppingIEnumerators()
+    {
+        StopAllCoroutines();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(attackPoint.position, attackRadius);
     }
+    
 }
 
