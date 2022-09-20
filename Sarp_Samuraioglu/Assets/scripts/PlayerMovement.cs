@@ -80,13 +80,6 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public void StopOnDeath()
-    {
-        moveSpeed = 0f;
-        activeMoveSpeed = 0f;
-        dashSpeed = 0f;
-    }
-
     private void FixedUpdate()
     {
         rigidBody.MovePosition(rigidBody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);

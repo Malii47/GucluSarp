@@ -24,16 +24,26 @@ public class PlayerDie : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
+    /*public void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.CompareTag("Bullet"))
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             pm.enabled = !pm.enabled;
-            GetComponent<PlayerMovement>().StopOnDeath();
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
             
+        }
+    }*/
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.transform.CompareTag("Bullet"))
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            pm.enabled = !pm.enabled;
+            GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
+            Invoke("SarpDie", 1f);
+
         }
     }
 }
