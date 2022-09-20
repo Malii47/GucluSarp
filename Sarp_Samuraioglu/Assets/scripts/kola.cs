@@ -54,14 +54,14 @@ public class kola : MonoBehaviour
         Destroy(gameObject);
     }
     
-    public void OnCollisionEnter2D(Collision2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
-            sp.enabled = !sp.enabled;
             cd.enabled = !cd.enabled;
+            sp.enabled = !sp.enabled;
             particle.Play();
-            Invoke("Die", 2f);
+            Invoke("Die", 1f);
         }
 
     }
