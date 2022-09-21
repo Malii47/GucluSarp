@@ -15,7 +15,6 @@ public class SwordEnemyAI : MonoBehaviour
     public Transform target;
     public Transform attackPoint;
     public LayerMask playerLayer;
-    public LayerMask enemy;
 
     public float attackRadius = 0.5f;
     public float speed;
