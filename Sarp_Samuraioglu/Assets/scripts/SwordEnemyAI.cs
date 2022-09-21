@@ -64,7 +64,6 @@ public class SwordEnemyAI : MonoBehaviour
         {
             anim.SetBool("attackBool", true);
             anim.SetBool("walkBool", false);
-            Debug.Log("Attacking");
             StartCoroutine(Attacking());
         }
     }
@@ -74,7 +73,6 @@ public class SwordEnemyAI : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            Debug.Log("Hit");
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDie>().DeathbySwordEnemy();
         }
     }

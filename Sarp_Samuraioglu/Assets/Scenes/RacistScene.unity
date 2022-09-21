@@ -1012,7 +1012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &763591587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1298565154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2202,9 +2202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a23730536672145b616533cd56c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cd: {fileID: 0}
   target: {fileID: 8442971591500544077}
   attackPoint: {fileID: 0}
   playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemy:
     serializedVersion: 2
     m_Bits: 0
   attackRadius: 0.5
@@ -3421,9 +3425,17 @@ PrefabInstance:
       propertyPath: boyut.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4111219084022108832, guid: 911cc214d788d1c4ea0cc3ccd0d2058e, type: 3}
+      propertyPath: SwordLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 4111219084022108845, guid: 911cc214d788d1c4ea0cc3ccd0d2058e, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111219084022108845, guid: 911cc214d788d1c4ea0cc3ccd0d2058e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4111219084022108846, guid: 911cc214d788d1c4ea0cc3ccd0d2058e, type: 3}
       propertyPath: spawnPoint

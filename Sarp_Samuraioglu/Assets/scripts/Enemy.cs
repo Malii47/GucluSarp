@@ -25,12 +25,10 @@ public class Enemy : MonoBehaviour
     {
         CurrentHealt = CurrentHealt - damage;
 
-        if (CurrentHealt < 30)
+        if (CurrentHealt < 15)
         {
             Die();
-        }
-        
-        
+        }       
     }
 
     public void Die()

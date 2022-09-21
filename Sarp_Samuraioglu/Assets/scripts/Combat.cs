@@ -70,7 +70,6 @@ public class Combat : MonoBehaviour
                     animator.SetTrigger("isAttack");
                     Invoke("Attack1", .3f);
                     nextAttackTime = Time.time + 1f / attackRate;
-
                 }
                 if (count % 2 == 1)
                 {
@@ -145,7 +144,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
-            sword.GetComponentInParent<EnemyStun>().Stun();
+            sword.GetComponentInParent<Enemy>().TakeDamage(20);
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
         }
@@ -167,7 +166,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
-            sword.GetComponentInParent<EnemyStun>().Stun();
+            sword.GetComponentInParent<Enemy>().TakeDamage(20);
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
         }
