@@ -10,12 +10,12 @@ public class PlayerDie : MonoBehaviour
     public Animator animator;
     public PlayerMovement pm;
     public Rigidbody2D rb;
-    public Collider2D cd;
+    public CapsuleCollider2D cd;
 
     private void Start()
     {
         pm = GetComponent<PlayerMovement>();
-        cd = GetComponent<Collider2D>();
+        cd = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -40,17 +40,23 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
-            cd.enabled= !cd.enabled;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            cd.enabled = !cd.enabled;
             pm.enabled = !pm.enabled;
+            GetComponent<Combat>().enabled = false;
+            GetComponentInChildren<KatanaFunction>().enabled = false;
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
+            
         }
     }
     public void DeathbySwordEnemy()
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        cd.enabled = !cd.enabled;
         pm.enabled = !pm.enabled;
+        GetComponent<Combat>().enabled = false;
+        GetComponentInChildren<KatanaFunction>().enabled = false;
         GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
         Invoke("SarpDie", 1f);
     }
