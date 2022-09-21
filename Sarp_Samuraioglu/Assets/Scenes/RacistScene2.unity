@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Sword (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1101574631450275499, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7072104846277539923, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -685,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3983671504283381114, guid: e59b677429035134682f91311988a753, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3988913020905919849, guid: e59b677429035134682f91311988a753, type: 3}
       propertyPath: target
@@ -858,6 +862,10 @@ PrefabInstance:
     - target: {fileID: 2982171847396028940, guid: e35d2d958ccd6944ab404bf22e470692, type: 3}
       propertyPath: m_Name
       value: Enemy_Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982171847396028940, guid: e35d2d958ccd6944ab404bf22e470692, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2986275904190859807, guid: e35d2d958ccd6944ab404bf22e470692, type: 3}
       propertyPath: target

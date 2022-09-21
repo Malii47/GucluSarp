@@ -30,6 +30,7 @@ public class EnemyStun : MonoBehaviour
     IEnumerator StunTime()
     {
         yield return new WaitForSeconds(5);
+        GetComponent<Enemy>().CurrentHealt += 10;
         GetComponent<AIDestinationSetter>().enabled = true;
         GetComponent<SwordEnemyAI>().enabled = true;
         GetComponent<EnemyLookDirSword>().enabled = true;

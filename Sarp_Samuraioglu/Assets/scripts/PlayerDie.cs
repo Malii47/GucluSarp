@@ -30,6 +30,8 @@ public class PlayerDie : MonoBehaviour
             cd.enabled= !cd.enabled;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             pm.enabled = !pm.enabled;
+            GetComponent<Combat>().enabled = false;
+            GetComponentInChildren<KatanaFunction>().enabled = false;
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
         }
@@ -38,6 +40,8 @@ public class PlayerDie : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         pm.enabled = !pm.enabled;
+        GetComponent<Combat>().enabled = false;
+        GetComponentInChildren<KatanaFunction>().enabled = false;
         GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
         Invoke("SarpDie", 1f);
     }
