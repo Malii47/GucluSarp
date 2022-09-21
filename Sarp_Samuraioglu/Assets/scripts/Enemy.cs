@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float maxhealth = 30f;
-    public float CurrentHealt;
+    float CurrentHealt;
 
 
     void Start()
@@ -25,16 +25,12 @@ public class Enemy : MonoBehaviour
     {
         CurrentHealt = CurrentHealt - damage;
 
-        if (CurrentHealt == 25)
+        if (CurrentHealt < 30)
         {
-            GetComponent<Enemy_Death>().Death();
-            Invoke("Die", 10);
-        }       
-        if (CurrentHealt == 15)
-        {
-            GetComponent<Enemy_Death>().StunDeath();
-            Invoke("Die", 10);
+            Die();
         }
+        
+        
     }
 
     public void Die()

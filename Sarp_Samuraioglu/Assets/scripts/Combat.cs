@@ -22,7 +22,7 @@ public class Combat : MonoBehaviour
     public Transform DeflectPoint2;
 
     public float AttackRadius = 0.5f;
-    public float damage = 5f;
+    public float damage = 10f;
     public float count;
     public float count2;
     public float attackRate = 2f;
@@ -32,8 +32,7 @@ public class Combat : MonoBehaviour
 
     
 
-    public LayerMask SwordenemyLayer;
-    public LayerMask GunenemyLayer;
+    public LayerMask EnemyLayer;
     public LayerMask BulletLayer;
     public LayerMask SwordLayer;
 
@@ -71,6 +70,7 @@ public class Combat : MonoBehaviour
                     animator.SetTrigger("isAttack");
                     Invoke("Attack1", .3f);
                     nextAttackTime = Time.time + 1f / attackRate;
+
                 }
                 if (count % 2 == 1)
                 {
@@ -107,19 +107,11 @@ public class Combat : MonoBehaviour
     void Attack1()
     {
 
-        Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
-        foreach (Collider2D enemy in hitswordenemy)
+        foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-        }
-
-        Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
-
-        foreach (Collider2D enemy in hitgunenemy)
-        {
-            enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
         }
 
@@ -127,19 +119,11 @@ public class Combat : MonoBehaviour
     void Attack2()
     {
 
-        Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemyLayer);
 
-        foreach (Collider2D enemy in hitswordenemy)
+        foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-        }
-
-        Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
-
-        foreach (Collider2D enemy in hitgunenemy)
-        {
-            enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
         }
 
@@ -161,7 +145,6 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
-            sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
@@ -184,7 +167,6 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
-            sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();

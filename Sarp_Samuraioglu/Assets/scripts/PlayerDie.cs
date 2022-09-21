@@ -7,15 +7,17 @@ public class PlayerDie : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
 
-    PlayerMovement pm;
-    Rigidbody2D rb;
-    Collider2D cd;
+    public Animator animator;
+    public PlayerMovement pm;
+    public Rigidbody2D rb;
+    public CapsuleCollider2D cd;
 
     private void Start()
     {
         pm = GetComponent<PlayerMovement>();
-        cd = GetComponent<Collider2D>();
+        cd = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     public void SarpDie()
@@ -23,22 +25,37 @@ public class PlayerDie : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OnTriggerEnter2D(Collider2D col)
+    /*public void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.CompareTag("Bullet"))
         {
-            cd.enabled= !cd.enabled;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             pm.enabled = !pm.enabled;
             GetComponent<Combat>().enabled = false;
             GetComponentInChildren<KatanaFunction>().enabled = false;
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
+            
+        }
+    }*/
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.transform.CompareTag("Bullet"))
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            cd.enabled = !cd.enabled;
+            pm.enabled = !pm.enabled;
+            GetComponent<Combat>().enabled = false;
+            GetComponentInChildren<KatanaFunction>().enabled = false;
+            GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
+            Invoke("SarpDie", 1f);
+            
         }
     }
     public void DeathbySwordEnemy()
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        cd.enabled = !cd.enabled;
         pm.enabled = !pm.enabled;
         GetComponent<Combat>().enabled = false;
         GetComponentInChildren<KatanaFunction>().enabled = false;

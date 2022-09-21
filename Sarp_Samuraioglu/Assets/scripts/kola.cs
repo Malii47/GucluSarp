@@ -10,16 +10,12 @@ public class kola : MonoBehaviour
     PlayerMovement target;
     Vector2 moveDirection, PlayerPos;
     Rigidbody2D rb, playerrb;
-    Camera cam;
     SpriteRenderer sp;
-    Collider2D cd;
 
     void Start()
     {
-        cd = GetComponent<Collider2D>();
         sp = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        cam = GetComponent<Camera>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
         target = GameObject.FindObjectOfType<PlayerMovement>();
@@ -58,7 +54,6 @@ public class kola : MonoBehaviour
     {
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
-            cd.enabled = !cd.enabled;
             sp.enabled = !sp.enabled;
             particle.Play();
             Invoke("Die", 1f);
