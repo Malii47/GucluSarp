@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,5 +35,9 @@ public class EnemyStun : MonoBehaviour
         GetComponent<EnemyLookDirSword>().enabled = true;
         yield return null;
         anim.SetTrigger("stunTriggerExit");
+    }
+    public void Ineedsomesleep()
+    {
+        StopAllCoroutines();
     }
 }

@@ -15,7 +15,6 @@ public class SwordEnemyAI : MonoBehaviour
     public Transform target;
     public Transform attackPoint;
     public LayerMask playerLayer;
-    public LayerMask enemy;
 
     public float attackRadius = 0.5f;
     public float speed;
@@ -64,7 +63,6 @@ public class SwordEnemyAI : MonoBehaviour
         {
             anim.SetBool("attackBool", true);
             anim.SetBool("walkBool", false);
-            Debug.Log("Attacking");
             StartCoroutine(Attacking());
         }
     }
@@ -74,7 +72,6 @@ public class SwordEnemyAI : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            Debug.Log("Hit");
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDie>().DeathbySwordEnemy();
         }
     }
