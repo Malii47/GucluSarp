@@ -37,7 +37,7 @@ public class PlayerDie : MonoBehaviour
             GetComponentInChildren<KatanaFunction>().enabled = false;
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
-            
+
         }
     }
     public void DeathbySwordEnemy()
