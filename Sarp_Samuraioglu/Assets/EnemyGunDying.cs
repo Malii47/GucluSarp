@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyGunDying : MonoBehaviour
 {
     public float maxhealth = 30f;
     public float CurrentHealt;
@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
         CurrentHealt = maxhealth;
     }
 
-   
+
     void Update()
     {
         Vector3 pos = transform.position;
@@ -27,13 +27,7 @@ public class Enemy : MonoBehaviour
 
         if (CurrentHealt == 25)
         {
-            GetComponent<Enemy_Death>().Death();
-            Invoke("Die", 10);
-        }       
-        if (CurrentHealt == 15)
-        {
-            GetComponent<Enemy_Death>().StunDeath();
-            Invoke("Die", 10);
+            Die();
         }
     }
 
