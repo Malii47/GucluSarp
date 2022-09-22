@@ -419,9 +419,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  enemy:
-    serializedVersion: 2
-    m_Bits: 64
   attackRadius: 1.35
   speed: 5
   stoppingDist: 2

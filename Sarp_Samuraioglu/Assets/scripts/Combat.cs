@@ -171,7 +171,7 @@ public class Combat : MonoBehaviour
     void Deflect2()
     {
 
-        Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer, SwordLayer);
+        Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
         foreach (Collider2D bullet in deflectBullets)
         {

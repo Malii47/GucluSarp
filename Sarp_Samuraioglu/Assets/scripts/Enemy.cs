@@ -28,12 +28,10 @@ public class Enemy : MonoBehaviour
         if (CurrentHealt == 25)
         {
             GetComponent<Enemy_Death>().Death();
-            Invoke("Die", 10);
         }       
         if (CurrentHealt == 15)
         {
             GetComponent<Enemy_Death>().StunDeath();
-            Invoke("Die", 10);
         }
     }
 

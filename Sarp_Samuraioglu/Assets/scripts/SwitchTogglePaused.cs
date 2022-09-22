@@ -16,6 +16,8 @@ public class SwitchTogglePaused : MonoBehaviour
 
     Vector2 handlePosition;
 
+    public float rate;
+
     void Start()
     {
         toggle = GetComponent<Toggle>();
