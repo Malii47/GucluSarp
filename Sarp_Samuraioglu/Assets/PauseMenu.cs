@@ -60,6 +60,6 @@ public class PauseMenu : MonoBehaviour
         animator = GameObject.Find("LevelChanger").GetComponent<LevelChanger>().animator;
         animator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Menu");
     }
 }
