@@ -15,26 +15,17 @@ public class CameraSmoothZoom : MonoBehaviour
         vcam = vcam.GetComponent<CinemachineVirtualCamera>();
     }
 
-    public void LateUpdate()
+    public void Update() //LateUpdate
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().x == 1f)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().camZoom == true && GameObject.Find("Canvas").GetComponent<PauseMenu>().pauseMenu == false)
         {
             vcam.m_Lens.OrthographicSize = Mathf.Lerp(vcam.m_Lens.OrthographicSize, 3, speed);
             Time.timeScale = 0.5f;
         }
-        else
+        else if(GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().camZoom == false && GameObject.Find("Canvas").GetComponent<PauseMenu>().pauseMenu == false)
         {
             vcam.m_Lens.OrthographicSize = Mathf.Lerp(vcam.m_Lens.OrthographicSize, 5, speed);
-            StartCoroutine("Zoom");
+            Time.timeScale = 1f;
         }   
-    }
-
-    IEnumerator Zoom()
-    {
-        yield return new WaitForSeconds(2f);
-        Time.timeScale = 1f;
-        yield return null;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().x = 0f;
-        yield return null;
     }
 }

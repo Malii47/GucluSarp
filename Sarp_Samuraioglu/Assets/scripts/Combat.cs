@@ -29,7 +29,7 @@ public class Combat : MonoBehaviour
     float nextAttackTime = 0f;
     public float deflectRate = 2f;
     float nextDeflectTime = 0f;
-    public float x = 0f;
+    public bool camZoom;
 
     
 
@@ -50,13 +50,13 @@ public class Combat : MonoBehaviour
 
     private void OnEnable()
     {
-        x = 0f;
-    }
+        camZoom = false;
+}
     void Start()
     {
         animator = GetComponent<Animator>();
         count = 1;
-        x = 0f;
+        camZoom = false;
     }
 
     void FixedUpdate()
@@ -132,7 +132,7 @@ public class Combat : MonoBehaviour
     }
     void Attack2()
     {
-
+        
         Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
 
         foreach (Collider2D enemy in hitswordenemy)
@@ -153,7 +153,6 @@ public class Combat : MonoBehaviour
 
     void Deflect1()
     {
-
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
         foreach (Collider2D bullet in deflectBullets)
@@ -167,17 +166,17 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
-            x = 1;
+            camZoom = true;
             sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
+            StartCoroutine("CamZoom");
         }
     }
 
     void Deflect2()
     {
-        x = 1;
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
         foreach (Collider2D bullet in deflectBullets)
@@ -191,10 +190,12 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
+            camZoom = true;
             sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
+            StartCoroutine("CamZoom");
         }
     }
 
@@ -202,5 +203,11 @@ public class Combat : MonoBehaviour
     {
         Gizmos.DrawCube(DeflectPoint2.position, boyut);
         //Gizmos.DrawSphere(attackPoint.position, AttackRadius);
+    }
+
+    IEnumerator CamZoom()
+    {
+        yield return new WaitForSeconds(.35f);
+        camZoom = false;
     }
 }
