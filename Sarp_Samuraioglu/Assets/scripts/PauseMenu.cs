@@ -48,6 +48,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         pauseMenu = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().enabled = true;
+        GameObject.FindGameObjectWithTag("Katana").GetComponent<KatanaFunction>().enabled = true;
     }
 
     void Pause()
@@ -56,6 +58,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
         pauseMenu = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().enabled = false;
+        GameObject.FindGameObjectWithTag("Katana").GetComponent<KatanaFunction>().enabled = false;
     }
 
     public void Exit()
