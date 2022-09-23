@@ -29,6 +29,7 @@ public class Combat : MonoBehaviour
     float nextAttackTime = 0f;
     public float deflectRate = 2f;
     float nextDeflectTime = 0f;
+    public float x = 0f;
 
     
 
@@ -46,11 +47,16 @@ public class Combat : MonoBehaviour
         particle3.Play();
         particle4.Play();
     }
+
+    private void OnEnable()
+    {
+        x = 0f;
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
         count = 1;
-
+        x = 0f;
     }
 
     void FixedUpdate()
@@ -161,6 +167,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
+            x = 1;
             sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
@@ -170,7 +177,7 @@ public class Combat : MonoBehaviour
 
     void Deflect2()
     {
-
+        x = 1;
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
         foreach (Collider2D bullet in deflectBullets)
