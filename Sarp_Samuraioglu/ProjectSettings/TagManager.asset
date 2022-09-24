@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - Sword
   - Pause
+  - deneme
   layers:
   - Default
   - TransparentFX
