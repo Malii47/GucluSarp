@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public bool pauseMenu = false;
+    public bool deactive = false;
     public GameObject pauseMenuUI;
     public Animator animator;
 
@@ -16,30 +17,36 @@ public class PauseMenu : MonoBehaviour
     void OnEnable()
     {
         pauseMenu = false;
+        deactive = false;
     }
 
     void Start()
     {
         pauseMenu = false;
+        StartCoroutine(DeactivePauseOnStart());
+        
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (deactive == false)
         {
-            pauseMenu = true;
-            if (pauseMenu == true)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (gameIsPaused)
+                pauseMenu = true;
+                if (pauseMenu == true)
                 {
-                    Resume();
+                    if (gameIsPaused)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        Pause();
+                    }
                 }
-                else
-                {
-                    Pause();
-                }
-            }           
-        }
+            }
+        } 
     }
 
     public void Resume()
@@ -72,9 +79,17 @@ public class PauseMenu : MonoBehaviour
     {
         a = GameObject.Find("PauseMenu");
         a.SetActive(false);
+        deactive = true;
         animator = GameObject.Find("LevelChanger").GetComponent<LevelChanger>().animator;
         animator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Menu");
+    }
+
+    public IEnumerator DeactivePauseOnStart()
+    {
+        deactive = true;
+        yield return new WaitForSeconds(1f);
+        deactive = false;
     }
 }
