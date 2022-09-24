@@ -38,6 +38,7 @@ public class PlayerDie : MonoBehaviour
             pm.enabled = !pm.enabled;
             GetComponent<Combat>().enabled = false;
             GetComponentInChildren<KatanaFunction>().enabled = false;
+            GameObject.FindGameObjectWithTag("Katana").SetActive(false);
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             Invoke("SarpDie", 1f);
 
@@ -52,6 +53,7 @@ public class PlayerDie : MonoBehaviour
         pm.enabled = !pm.enabled;
         GetComponent<Combat>().enabled = false;
         GetComponentInChildren<KatanaFunction>().enabled = false;
+        GameObject.FindGameObjectWithTag("Katana").SetActive(false);
         GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
         Invoke("SarpDie", 1f);
     }
