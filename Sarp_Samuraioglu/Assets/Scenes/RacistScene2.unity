@@ -1268,6 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1febb4f2ac7f44ba5a5c8f3914ed15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: 0
   pauseMenuUI: {fileID: 1936795661}
   animator: {fileID: 0}
 --- !u!114 &1042364001
@@ -2352,6 +2353,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 8442971591500544077}
+    - target: {fileID: 904359339695798843, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 904359339695798843, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
+      propertyPath: m_TagString
+      value: deneme
+      objectReference: {fileID: 0}
     - target: {fileID: 1101574631450275499, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
       propertyPath: m_Name
       value: Enemy_Sword

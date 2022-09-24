@@ -11,6 +11,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class SwordEnemyAI : MonoBehaviour
 {
     Animator anim;
+    public Animator legAnim;
     public BoxCollider2D cd;
     public Transform target;
     public Transform attackPoint;
@@ -33,6 +34,7 @@ public class SwordEnemyAI : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
+        legAnim = GameObject.FindGameObjectWithTag("deneme").GetComponent<Animator>();
         //cd = GameObject.FindGameObjectWithTag("Sword").GetComponentInChildren<BoxCollider2D>();
 
         b = true;
@@ -55,7 +57,14 @@ public class SwordEnemyAI : MonoBehaviour
             anim.SetBool("walkBool", true);
         }
 
-        
+        if (Vector2.Distance(transform.position, target.position) > stoppingDist)
+        {
+            legAnim.SetBool("legWalk", true);
+        }
+        else if (Vector2.Distance(transform.position, target.position) < stoppingDist)
+        {
+            legAnim.SetBool("legWalk", false);
+        }
     }
     void MainAttack()
     {
