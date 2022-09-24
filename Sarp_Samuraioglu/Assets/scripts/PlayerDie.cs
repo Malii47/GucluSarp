@@ -19,6 +19,7 @@ public class PlayerDie : MonoBehaviour
         pm = GetComponent<PlayerMovement>();
         cd = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     public void SarpDie()
@@ -30,6 +31,8 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
+            animator.SetTrigger("isDead");
+            GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             cd.enabled = !cd.enabled;
             pm.enabled = !pm.enabled;
@@ -42,6 +45,8 @@ public class PlayerDie : MonoBehaviour
     }
     public void DeathbySwordEnemy()
     {
+        animator.SetTrigger("isDead");
+        GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         cd.enabled = !cd.enabled;
         pm.enabled = !pm.enabled;

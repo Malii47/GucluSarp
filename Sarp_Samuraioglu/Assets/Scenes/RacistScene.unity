@@ -917,6 +917,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1810775109}
+    - target: {fileID: 904359339695798843, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 904359339695798843, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
+      propertyPath: m_TagString
+      value: deneme
+      objectReference: {fileID: 0}
     - target: {fileID: 1101574631450275499, guid: a163017b556f9ea479d441b58d9e0255, type: 3}
       propertyPath: m_Name
       value: Enemy_Sword
