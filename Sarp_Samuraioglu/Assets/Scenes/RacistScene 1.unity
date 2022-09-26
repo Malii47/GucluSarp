@@ -134,6 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1778448377 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8050882383456873571, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+  m_PrefabInstance: {fileID: 3526961858789708368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &133370560168454028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,6 +451,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7937057422988891552, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: bloodyfootprint_l2
+      value: 
+      objectReference: {fileID: 7009644468926705628, guid: b37803927bd4839428358ebfa55745c3, type: 3}
+    - target: {fileID: 7937057422988891552, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: bloodyfootprint_r2
+      value: 
+      objectReference: {fileID: 3276622774434617920, guid: f0f35997aa5f7be4090811485d850021, type: 3}
+    - target: {fileID: 7937057422988891552, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: bloodyfootprint_position
+      value: 
+      objectReference: {fileID: 1778448377}
     - target: {fileID: 7937057423202823598, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
