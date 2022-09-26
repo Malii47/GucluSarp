@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2866766698383072660}
   - component: {fileID: 4447059440807160754}
   m_Layer: 0
-  m_Name: blood_feet_left
+  m_Name: blood_feet_left2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8968937075997e647a8fbf1a2bbd9dc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1137dcf25a64d2949a78e64c1e1e571e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -6,6 +6,8 @@ public class Bacak_Animation : MonoBehaviour
 {
     public GameObject bloodyfootprint_r;
     public GameObject bloodyfootprint_l;
+    public GameObject bloodyfootprint_r2;
+    public GameObject bloodyfootprint_l2;
     public Transform bloodyfootprint_position;
     Animator animator;
     public bool b;
@@ -59,13 +61,13 @@ public class Bacak_Animation : MonoBehaviour
                 {
                     if (count % 2 == 1)
                     {
-                        Instantiate(bloodyfootprint_r, bloodyfootprint_position.position, Quaternion.identity);
+                        Instantiate(bloodyfootprint_r2, bloodyfootprint_position.position, Quaternion.identity);
                         StartCoroutine(bloodystep2());
                         e = false;
                     }
                     else if (count % 2 == 0)
                     {
-                        Instantiate(bloodyfootprint_l, bloodyfootprint_position.position, Quaternion.identity);
+                        Instantiate(bloodyfootprint_l2, bloodyfootprint_position.position, Quaternion.identity);
                         StartCoroutine(bloodystep2());
                         e = false;
                     }
