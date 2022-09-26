@@ -17,6 +17,7 @@ public class Enemy_Death : MonoBehaviour
     public LayerMask playerLayer;
     float count;
     public bool a;
+    public bool e;
 
     private void Start()
     {
@@ -37,13 +38,13 @@ public class Enemy_Death : MonoBehaviour
             }
         }
 
-        if (a)
+        if (e)
         {
             Collider2D[] bloodarea2 = Physics2D.OverlapCircleAll(blood_point2.position, blood_area_radius2);
             foreach (Collider2D player in bloodarea2)
             {
                 GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().b = true;
-                a = false;
+                e = false;
             }
         }
     }
@@ -68,7 +69,7 @@ public class Enemy_Death : MonoBehaviour
         }
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
-        a = true;
+        e = true;
     }
     public void StunDeath()
     {
