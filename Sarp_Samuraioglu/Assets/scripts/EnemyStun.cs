@@ -35,12 +35,12 @@ public class EnemyStun : MonoBehaviour
     IEnumerator StunTime()
     {
         yield return new WaitForSeconds(.2f);
-        EnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
-        StunLight.GetComponent<Animator>().SetTrigger("FadeIn");
-        yield return new WaitForSeconds(.5f);
-        EnemyLight.SetActive(false);
         StunLight.SetActive(true);
-        yield return new WaitForSeconds(2.3f);
+        StunLight.GetComponent<Animator>().SetTrigger("FadeIn");
+        EnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.15f);
+        EnemyLight.SetActive(false);
+        yield return new WaitForSeconds(2.55f);
         GetComponent<Enemy>().CurrentHealt += 10;
         GetComponent<AIDestinationSetter>().enabled = true;
         GetComponent<SwordEnemyAI>().enabled = true;
@@ -49,10 +49,11 @@ public class EnemyStun : MonoBehaviour
         GetComponent<EnemyLookDirSword>().enabled = true;
         yield return null;
         anim.SetTrigger("stunTriggerExit");
+        EnemyLight.SetActive(true);
         StunLight.GetComponent<Animator>().SetTrigger("FadeOut");
         EnemyLight.GetComponent<Animator>().SetTrigger("FadeIn");
-        yield return new WaitForSeconds(.5f);
-        EnemyLight.SetActive(true);
+        yield return new WaitForSeconds(.01f);
+        
         StunLight.SetActive(false);
     }
     public void Ineedsomesleep()

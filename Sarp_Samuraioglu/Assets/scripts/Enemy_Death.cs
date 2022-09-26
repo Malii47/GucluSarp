@@ -8,10 +8,12 @@ public class Enemy_Death : MonoBehaviour
 {
     Animator anim;
     public Transform blood_point;
+    public Transform blood_point2;
     public GameObject bagirsak;
     public GameObject StunLight;
     public GameObject EnemyLight;
     public float blood_area_radius;
+    public float blood_area_radius2;
     public LayerMask playerLayer;
     float count;
     public bool a;
@@ -29,6 +31,16 @@ public class Enemy_Death : MonoBehaviour
         {
             Collider2D[] bloodarea = Physics2D.OverlapCircleAll(blood_point.position, blood_area_radius);
             foreach (Collider2D player in bloodarea)
+            {
+                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().b = true;
+                a = false;
+            }
+        }
+
+        if (a)
+        {
+            Collider2D[] bloodarea2 = Physics2D.OverlapCircleAll(blood_point2.position, blood_area_radius2);
+            foreach (Collider2D player in bloodarea2)
             {
                 GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().b = true;
                 a = false;
@@ -56,6 +68,7 @@ public class Enemy_Death : MonoBehaviour
         }
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
+        a = true;
     }
     public void StunDeath()
     {
@@ -84,19 +97,20 @@ public class Enemy_Death : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(blood_point.position, blood_area_radius);
+        Gizmos.DrawSphere(blood_point2.position, blood_area_radius2);
     }
     
     IEnumerator EnemyDeathLight()
     {
         EnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         EnemyLight.SetActive(false);
     }
 
     IEnumerator EnemyStunDeathLight()
     {
         StunLight.GetComponent<Animator>().SetTrigger("FadeOut");
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         StunLight.SetActive(false);
     }
 

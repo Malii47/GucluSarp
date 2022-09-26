@@ -18,6 +18,9 @@ public class Combat : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject deflectLight;
+    public Animator deflectLightanim;
+
     public Transform attackPoint;
     public Transform DeflectPoint2;
 
@@ -160,6 +163,7 @@ public class Combat : MonoBehaviour
             bullet.GetComponent<kola>().Die();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
+            StartCoroutine(DeflectLight());
         }
 
         Collider2D[] deflectSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, SwordLayer);
@@ -172,6 +176,7 @@ public class Combat : MonoBehaviour
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
             StartCoroutine("CamZoom");
+            StartCoroutine(DeflectLight());
         }
     }
 
@@ -184,6 +189,7 @@ public class Combat : MonoBehaviour
             bullet.GetComponent<kola>().Die();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
+            StartCoroutine(DeflectLight());
         }
 
         Collider2D[] deflectSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, SwordLayer);
@@ -196,6 +202,7 @@ public class Combat : MonoBehaviour
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
             StartCoroutine("CamZoom");
+            StartCoroutine(DeflectLight());
         }
     }
 
@@ -209,5 +216,13 @@ public class Combat : MonoBehaviour
     {
         yield return new WaitForSeconds(.35f);
         camZoom = false;
+    }
+
+    IEnumerator DeflectLight()
+    {
+        deflectLight.SetActive(true);
+        deflectLightanim.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1f);
+        deflectLight.SetActive(false);
     }
 }

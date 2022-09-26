@@ -32,7 +32,7 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
-            PlayerLight.SetActive(false);
+            StartCoroutine(SarpDeath());
             animator.SetTrigger("isDead");
             GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -49,7 +49,7 @@ public class PlayerDie : MonoBehaviour
     }
     public void DeathbySwordEnemy()
     {
-        PlayerLight.SetActive(false);
+        StartCoroutine(SarpDeath());
         animator.SetTrigger("isDead");
         GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -61,5 +61,12 @@ public class PlayerDie : MonoBehaviour
         GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
         GameObject.Find("Canvas").GetComponent<PauseMenu>().deactive = true;
         Invoke("SarpDie", 1f);
+    }
+
+    IEnumerator SarpDeath()
+    {
+        GameObject.Find("PlayerLight").GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.25f);
+        PlayerLight.SetActive(false);
     }
 }
