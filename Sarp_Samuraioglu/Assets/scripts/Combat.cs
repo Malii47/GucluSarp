@@ -15,8 +15,8 @@ public class Combat : MonoBehaviour
     [SerializeField] ParticleSystem particle2 = null;
     [SerializeField] ParticleSystem particle3 = null;
     [SerializeField] ParticleSystem particle4 = null;
-    [SerializeField] ParticleSystem particle5 = null;
-    [SerializeField] ParticleSystem particle6 = null;
+    [SerializeField] ParticleSystem bloodParticle1 = null;
+    [SerializeField] ParticleSystem bloodParticle2 = null;
 
     public Animator animator;
 
@@ -51,12 +51,6 @@ public class Combat : MonoBehaviour
         particle2.Play();
         particle3.Play();
         particle4.Play();
-    }
-
-    void AttackParticlePlay()
-    {
-        particle5.Play();
-        particle6.Play();
     }
 
     private void OnEnable()
@@ -130,7 +124,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            AttackParticlePlay();
+            bloodParticle1.Play();
         }
 
         Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
@@ -139,7 +133,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            AttackParticlePlay();
+            bloodParticle1.Play();
         }
 
     }
@@ -152,7 +146,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            AttackParticlePlay();
+            bloodParticle2.Play();
         }
 
         Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
@@ -161,7 +155,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            AttackParticlePlay();
+            bloodParticle2.Play();
         }
 
     }

@@ -13,6 +13,7 @@ public class PlayerDie : MonoBehaviour
     public Rigidbody2D rb;
     public CapsuleCollider2D cd;
     public GameObject PlayerLight;
+    [SerializeField] ParticleSystem playerDieParticle = null;
 
 
     private void Start()
@@ -32,6 +33,7 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
+            playerDieParticle.Play();
             StartCoroutine(SarpDeath());
             animator.SetTrigger("isDead");
             GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
@@ -49,6 +51,7 @@ public class PlayerDie : MonoBehaviour
     }
     public void DeathbySwordEnemy()
     {
+        playerDieParticle.Play();
         StartCoroutine(SarpDeath());
         animator.SetTrigger("isDead");
         GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
