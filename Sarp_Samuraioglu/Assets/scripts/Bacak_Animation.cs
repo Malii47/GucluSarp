@@ -24,7 +24,7 @@ public class Bacak_Animation : MonoBehaviour
     {
         if (b)
         { 
-            if (count < 14)
+            if (count < 5)
             {
                 if (c)
                 {
@@ -42,7 +42,7 @@ public class Bacak_Animation : MonoBehaviour
                     }
                 }
             }
-            if (count >= 14)
+            if (count >= 5)
             {
                 count = 1;
                 GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().a = true;

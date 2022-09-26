@@ -12,6 +12,7 @@ public class PlayerDie : MonoBehaviour
     public PlayerMovement pm;
     public Rigidbody2D rb;
     public CapsuleCollider2D cd;
+    public GameObject PlayerLight;
 
 
     private void Start()
@@ -31,6 +32,7 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
+            PlayerLight.SetActive(false);
             animator.SetTrigger("isDead");
             GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -47,6 +49,7 @@ public class PlayerDie : MonoBehaviour
     }
     public void DeathbySwordEnemy()
     {
+        PlayerLight.SetActive(false);
         animator.SetTrigger("isDead");
         GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;

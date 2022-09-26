@@ -9,6 +9,8 @@ public class Enemy_Death : MonoBehaviour
     Animator anim;
     public Transform blood_point;
     public GameObject bagirsak;
+    public GameObject StunLight;
+    public GameObject EnemyLight;
     public float blood_area_radius;
     public LayerMask playerLayer;
     float count;
@@ -35,6 +37,7 @@ public class Enemy_Death : MonoBehaviour
     }
     public void Death()
     {
+        StartCoroutine(EnemyDeathLight());
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<SwordEnemyAI>().enabled = false;
@@ -56,6 +59,7 @@ public class Enemy_Death : MonoBehaviour
     }
     public void StunDeath()
     {
+        StartCoroutine(EnemyStunDeathLight());
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<EnemyStun>().Ineedsomesleep();
@@ -81,4 +85,19 @@ public class Enemy_Death : MonoBehaviour
     {
         Gizmos.DrawSphere(blood_point.position, blood_area_radius);
     }
+    
+    IEnumerator EnemyDeathLight()
+    {
+        EnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.5f);
+        EnemyLight.SetActive(false);
+    }
+
+    IEnumerator EnemyStunDeathLight()
+    {
+        StunLight.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.5f);
+        StunLight.SetActive(false);
+    }
+
 }

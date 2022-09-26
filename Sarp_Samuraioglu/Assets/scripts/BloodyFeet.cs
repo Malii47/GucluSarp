@@ -10,12 +10,6 @@ public class BloodyFeet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-    }
-
-
-    void Update()
-    {
-
         rb.rotation = playerrb.rotation;
     }
 }
