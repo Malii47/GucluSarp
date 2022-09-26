@@ -12,6 +12,7 @@ public class kola : MonoBehaviour
     Rigidbody2D rb, playerrb;
     SpriteRenderer sp;
     BoxCollider2D cd;
+    public GameObject bulletLight;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class kola : MonoBehaviour
         cd = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        bulletLight = GameObject.Find("BulletLight");
 
         target = GameObject.FindObjectOfType<PlayerMovement>();
 
