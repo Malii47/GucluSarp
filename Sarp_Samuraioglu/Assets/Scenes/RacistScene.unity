@@ -686,6 +686,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.31
       objectReference: {fileID: 0}
+    - target: {fileID: 7937057422988891552, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: bloodyfootprint_l2
+      value: 
+      objectReference: {fileID: 7009644468926705628, guid: b37803927bd4839428358ebfa55745c3, type: 3}
+    - target: {fileID: 7937057422988891552, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: bloodyfootprint_r2
+      value: 
+      objectReference: {fileID: 3276622774434617920, guid: f0f35997aa5f7be4090811485d850021, type: 3}
     - target: {fileID: 7937057423202823587, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: bloodParticle1
       value: 
