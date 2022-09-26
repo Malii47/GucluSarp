@@ -10,6 +10,7 @@ public class Bacak_Animation : MonoBehaviour
     Animator animator;
     public bool b;
     public bool c;
+    public bool e;
 
     public float count;
 
@@ -18,6 +19,7 @@ public class Bacak_Animation : MonoBehaviour
         animator = GetComponent<Animator>();
         count = 1;
         b = false;
+        e = false;
     }
 
     void Update()
@@ -49,6 +51,33 @@ public class Bacak_Animation : MonoBehaviour
                 b = false;
             }
         }
+        if (e)
+        {
+            if (count < 5)
+            {
+                if (c)
+                {
+                    if (count % 2 == 1)
+                    {
+                        Instantiate(bloodyfootprint_r, bloodyfootprint_position.position, Quaternion.identity);
+                        StartCoroutine(bloodystep2());
+                        e = false;
+                    }
+                    else if (count % 2 == 0)
+                    {
+                        Instantiate(bloodyfootprint_l, bloodyfootprint_position.position, Quaternion.identity);
+                        StartCoroutine(bloodystep2());
+                        e = false;
+                    }
+                }
+            }
+            if (count >= 5)
+            {
+                count = 1;
+                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().e = true;
+                e = false;
+            }
+        }
     }
 
 
@@ -57,6 +86,12 @@ public class Bacak_Animation : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         count++;
         b = true;
+    }
+    IEnumerator bloodystep2()
+    {
+        yield return new WaitForSeconds(0.5f);
+        count++;
+        e = true;
     }
 
     public void Anan(bool a)

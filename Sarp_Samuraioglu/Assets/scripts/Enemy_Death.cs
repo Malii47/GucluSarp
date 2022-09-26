@@ -43,7 +43,7 @@ public class Enemy_Death : MonoBehaviour
             Collider2D[] bloodarea2 = Physics2D.OverlapCircleAll(blood_point2.position, blood_area_radius2);
             foreach (Collider2D player in bloodarea2)
             {
-                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().b = true;
+                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().e = true;
                 e = false;
             }
         }
