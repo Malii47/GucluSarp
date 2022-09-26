@@ -25,7 +25,7 @@ public class EnemyGunDying : MonoBehaviour
     {
         CurrentHealt = CurrentHealt - damage;
 
-        if (CurrentHealt == 25)
+        if (CurrentHealt == 5)
         {
             Die();
         }
