@@ -22,11 +22,15 @@ public class SwordEnemyAI : MonoBehaviour
     public float stoppingDist;
     public float attackDist;
     bool a = true;
-    bool b = true;
+    bool oneTimeExecution = true;
+
+    int parametreattackBool = Animator.StringToHash("attackBool");
+    int parametrewalkBool = Animator.StringToHash("walkBool");
+    int parametrelegWalk = Animator.StringToHash("legWalk");
 
     void OnEnable()
     {
-        b = true;
+        oneTimeExecution = true;
         a = true;
     }
     
@@ -34,10 +38,9 @@ public class SwordEnemyAI : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
-        legAnim = GameObject.FindGameObjectWithTag("deneme").GetComponent<Animator>();
         //cd = GameObject.FindGameObjectWithTag("Sword").GetComponentInChildren<BoxCollider2D>();
 
-        b = true;
+        oneTimeExecution = true;
         a = true;
     }
 
@@ -45,47 +48,39 @@ public class SwordEnemyAI : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, target.position) < attackDist)
         {
-            if (b)
+            if (oneTimeExecution)
             {
                 a = true;
                 MainAttack();
-                b = false;
+                oneTimeExecution = false;
             }
         }
         else if (Vector2.Distance(transform.position, target.position) > attackDist)
         {
-            anim.SetBool("walkBool", true);
+            anim.SetBool(parametrewalkBool, true);
         }
 
         if (Vector2.Distance(transform.position, target.position) > stoppingDist)
         {
-            legAnim.SetBool("legWalk", true);
+            legAnim.SetBool(parametrelegWalk, true);
         }
         else if (Vector2.Distance(transform.position, target.position) < stoppingDist)
         {
-            legAnim.SetBool("legWalk", false);
+            legAnim.SetBool(parametrelegWalk, false);
         }
     }
     void MainAttack()
     {
         if (a)
         {
-            anim.SetBool("attackBool", true);
-            anim.SetBool("walkBool", false);
-            StartCoroutine(Attacking());
+            anim.SetBool(parametreattackBool, true);
+            anim.SetBool(parametrewalkBool, false);
+            StartCoroutine(DeflectTimeThenAttack());
         }
     }
-    void Attack()
-    {       
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
+    
 
-        foreach (Collider2D player in hitPlayer)
-        {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDie>().DeathbySwordEnemy();
-        }
-    }
-
-    IEnumerator Attacking()
+    IEnumerator DeflectTimeThenAttack()
     {
         yield return new WaitForSeconds(.1f);
         cd.enabled = true;
@@ -94,13 +89,23 @@ public class SwordEnemyAI : MonoBehaviour
         yield return null;
         Attack();
         yield return new WaitForSeconds(.27f);
-        anim.SetBool("attackBool", false);
-        StartCoroutine(AttackDelay());
+        anim.SetBool(parametreattackBool, false);
+        StartCoroutine(NextAttackDelay());
     }
-    IEnumerator AttackDelay()
+    void Attack()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDie>().DeathbySwordEnemy();
+        }
+    }
+
+    IEnumerator NextAttackDelay()
     {
         yield return new WaitForSeconds(1);
-        b = true;
+        oneTimeExecution = true;
         a = false;
     }
     public void stoppingIEnumerators()

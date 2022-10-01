@@ -10,74 +10,74 @@ public class Bacak_Animation : MonoBehaviour
     public GameObject bloodyfootprint_l2;
     public Transform bloodyfootprint_position;
     Animator animator;
-    public bool b;
-    public bool c;
-    public bool e;
+    public bool oneTimeDarkRedPrint;
+    public bool PlayerWalking;
+    public bool oneTimeLightRedPrint;
 
-    public float count;
+    public float bloodyStepCounter;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        count = 1;
-        b = false;
-        e = false;
+        bloodyStepCounter = 1;
+        oneTimeDarkRedPrint = false;
+        oneTimeLightRedPrint = false;
     }
 
     void Update()
     {
-        if (b)
+        if (oneTimeDarkRedPrint)
         { 
-            if (count < 5)
+            if (bloodyStepCounter < 5)
             {
-                if (c)
+                if (PlayerWalking)
                 {
-                    if (count % 2 == 1)
+                    if (bloodyStepCounter % 2 == 1)
                     {
                         Instantiate(bloodyfootprint_r, bloodyfootprint_position.position, Quaternion.identity);
                         StartCoroutine(bloodystep());
-                        b = false;
+                        oneTimeDarkRedPrint = false;
                     }
-                    else if (count % 2 == 0)
+                    else if (bloodyStepCounter % 2 == 0)
                     {
                         Instantiate(bloodyfootprint_l, bloodyfootprint_position.position, Quaternion.identity);
                         StartCoroutine(bloodystep());
-                        b = false;
+                        oneTimeDarkRedPrint = false;
                     }
                 }
             }
-            if (count >= 5)
+            if (bloodyStepCounter >= 5)
             {
-                count = 1;
-                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().a = true;
-                b = false;
+                bloodyStepCounter = 1;
+                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().oneTimeExecutionDarkRedPrint = true;
+                oneTimeDarkRedPrint = false;
             }
         }
-        if (e)
+        if (oneTimeLightRedPrint)
         {
-            if (count < 5)
+            if (bloodyStepCounter < 5)
             {
-                if (c)
+                if (PlayerWalking)
                 {
-                    if (count % 2 == 1)
+                    if (bloodyStepCounter % 2 == 1)
                     {
                         Instantiate(bloodyfootprint_r2, bloodyfootprint_position.position, Quaternion.identity);
                         StartCoroutine(bloodystep2());
-                        e = false;
+                        oneTimeLightRedPrint = false;
                     }
-                    else if (count % 2 == 0)
+                    else if (bloodyStepCounter % 2 == 0)
                     {
                         Instantiate(bloodyfootprint_l2, bloodyfootprint_position.position, Quaternion.identity);
                         StartCoroutine(bloodystep2());
-                        e = false;
+                        oneTimeLightRedPrint = false;
                     }
                 }
             }
-            if (count >= 5)
+            if (bloodyStepCounter >= 5)
             {
-                count = 1;
-                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().e = true;
-                e = false;
+                bloodyStepCounter = 1;
+                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().oneTimeExecutionLightRedPrint = true;
+                oneTimeLightRedPrint = false;
             }
         }
     }
@@ -86,27 +86,29 @@ public class Bacak_Animation : MonoBehaviour
     IEnumerator bloodystep()
     {
         yield return new WaitForSeconds(0.5f);
-        count++;
-        b = true;
+        bloodyStepCounter++;
+        oneTimeDarkRedPrint = true;
     }
     IEnumerator bloodystep2()
     {
         yield return new WaitForSeconds(0.5f);
-        count++;
-        e = true;
+        bloodyStepCounter++;
+        oneTimeLightRedPrint = true;
     }
 
     public void Anan(bool a)
     {
+        int parametreisWalking = Animator.StringToHash("isWalking");
+
         if (a)
         {
-            animator.SetBool("IsWalking", true);
-            c = true;
+            animator.SetBool(parametreisWalking, true);
+            PlayerWalking = true;
         }
         else
         {
-            animator.SetBool("IsWalking", false);
-            c = false;
+            animator.SetBool(parametreisWalking, false);
+            PlayerWalking = false;
         }
     }
 }

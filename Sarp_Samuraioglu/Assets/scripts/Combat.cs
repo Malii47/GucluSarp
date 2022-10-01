@@ -28,8 +28,7 @@ public class Combat : MonoBehaviour
 
     public float AttackRadius = 0.5f;
     public float damage = 5f;
-    public float count;
-    public float count2;
+    public float sarpAttackDirectionCounter;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     public float deflectRate = 2f;
@@ -45,13 +44,6 @@ public class Combat : MonoBehaviour
 
     public Vector2 boyut;
 
-    void ParticlePlay()
-    {
-        particle.Play();
-        particle2.Play();
-        particle3.Play();
-        particle4.Play();
-    }
 
     private void OnEnable()
     {
@@ -60,14 +52,10 @@ public class Combat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        count = 1;
+        sarpAttackDirectionCounter = 1;
         camZoom = false;
     }
 
-    void FixedUpdate()
-    {
-
-    }
     
     void Update()
     {
@@ -76,18 +64,18 @@ public class Combat : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                count++;
-                if (count % 2 == 0)
+                sarpAttackDirectionCounter++;
+                Invoke("Attack", .3f);
+                nextAttackTime = Time.time + 1f / attackRate;
+                if (sarpAttackDirectionCounter % 2 == 0)
                 {
-                    animator.SetTrigger("isAttack");
-                    Invoke("Attack1", .3f);
-                    nextAttackTime = Time.time + 1f / attackRate;
+                    int parametreisAttack = Animator.StringToHash("isAttack");
+                    animator.SetTrigger(parametreisAttack);
                 }
-                if (count % 2 == 1)
+                if (sarpAttackDirectionCounter % 2 == 1)
                 {
-                    animator.SetTrigger("isAttack2");
-                    Invoke("Attack2", .3f);
-                    nextAttackTime = Time.time + 1f / attackRate;
+                    int parametreisAttack2 = Animator.StringToHash("isAttack2");
+                    animator.SetTrigger(parametreisAttack2);
                 }
             }
         }
@@ -96,26 +84,26 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                count++;
-                if (count % 2 == 0)
+
+                sarpAttackDirectionCounter++;
+                Deflect();
+                nextDeflectTime = Time.time + 1f / deflectRate;
+                if (sarpAttackDirectionCounter % 2 == 0)
                 {
-                    animator.SetTrigger("isDeflect");
-                    Deflect1();
-                    nextDeflectTime = Time.time + 1f / deflectRate;
+                    int parametreisDeflect = Animator.StringToHash("isDeflect");
+                    animator.SetTrigger(parametreisDeflect);
                 }
 
-                if (count % 2 == 1)
+                if (sarpAttackDirectionCounter % 2 == 1)
                 {
-                    animator.SetTrigger("isDeflect2");
-                    Deflect2();
-
-                    nextDeflectTime = Time.time + 1f / deflectRate;
+                    int parametreisDeflect2 = Animator.StringToHash("isDeflect2");
+                    animator.SetTrigger(parametreisDeflect2);
                 }
             }
         }
     }
 
-    void Attack1()
+    void Attack()
     {
 
         Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
@@ -124,7 +112,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            bloodParticle1.Play();
+            BloodParticlePlay();
         }
 
         Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
@@ -133,34 +121,12 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            bloodParticle1.Play();
-        }
-
-    }
-    void Attack2()
-    {
-        
-        Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
-
-        foreach (Collider2D enemy in hitswordenemy)
-        {
-            enemy.GetComponent<Enemy>().TakeDamage(damage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            bloodParticle2.Play();
-        }
-
-        Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
-
-        foreach (Collider2D enemy in hitgunenemy)
-        {
-            enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            bloodParticle2.Play();
+            BloodParticlePlay();
         }
 
     }
 
-    void Deflect1()
+    void Deflect()
     {
         Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
 
@@ -186,30 +152,18 @@ public class Combat : MonoBehaviour
         }
     }
 
-    void Deflect2()
+    void ParticlePlay()
     {
-        Collider2D[] deflectBullets = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BulletLayer);
+        particle.Play();
+        particle2.Play();
+        particle3.Play();
+        particle4.Play();
+    }
 
-        foreach (Collider2D bullet in deflectBullets)
-        {
-            bullet.GetComponent<kola>().Die();
-            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
-            ParticlePlay();
-            StartCoroutine(DeflectLight());
-        }
-
-        Collider2D[] deflectSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, SwordLayer);
-
-        foreach (Collider2D sword in deflectSword)
-        {
-            camZoom = true;
-            sword.GetComponentInParent<Enemy>().TakeDamage(10);
-            sword.GetComponentInParent<EnemyStun>().Stun();
-            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
-            ParticlePlay();
-            StartCoroutine("CamZoom");
-            StartCoroutine(DeflectLight());
-        }
+    void BloodParticlePlay()
+    {
+        if (sarpAttackDirectionCounter % 2 == 0) bloodParticle1.Play();
+        if(sarpAttackDirectionCounter % 2 == 1) bloodParticle2.Play();
     }
 
     private void OnDrawGizmos()

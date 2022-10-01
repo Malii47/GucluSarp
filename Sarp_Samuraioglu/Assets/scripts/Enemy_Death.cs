@@ -16,8 +16,14 @@ public class Enemy_Death : MonoBehaviour
     public float blood_area_radius2;
     public LayerMask playerLayer;
     float count;
-    public bool a;
-    public bool e;
+    public bool oneTimeExecutionDarkRedPrint;
+    public bool oneTimeExecutionLightRedPrint;
+
+    int parametreattackBool = Animator.StringToHash("attackBool");
+    int parametrewalkBool = Animator.StringToHash("walkBool");
+    int parametredeathTrigger = Animator.StringToHash("deathTrigger");
+    int parametredeathTrigger2 = Animator.StringToHash("deathTrigger2");
+    int parametrestundeathTrigger = Animator.StringToHash("stundeathTrigger");
 
     private void Start()
     {
@@ -26,25 +32,25 @@ public class Enemy_Death : MonoBehaviour
 
     private void Update()
     {
-        count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().count;
+        count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().sarpAttackDirectionCounter;
 
-        if (a)
+        if (oneTimeExecutionDarkRedPrint)
         {
             Collider2D[] bloodarea = Physics2D.OverlapCircleAll(blood_point.position, blood_area_radius);
             foreach (Collider2D player in bloodarea)
             {
-                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().b = true;
-                a = false;
+                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().oneTimeDarkRedPrint = true;
+                oneTimeExecutionDarkRedPrint = false;
             }
         }
 
-        if (e)
+        if (oneTimeExecutionLightRedPrint)
         {
             Collider2D[] bloodarea2 = Physics2D.OverlapCircleAll(blood_point2.position, blood_area_radius2);
             foreach (Collider2D player in bloodarea2)
             {
-                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().e = true;
-                e = false;
+                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().oneTimeLightRedPrint = true;
+                oneTimeExecutionLightRedPrint = false;
             }
         }
     }
@@ -57,19 +63,19 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
         if (count % 2 == 1)
         {
-            anim.SetBool("walkBool", false);
-            anim.SetBool("attackBool", false);
-            anim.SetTrigger("deathTrigger");
+            anim.SetBool(parametrewalkBool, false);
+            anim.SetBool(parametreattackBool, false);
+            anim.SetTrigger(parametredeathTrigger);
         }
         else if (count % 2 == 0)
         {
-            anim.SetBool("walkBool", false);
-            anim.SetBool("attackBool", false);
-            anim.SetTrigger("deathTrigger2");
+            anim.SetBool(parametrewalkBool, false);
+            anim.SetBool(parametreattackBool, false);
+            anim.SetTrigger(parametredeathTrigger2);
         }
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
-        e = true;
+        oneTimeExecutionLightRedPrint = true;
     }
     public void StunDeath()
     {
@@ -80,19 +86,19 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<SwordEnemyAI>().enabled = false;
         GetComponent<EnemyStun>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
-        anim.SetBool("walkBool", false);
-        anim.SetBool("attackBool", false);
-        anim.SetTrigger("stundeathTrigger");
+        anim.SetBool(parametrewalkBool, false);
+        anim.SetBool(parametreattackBool, false);
+        anim.SetTrigger(parametrestundeathTrigger);
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
         Invoke("bagirsakpirt", 0.5f);
-        a = true;
+        oneTimeExecutionDarkRedPrint = true;
     }
 
     void bagirsakpirt()
     {
-        GetComponentInChildren<BagirsakPirt>().b = true;
-        GetComponentInChildren<BagirsakPirt>().a = true;
+        GetComponentInChildren<BagirsakPirt>().bowelBool = true;
+        GetComponentInChildren<BagirsakPirt>().pantBool = true;
     }
 
     private void OnDrawGizmos()

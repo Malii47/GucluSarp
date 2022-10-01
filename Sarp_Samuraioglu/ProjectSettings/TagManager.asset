@@ -15,6 +15,11 @@ TagManager:
   - deneme
   - bagirsak
   - sj
+  - attackPoint
+  - deflectPoint
+  - PlayerLight
+  - DeflectLight
+  - SwordEnemy
   layers:
   - Default
   - TransparentFX

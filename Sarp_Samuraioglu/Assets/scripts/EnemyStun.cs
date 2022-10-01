@@ -9,6 +9,7 @@ public class EnemyStun : MonoBehaviour
     Animator anim;
     public GameObject StunLight;
     public GameObject EnemyLight;
+    public GameObject EnemyLeg;
 
     private void Start()
     {
@@ -20,11 +21,17 @@ public class EnemyStun : MonoBehaviour
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<SwordEnemyAI>().enabled = false;
-        GameObject.FindGameObjectWithTag("deneme").GetComponent<Animator>().enabled = false;
-        GameObject.FindGameObjectWithTag("deneme").GetComponent<Renderer>().enabled = false;
-        anim.SetBool("walkBool", false);
-        anim.SetBool("attackBool", false);
-        anim.SetTrigger("stunTrigger");
+        EnemyLeg.GetComponent<Animator>().enabled = false;
+        EnemyLeg.GetComponent<Renderer>().enabled = false;
+
+        int parametreattackBool = Animator.StringToHash("attackBool");
+        int parametrewalkBool = Animator.StringToHash("walkBool");
+        int parametrestunTrigger = Animator.StringToHash("stunTrigger");
+
+        anim.SetBool(parametreattackBool, false);
+        anim.SetBool(parametrewalkBool, false);
+        anim.SetTrigger(parametrestunTrigger);
+
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
         StartCoroutine(StunTime());
@@ -44,8 +51,8 @@ public class EnemyStun : MonoBehaviour
         GetComponent<Enemy>().CurrentHealt += 10;
         GetComponent<AIDestinationSetter>().enabled = true;
         GetComponent<SwordEnemyAI>().enabled = true;
-        GameObject.FindGameObjectWithTag("deneme").GetComponent<Animator>().enabled = true;
-        GameObject.FindGameObjectWithTag("deneme").GetComponent<Renderer>().enabled = true;
+        EnemyLeg.GetComponent<Animator>().enabled = true;
+        EnemyLeg.GetComponent<Renderer>().enabled = true;
         GetComponent<EnemyLookDirSword>().enabled = true;
         yield return null;
         anim.SetTrigger("stunTriggerExit");

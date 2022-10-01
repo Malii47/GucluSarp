@@ -5,22 +5,22 @@ using UnityEngine;
 public class KatanaFunction : MonoBehaviour
 {
 
+    public Animator animator;
 
     public float attackRate = 2f;
     public float deflectRate = 2f;
     float nextAttackTime = 0f;
     float nextDeflectTime = 0f;
+    float sarpKatanaAttackDirectionCounter;
 
-    float count;
-
-    public Animator animator;
+    int parametreisWalking = Animator.StringToHash("isWalking");
 
     Vector2 movement;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        count = 1;
+        sarpKatanaAttackDirectionCounter = 1;
     }
 
 
@@ -31,28 +31,28 @@ public class KatanaFunction : MonoBehaviour
 
         if (movement.x != 0 || movement.y != 0)
         {
-            animator.SetBool("IsWalking", true);
+            animator.SetBool(parametreisWalking, true);
         }
         else
         {
-            animator.SetBool("IsWalking", false);
+            animator.SetBool(parametreisWalking, false);
         }
 
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                count++;
-                if (count % 2 == 0)
+                sarpKatanaAttackDirectionCounter++;
+                nextAttackTime = Time.time + 1f / attackRate;
+                if (sarpKatanaAttackDirectionCounter % 2 == 0)
                 {
-                    Attack1();
-                    nextAttackTime = Time.time + 1f / attackRate;
-
+                    int parametreisAttack = Animator.StringToHash("isAttack");
+                    animator.SetTrigger(parametreisAttack);
                 }
-                if (count % 2 == 1)
+                if (sarpKatanaAttackDirectionCounter % 2 == 1)
                 {
-                    Attack2();
-                    nextAttackTime = Time.time + 1f / attackRate;
+                    int parametreisAttack2 = Animator.StringToHash("isAttack2");
+                    animator.SetTrigger(parametreisAttack2);
                 }
             }
         }
@@ -61,36 +61,21 @@ public class KatanaFunction : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                count++;
-                if (count % 2 == 0)
+                sarpKatanaAttackDirectionCounter++;
+                nextDeflectTime = Time.time + 1f / deflectRate;
+                if (sarpKatanaAttackDirectionCounter % 2 == 0)
                 {
-                    Deflect1();
-                    nextDeflectTime = Time.time + 1f / deflectRate;
+                    int parametreisDeflect = Animator.StringToHash("isDeflect");
+                    animator.SetTrigger(parametreisDeflect);
                 }
 
-                if (count % 2 == 1)
+                if (sarpKatanaAttackDirectionCounter % 2 == 1)
                 {
-                    Deflect2();
-                    nextDeflectTime = Time.time + 1f / deflectRate;
+                    int parametreisDeflect2 = Animator.StringToHash("isDeflect2");
+                    animator.SetTrigger(parametreisDeflect2);
                 }
             }
         }
 
-    }
-    void Attack1()
-    {
-        animator.SetTrigger("isAttack");
-    }
-    void Attack2()
-    {
-        animator.SetTrigger("isAttack2");
-    }
-    void Deflect1()
-    {
-        animator.SetTrigger("isDeflect");
-    }
-    void Deflect2()
-    {
-        animator.SetTrigger("isDeflect2");
     }
 }

@@ -15,6 +15,7 @@ public class PlayerDie : MonoBehaviour
     public GameObject PlayerLight;
     [SerializeField] ParticleSystem playerDieParticle = null;
 
+    int parametreisDead = Animator.StringToHash("isDead");
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class PlayerDie : MonoBehaviour
         {
             playerDieParticle.Play();
             StartCoroutine(SarpDeath());
-            animator.SetTrigger("isDead");
+            animator.SetTrigger(parametreisDead);
             GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             cd.enabled = !cd.enabled;
@@ -53,7 +54,7 @@ public class PlayerDie : MonoBehaviour
     {
         playerDieParticle.Play();
         StartCoroutine(SarpDeath());
-        animator.SetTrigger("isDead");
+        animator.SetTrigger(parametreisDead);
         GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         cd.enabled = !cd.enabled;
