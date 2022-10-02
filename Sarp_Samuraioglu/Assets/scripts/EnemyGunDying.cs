@@ -11,6 +11,8 @@ public class EnemyGunDying : MonoBehaviour
     void Start()
     {
         CurrentHealt = maxhealth;
+        GetComponent<EnemyShooting>().enabled = true;
+        GetComponent<EnemyShooting>().kola.SetActive(true);
     }
 
 
