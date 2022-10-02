@@ -63,7 +63,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
+                GetComponentInChildren<SarpSwingsSword>().CallIEnumerator();
                 sarpAttackDirectionCounter++;
                 Invoke("Attack", .3f);
                 nextAttackTime = Time.time + 1f / attackRate;
@@ -84,7 +84,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-
+                GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
                 sarpAttackDirectionCounter++;
                 Deflect();
                 nextDeflectTime = Time.time + 1f / deflectRate;
@@ -143,6 +143,7 @@ public class Combat : MonoBehaviour
         foreach (Collider2D sword in deflectSword)
         {
             camZoom = true;
+            GameObject.Find("EnemySoundRandomizer").GetComponent<EnemyDeathSoundRandomizer>().oneTimeExecution2 = true;
             sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
