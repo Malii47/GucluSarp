@@ -42,9 +42,7 @@ public class EnemyGunDying : MonoBehaviour
     IEnumerator Die2()
     {
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
-        yield return null;
         GetComponent<EnemyShooting>().enabled = false;
-        yield return null;
         GetComponent<EnemyShooting>().kola.SetActive(false);
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
