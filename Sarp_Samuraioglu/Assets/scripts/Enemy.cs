@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     public float maxhealth = 30f;
     public float CurrentHealt;
-    public GameObject soundRandomizer;
 
 
     void Start()
@@ -29,13 +28,11 @@ public class Enemy : MonoBehaviour
         if (CurrentHealt == 25)
         {
             GetComponent<Enemy_Death>().Death();
-            soundRandomizer.GetComponent<EnemyDeathSoundRandomizer>().oneTimeExecution = true;
 
         }       
         if (CurrentHealt == 15)
         {
             GetComponent<Enemy_Death>().StunDeath();
-            soundRandomizer.GetComponent<EnemyDeathSoundRandomizer>().oneTimeExecution = true;
         }
     }
 

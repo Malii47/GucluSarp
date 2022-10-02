@@ -17,7 +17,7 @@ public class EnemyStun : MonoBehaviour
     }
     public void Stun()
     {
-
+        GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<SwordEnemyAI>().enabled = false;

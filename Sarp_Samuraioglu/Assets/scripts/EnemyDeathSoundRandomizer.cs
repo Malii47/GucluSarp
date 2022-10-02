@@ -6,36 +6,39 @@ public class EnemyDeathSoundRandomizer : MonoBehaviour
 {
     public AudioClip[] sounds;
     private AudioSource source;
-    public float enemyHealth;
-    public bool oneTimeExecution = true;
-    public bool oneTimeExecution2 = true;
     void Start()
     {
         source = GetComponent<AudioSource>();
         
     }
 
-    void Update()
+    public void SarpKillsEnemy()
     {
-        enemyHealth = GameObject.Find("Enemy_Sword").GetComponent<Enemy>().CurrentHealt;
-        if (oneTimeExecution)
-        {
-            if (enemyHealth == 25f || enemyHealth == 15f)
-            {
-                source.clip = sounds[Random.Range(0, 5)];
-                source.PlayOneShot(source.clip);
-                oneTimeExecution = false;
-            }
-        }
-        if (oneTimeExecution2)
-        {
-            if (enemyHealth == 20f)
-            {
-                source.clip = sounds[Random.Range(6, 9)];
-                source.PlayOneShot(source.clip);
-                oneTimeExecution2 = false;
-            }
-        }
-       
+        source.clip = sounds[Random.Range(0, 5)];
+        source.PlayOneShot(source.clip);
+    }
+
+    public void SarpStunDeflect()
+    {
+        source.clip = sounds[Random.Range(6, 9)];
+        source.PlayOneShot(source.clip);
+    }
+
+    public void SarpMashesEnemy()
+    {
+        source.clip = sounds[Random.Range(10, 11)];
+        source.PlayOneShot(source.clip);
+    }
+
+    public void CallEnemyIEnumerator()
+    {
+        StartCoroutine(EnemySwordSwing());
+    }
+
+    public IEnumerator EnemySwordSwing()
+    {
+        source.clip = sounds[Random.Range(12, 13)];
+        yield return new WaitForSeconds(.2f);
+        source.PlayOneShot(source.clip);
     }
 }

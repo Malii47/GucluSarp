@@ -51,6 +51,7 @@ public class Combat : MonoBehaviour
 }
     void Start()
     {
+
         animator = GetComponent<Animator>();
         sarpAttackDirectionCounter = 1;
         camZoom = false;
@@ -132,6 +133,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D bullet in deflectBullets)
         {
+            GetComponentInChildren<SarpSwingsSword>().SarpBulletDeflect();
             bullet.GetComponent<kola>().Die();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
@@ -143,7 +145,6 @@ public class Combat : MonoBehaviour
         foreach (Collider2D sword in deflectSword)
         {
             camZoom = true;
-            GameObject.Find("EnemySoundRandomizer").GetComponent<EnemyDeathSoundRandomizer>().oneTimeExecution2 = true;
             sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);

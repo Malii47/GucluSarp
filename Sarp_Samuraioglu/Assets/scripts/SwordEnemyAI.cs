@@ -12,6 +12,7 @@ public class SwordEnemyAI : MonoBehaviour
 {
     Animator anim;
     public Animator legAnim;
+    public GameObject swordSwing;
     public BoxCollider2D cd;
     public Transform target;
     public Transform attackPoint;
@@ -73,6 +74,7 @@ public class SwordEnemyAI : MonoBehaviour
     {
         if (a)
         {
+            swordSwing.GetComponent<EnemyDeathSoundRandomizer>().CallEnemyIEnumerator();
             anim.SetBool(parametreattackBool, true);
             anim.SetBool(parametrewalkBool, false);
             StartCoroutine(DeflectTimeThenAttack());

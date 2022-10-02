@@ -27,12 +27,28 @@ public class EnemyGunDying : MonoBehaviour
 
         if (CurrentHealt == 5)
         {
-            Die();
+            //Die();
+            StartCoroutine(Die2());
         }
     }
 
     public void Die()
     {
+        GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
+        Destroy(gameObject);
+    }
+    
+    //Temporary Die
+    IEnumerator Die2()
+    {
+        GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
+        yield return null;
+        GetComponent<EnemyShooting>().enabled = false;
+        yield return null;
+        GetComponent<EnemyShooting>().kola.SetActive(false);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(2.1f);
         Destroy(gameObject);
     }
 }

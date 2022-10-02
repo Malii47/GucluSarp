@@ -13,7 +13,7 @@ public class BagirsakPirt : MonoBehaviour
     public Vector2 boyut_pant;
     public Vector2 boyut_bowel;
     public LayerMask playerLayer;
-
+    public GameObject mash;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -30,9 +30,11 @@ public class BagirsakPirt : MonoBehaviour
 
             foreach (Collider2D sarpingen in playerstep)
             {
+                mash.GetComponent<EnemyDeathSoundRandomizer>().SarpMashesEnemy();
                 int parametrepant = Animator.StringToHash("pant");
                 anim.SetTrigger(parametrepant);
                 GetComponent<BagirsakPirt>().enabled = false;
+                
             }
         }
         if (bowelBool)
@@ -41,9 +43,11 @@ public class BagirsakPirt : MonoBehaviour
 
             foreach (Collider2D sarpingen2 in playerstep2)
             {
+                mash.GetComponent<EnemyDeathSoundRandomizer>().SarpMashesEnemy();
                 int parametrebowel = Animator.StringToHash("bowel");
                 anim.SetTrigger(parametrebowel);
                 GetComponent<BagirsakPirt>().enabled = false;
+                
             }
         }
     }

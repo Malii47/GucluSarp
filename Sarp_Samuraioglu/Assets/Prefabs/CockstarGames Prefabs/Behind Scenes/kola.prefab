@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3347967845036164878
 Transform:
   m_ObjectHideFlags: 0
@@ -95,13 +95,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2546825168724480915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56d9553219850346be520ed0ee9f862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 4261642376854172424}
   speed: 25
+  bulletLight: {fileID: 0}
 --- !u!50 &8283254487549168977
 Rigidbody2D:
   serializedVersion: 4

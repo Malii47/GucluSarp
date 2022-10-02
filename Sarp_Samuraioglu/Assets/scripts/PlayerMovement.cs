@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
+                GetComponentInChildren<SarpSwingsSword>().SarpDash();
                 temp = moveSpeed;
                 activeMoveSpeed = dashSpeed;
                 moveSpeed = activeMoveSpeed;

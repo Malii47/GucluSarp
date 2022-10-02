@@ -6,8 +6,6 @@ public class SarpSwingsSword : MonoBehaviour
 {
     public AudioClip[] sounds;
     private AudioSource source;
-    public float enemyHealth;
-    public bool oneTimeExecution = true;
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -24,15 +22,29 @@ public class SarpSwingsSword : MonoBehaviour
         source.clip = sounds[Random.Range(0, 1)];
         yield return new WaitForSeconds(.2f);
         source.PlayOneShot(source.clip);
-        oneTimeExecution = false;
     }
 
     public void SarpDeflectSwinging()
     {
         source.clip = sounds[Random.Range(2, 3)];
         source.PlayOneShot(source.clip);
-        oneTimeExecution = false;
     }
 
+    public void SarpDash()
+    {
+        source.clip = sounds[Random.Range(4, 4)];
+        source.PlayOneShot(source.clip);
+    }
 
+    public void SarpDeath()
+    {
+        source.clip = sounds[Random.Range(5, 6)];
+        source.PlayOneShot(source.clip);
+    }
+
+    public void SarpBulletDeflect()
+    {
+        source.clip = sounds[Random.Range(7, 9)];
+        source.PlayOneShot(source.clip);
+    }
 }

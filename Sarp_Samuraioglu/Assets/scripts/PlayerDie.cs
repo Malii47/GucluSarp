@@ -36,6 +36,7 @@ public class PlayerDie : MonoBehaviour
         {
             playerDieParticle.Play();
             StartCoroutine(SarpDeath());
+            GetComponentInChildren<SarpSwingsSword>().SarpDeath();
             animator.SetTrigger(parametreisDead);
             GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -54,6 +55,7 @@ public class PlayerDie : MonoBehaviour
     {
         playerDieParticle.Play();
         StartCoroutine(SarpDeath());
+        GetComponentInChildren<SarpSwingsSword>().SarpDeath();
         animator.SetTrigger(parametreisDead);
         GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;

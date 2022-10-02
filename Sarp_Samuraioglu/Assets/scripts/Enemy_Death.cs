@@ -57,6 +57,7 @@ public class Enemy_Death : MonoBehaviour
     public void Death()
     {
         StartCoroutine(EnemyDeathLight());
+        GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<SwordEnemyAI>().enabled = false;
@@ -80,6 +81,7 @@ public class Enemy_Death : MonoBehaviour
     public void StunDeath()
     {
         StartCoroutine(EnemyStunDeathLight());
+        GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<EnemyStun>().Ineedsomesleep();
