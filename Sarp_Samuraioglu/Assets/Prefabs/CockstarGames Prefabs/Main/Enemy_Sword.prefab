@@ -510,6 +510,7 @@ MonoBehaviour:
   StunLight: {fileID: 949392810859029927}
   EnemyLight: {fileID: 4481955039886022210}
   EnemyLeg: {fileID: 7812216679396532145}
+  col: {fileID: 5129321988446929919}
 --- !u!114 &3963538595315589343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +547,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

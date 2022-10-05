@@ -10,6 +10,7 @@ public class EnemyStun : MonoBehaviour
     public GameObject StunLight;
     public GameObject EnemyLight;
     public GameObject EnemyLeg;
+    public Collider2D col;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class EnemyStun : MonoBehaviour
     }
     public void Stun()
     {
+        col.isTrigger = true;
         GetComponentInChildren<EnemyDeathSoundRandomizer>().stopcorputines();
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
@@ -24,7 +26,6 @@ public class EnemyStun : MonoBehaviour
         GetComponent<SwordEnemyAI>().enabled = false;
         EnemyLeg.GetComponent<Animator>().enabled = false;
         EnemyLeg.GetComponent<Renderer>().enabled = false;
-
         int parametreattackBool = Animator.StringToHash("attackBool");
         int parametrewalkBool = Animator.StringToHash("walkBool");
         int parametrestunTrigger = Animator.StringToHash("stunTrigger");
@@ -61,14 +62,13 @@ public class EnemyStun : MonoBehaviour
         StunLight.GetComponent<Animator>().SetTrigger("FadeOut");
         EnemyLight.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(.01f);
-        
         StunLight.SetActive(false);
+        col.isTrigger = false;
     }
     public void Ineedsomesleep()
     {
         StopAllCoroutines();
     }
-
 
         
 }
