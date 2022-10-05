@@ -16,9 +16,9 @@ public class Enemy : MonoBehaviour
    
     void Update()
     {
-        Vector3 pos = transform.position;
+        /*Vector3 pos = transform.position;
         pos.z = 0;
-        transform.position = pos;
+        transform.position = pos;*/
     }
 
     public void TakeDamage(float damage)

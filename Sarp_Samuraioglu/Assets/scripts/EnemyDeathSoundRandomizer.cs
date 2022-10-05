@@ -37,8 +37,12 @@ public class EnemyDeathSoundRandomizer : MonoBehaviour
 
     public IEnumerator EnemySwordSwing()
     {
+        yield return new WaitForSeconds(.5f);
         source.clip = sounds[Random.Range(12, 13)];
-        yield return new WaitForSeconds(.2f);
         source.PlayOneShot(source.clip);
+    }
+    public void stopcorputines()
+    {
+        StopAllCoroutines();
     }
 }

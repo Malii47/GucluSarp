@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &274739031 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8627393641410106916, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+  m_PrefabInstance: {fileID: 6758209613238559150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1005281087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -181,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 8041676937247642929, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 6833190658432483301}
+      objectReference: {fileID: 274739031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567f13092a25e924880db4ebf799da55, type: 3}
 --- !u!114 &1164584418 stripped
@@ -253,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 8041676937247642929, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 6833190658432483301}
+      objectReference: {fileID: 274739031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567f13092a25e924880db4ebf799da55, type: 3}
 --- !u!1001 &1327151091308596243
@@ -322,7 +327,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2481305011369195692, guid: 413975aa7e780e64d90771bfb5a0a4b1, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2481305011369195692, guid: 413975aa7e780e64d90771bfb5a0a4b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -649,6 +654,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2985594623646280058, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6758209612845029680, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: sounds.Array.size
       value: 10
@@ -669,13 +678,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sarp Miami(Mali)
       objectReference: {fileID: 0}
+    - target: {fileID: 8627393641410106921, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
---- !u!4 &6833190658432483301 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 224517409729699403, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-  m_PrefabInstance: {fileID: 6758209613238559150}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6861994931755480189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -901,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 2622643835159631895, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 6833190658432483301}
+      objectReference: {fileID: 274739031}
     - target: {fileID: 2773088232852619598, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_RootOrder
       value: 4

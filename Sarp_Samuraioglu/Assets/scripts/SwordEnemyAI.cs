@@ -85,13 +85,13 @@ public class SwordEnemyAI : MonoBehaviour
     IEnumerator DeflectTimeThenAttack()
     {
         yield return new WaitForSeconds(.1f);
+        anim.SetBool(parametreattackBool, false);
         cd.enabled = true;
         yield return new WaitForSeconds(.4f);
         cd.enabled = !cd.enabled;
         yield return null;
         Attack();
         yield return new WaitForSeconds(.27f);
-        anim.SetBool(parametreattackBool, false);
         StartCoroutine(NextAttackDelay());
     }
     void Attack()
