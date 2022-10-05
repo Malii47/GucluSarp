@@ -1106,6 +1106,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7609439307927633643, guid: f8de34deec82a744eb0a92c6de213210, type: 3}
+      propertyPath: sounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5771fab2dbf546048b6688ee85ced96e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8de34deec82a744eb0a92c6de213210, type: 3}
 --- !u!1 &885250117523937259 stripped

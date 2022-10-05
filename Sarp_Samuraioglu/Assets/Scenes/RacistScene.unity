@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Sword (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5129321988446929919, guid: 567f13092a25e924880db4ebf799da55, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -278,6 +274,10 @@ PrefabInstance:
     - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_Name
       value: Enemy_Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
