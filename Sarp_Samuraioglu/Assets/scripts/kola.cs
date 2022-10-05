@@ -63,6 +63,7 @@ public class kola : MonoBehaviour
             particle.Play();
             Invoke("Die", 1f);
         }
+        else return;
 
     }
 }

@@ -34,14 +34,14 @@ public class PlayerDie : MonoBehaviour
     {
         if (col.transform.CompareTag("Bullet"))
         {
+            cd.enabled = false;
             playerDieParticle.Play();
             StartCoroutine(SarpDeath());
             GetComponentInChildren<SarpSwingsSword>().SarpDeath();
             animator.SetTrigger(parametreisDead);
             GameObject.Find("Legs").GetComponent<Bacak_Animation>().Anan(false);
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            cd.enabled = !cd.enabled;
-            pm.enabled = !pm.enabled;
+            pm.enabled = false;
             GetComponent<Combat>().enabled = false;
             GetComponentInChildren<KatanaFunction>().enabled = false;
             GameObject.FindGameObjectWithTag("Katana").SetActive(false);
