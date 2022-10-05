@@ -502,8 +502,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8627393641410106919, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 2985594622473152962}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+--- !u!198 &2985594622473152962 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7993080815016142251, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+  m_PrefabInstance: {fileID: 2985594622473152961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3316467496601281569
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,9 +12,6 @@ public class Combat : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem particle = null;
-    [SerializeField] ParticleSystem particle2 = null;
-    [SerializeField] ParticleSystem particle3 = null;
-    [SerializeField] ParticleSystem particle4 = null;
     [SerializeField] ParticleSystem bloodParticle1 = null;
     [SerializeField] ParticleSystem bloodParticle2 = null;
 
@@ -157,9 +154,6 @@ public class Combat : MonoBehaviour
     void ParticlePlay()
     {
         particle.Play();
-        particle2.Play();
-        particle3.Play();
-        particle4.Play();
     }
 
     void BloodParticlePlay()
