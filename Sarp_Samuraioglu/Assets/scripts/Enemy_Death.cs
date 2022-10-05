@@ -36,7 +36,7 @@ public class Enemy_Death : MonoBehaviour
 
         if (oneTimeExecutionDarkRedPrint)
         {
-            Collider2D[] bloodarea = Physics2D.OverlapCircleAll(blood_point.position, blood_area_radius);
+            Collider2D[] bloodarea = Physics2D.OverlapCircleAll(blood_point.position, blood_area_radius, playerLayer);
             foreach (Collider2D player in bloodarea)
             {
                 GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().oneTimeDarkRedPrint = true;
@@ -46,7 +46,7 @@ public class Enemy_Death : MonoBehaviour
 
         if (oneTimeExecutionLightRedPrint)
         {
-            Collider2D[] bloodarea2 = Physics2D.OverlapCircleAll(blood_point2.position, blood_area_radius2);
+            Collider2D[] bloodarea2 = Physics2D.OverlapCircleAll(blood_point2.position, blood_area_radius2, playerLayer);
             foreach (Collider2D player in bloodarea2)
             {
                 GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().oneTimeLightRedPrint = true;

@@ -353,7 +353,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836332955573654090}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   height: 2
   canMove: 1
   maxSpeed: 5
-  gravity: {x: 0, y: 0, z: 0}
+  gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 3208841839904605184}
   - component: {fileID: 5848981139781010106}
   - component: {fileID: 1349436013166404212}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnemyLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,6 +1100,10 @@ PrefabInstance:
     - target: {fileID: 4923035381801416232, guid: f8de34deec82a744eb0a92c6de213210, type: 3}
       propertyPath: m_Name
       value: EnemySoundRandomizer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923035381801416232, guid: f8de34deec82a744eb0a92c6de213210, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8de34deec82a744eb0a92c6de213210, type: 3}
