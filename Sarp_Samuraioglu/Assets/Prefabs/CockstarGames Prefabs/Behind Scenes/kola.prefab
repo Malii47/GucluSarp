@@ -102,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 4261642376854172424}
   speed: 25
-  bulletLight: {fileID: 0}
 --- !u!50 &8283254487549168977
 Rigidbody2D:
   serializedVersion: 4

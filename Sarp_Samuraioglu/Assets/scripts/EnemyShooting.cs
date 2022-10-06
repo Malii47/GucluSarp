@@ -12,9 +12,9 @@ public class EnemyShooting : MonoBehaviour
 
     float Timer;
 
-    void Update()
+    private void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
