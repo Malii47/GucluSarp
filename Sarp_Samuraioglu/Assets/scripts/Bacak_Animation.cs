@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bacak_Animation : MonoBehaviour
@@ -13,6 +14,7 @@ public class Bacak_Animation : MonoBehaviour
     public bool oneTimeDarkRedPrint;
     public bool PlayerWalking;
     public bool oneTimeLightRedPrint;
+
 
     public float bloodyStepCounter;
 
@@ -49,8 +51,17 @@ public class Bacak_Animation : MonoBehaviour
             if (bloodyStepCounter >= 5)
             {
                 bloodyStepCounter = 1;
-                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().oneTimeExecutionDarkRedPrint = true;
-                oneTimeDarkRedPrint = false;
+                //GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().oneTimeExecutionDarkRedPrint = true;
+                GameObject [] enemys = GameObject.FindGameObjectsWithTag("SwordEnemy");
+                foreach (GameObject enemy in enemys)
+                {
+                    if (enemy.GetComponent<Enemy_Death>().deadstun == true)
+                    {
+                        enemy.GetComponent<Enemy_Death>().oneTimeExecutionDarkRedPrint = true;
+                        oneTimeDarkRedPrint = false;
+                    }
+                        
+                }
             }
         }
         if (oneTimeLightRedPrint)
@@ -76,8 +87,16 @@ public class Bacak_Animation : MonoBehaviour
             if (bloodyStepCounter >= 5)
             {
                 bloodyStepCounter = 1;
-                GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().oneTimeExecutionLightRedPrint = true;
-                oneTimeLightRedPrint = false;
+                //GameObject.Find("Enemy_Sword").GetComponent<Enemy_Death>().oneTimeExecutionLightRedPrint = true;
+                GameObject[] enemys2 = GameObject.FindGameObjectsWithTag("SwordEnemy");
+                foreach (GameObject enemy2 in enemys2)
+                {
+                    if (enemy2.GetComponent<Enemy_Death>().deadnormal == true)
+                    {
+                        enemy2.GetComponent<Enemy_Death>().oneTimeExecutionLightRedPrint = true;
+                        oneTimeLightRedPrint = false;
+                    }
+                }
             }
         }
     }

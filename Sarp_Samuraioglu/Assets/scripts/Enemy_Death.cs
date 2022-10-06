@@ -19,6 +19,9 @@ public class Enemy_Death : MonoBehaviour
     public bool oneTimeExecutionDarkRedPrint;
     public bool oneTimeExecutionLightRedPrint;
 
+    public bool deadnormal = false;
+    public bool deadstun = false;
+
     int parametreattackBool = Animator.StringToHash("attackBool");
     int parametrewalkBool = Animator.StringToHash("walkBool");
     int parametredeathTrigger = Animator.StringToHash("deathTrigger");
@@ -77,6 +80,7 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
         oneTimeExecutionLightRedPrint = true;
+        deadnormal = true;
     }
     public void StunDeath()
     {
@@ -95,6 +99,7 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<EnemyLookDirSword>().enabled = false;
         Invoke("bagirsakpirt", 0.5f);
         oneTimeExecutionDarkRedPrint = true;
+        deadstun = true;
     }
 
     void bagirsakpirt()
