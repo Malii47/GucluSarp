@@ -12,7 +12,7 @@ public class kola : MonoBehaviour
     Rigidbody2D rb, playerrb;
     SpriteRenderer sp;
     BoxCollider2D cd;
-    public GameObject bulletLight;
+    //public GameObject bulletLight;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class kola : MonoBehaviour
         cd = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        bulletLight = GameObject.Find("BulletLight");
+        //bulletLight = GameObject.Find("BulletLight");
 
         target = GameObject.FindObjectOfType<PlayerMovement>();
 
@@ -59,7 +59,7 @@ public class kola : MonoBehaviour
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
             sp.enabled = false;
-            //cd.enabled = false;
+            cd.enabled = false;
             particle.Play();
             Invoke("Die", 1f);
         }

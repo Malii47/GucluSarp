@@ -1,11 +1,13 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGunDying : MonoBehaviour
 {
-    public float maxhealth = 30f;
+    public float maxhealth = 10f;
     public float CurrentHealt;
+    public Animator animator;
 
 
     void Start()
@@ -13,6 +15,7 @@ public class EnemyGunDying : MonoBehaviour
         CurrentHealt = maxhealth;
         GetComponent<EnemyShooting>().enabled = true;
         GetComponent<EnemyShooting>().kola.SetActive(true);
+        animator = GetComponent<Animator>();
     }
 
 
@@ -43,12 +46,15 @@ public class EnemyGunDying : MonoBehaviour
     //Temporary Die
     IEnumerator Die2()
     {
+        int parametredeath = Animator.StringToHash("Death");
+        animator.SetTrigger(parametredeath);
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
+        GetComponent<EnemyAI2>().enabled = false;
+        GetComponent<EnemyLookDir>().enabled = false;
+        GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyShooting>().enabled = false;
         GetComponent<EnemyShooting>().kola.SetActive(false);
         GetComponent<CapsuleCollider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(2.1f);
-        Destroy(gameObject);
     }
 }
