@@ -20,6 +20,8 @@ TagManager:
   - PlayerLight
   - DeflectLight
   - SwordEnemy
+  - Road
+  - Grass
   layers:
   - Default
   - TransparentFX
@@ -34,8 +36,8 @@ TagManager:
   - Sarp
   - GunEnemy
   - bagirsak
-  - 
-  - 
+  - Road
+  - Grass
   - 
   - 
   - 

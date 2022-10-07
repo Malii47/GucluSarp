@@ -535,6 +535,8 @@ MonoBehaviour:
     m_Bits: 1024
   oneTimeExecutionDarkRedPrint: 0
   oneTimeExecutionLightRedPrint: 0
+  deadnormal: 0
+  deadstun: 0
 --- !u!50 &4832940410238184370
 Rigidbody2D:
   serializedVersion: 4
@@ -922,6 +924,8 @@ GameObject:
   - component: {fileID: 7996650296372841163}
   - component: {fileID: 3210017690434614882}
   - component: {fileID: 2392220662811452411}
+  - component: {fileID: 1901988008}
+  - component: {fileID: 6881992698330969953}
   m_Layer: 0
   m_Name: Enemy_Bacak
   m_TagString: deneme
@@ -1016,6 +1020,128 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1901988008
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7812216679396532145}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 15
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.6166115
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.76156616
+      value: 0
+      inSlope: -2.5064218
+      outSlope: -2.5064218
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15016976
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6881992698330969953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7812216679396532145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d67a27a29f6d0d44aa92c7724e64b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  playerLayer2:
+    serializedVersion: 2
+    m_Bits: 64
+  roadPoint: {fileID: 0}
+  grassPoint: {fileID: 0}
+  size: {x: 39, y: 26}
+  sounds:
+  - {fileID: 8300000, guid: d85699489a80d5c4b8f5045a7d2bd07a, type: 3}
+  - {fileID: 8300000, guid: e853eb5e4e73bc94c8163a074ced90ac, type: 3}
+  - {fileID: 8300000, guid: 99e6c7d7e7c511f4cb93649b560d26f2, type: 3}
+  - {fileID: 8300000, guid: 5401d4473b917114880cad2769cd98bd, type: 3}
 --- !u!1 &9206354451709858483
 GameObject:
   m_ObjectHideFlags: 0
