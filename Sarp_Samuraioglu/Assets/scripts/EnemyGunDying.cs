@@ -8,6 +8,11 @@ public class EnemyGunDying : MonoBehaviour
     public float maxhealth = 10f;
     public float CurrentHealt;
     public Animator animator;
+    public LayerMask playerLayer;
+    public Transform bloodpoint_gun;
+    public float bloodarea_radius;
+    public bool oneTimeExecutionDarkRedPrint;
+
 
 
     void Start()
@@ -24,6 +29,16 @@ public class EnemyGunDying : MonoBehaviour
         Vector3 pos = transform.position;
         pos.z = 0;
         transform.position = pos;
+
+        if (oneTimeExecutionDarkRedPrint)
+        {
+            Collider2D[] bloodarea = Physics2D.OverlapCircleAll(bloodpoint_gun.position, bloodarea_radius, playerLayer);
+            foreach (Collider2D player in bloodarea)
+            {
+                GameObject.FindGameObjectWithTag("Bacak").GetComponent<Bacak_Animation>().oneTimeDarkRedPrint = true;
+                oneTimeExecutionDarkRedPrint = false;
+            }
+        }
     }
 
     public void TakeDamage(float damage)
@@ -52,9 +67,10 @@ public class EnemyGunDying : MonoBehaviour
         GetComponent<EnemyAI2>().enabled = false;
         GetComponent<EnemyLookDir>().enabled = false;
         GetComponent<AIDestinationSetter>().enabled = false;
+        GetComponent<EnemyShooting>().stopIEnumerator();
         GetComponent<EnemyShooting>().enabled = false;
-        GetComponent<EnemyShooting>().kola.SetActive(false);
         GetComponent<CapsuleCollider2D>().enabled = false;
+        oneTimeExecutionDarkRedPrint = true; 
         yield return new WaitForSeconds(2.1f);
     }
 }

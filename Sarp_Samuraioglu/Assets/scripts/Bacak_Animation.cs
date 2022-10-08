@@ -62,6 +62,13 @@ public class Bacak_Animation : MonoBehaviour
                     }
                         
                 }
+
+                GameObject[] gunenemys = GameObject.FindGameObjectsWithTag("GunEnemy");
+                foreach (GameObject gunenemy in gunenemys)
+                {
+                    gunenemy.GetComponent<EnemyGunDying>().oneTimeExecutionDarkRedPrint = true;
+                    oneTimeDarkRedPrint = false;   
+                }
             }
         }
         if (oneTimeLightRedPrint)

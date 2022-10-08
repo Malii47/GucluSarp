@@ -6,10 +6,15 @@ public class EnemyAI2 : MonoBehaviour
 {
     public float speed;
     public float retreatDistance;
+    public Animator legAnim;
+
+    int parametrelegWalk = Animator.StringToHash("legWalk");
 
     public Transform player;
+
     void Start()
     {
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -19,5 +24,15 @@ public class EnemyAI2 : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
+
+        if (Vector2.Distance(transform.position, player.position) > retreatDistance)
+        {
+            legAnim.SetBool(parametrelegWalk, false);
+        }
+        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        {
+            legAnim.SetBool(parametrelegWalk, true);
+        }
+
     }
 }

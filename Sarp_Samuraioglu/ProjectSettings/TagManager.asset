@@ -20,6 +20,7 @@ TagManager:
   - PlayerLight
   - DeflectLight
   - SwordEnemy
+  - GunEnemy
   layers:
   - Default
   - TransparentFX

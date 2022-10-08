@@ -46,4 +46,9 @@ public class EnemyShooting : MonoBehaviour
         muzzleFlash.SetActive(false);
     }
 
+    public void stopIEnumerator()
+    {
+        StopAllCoroutines();
+    }
+
 }

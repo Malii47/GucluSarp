@@ -58,12 +58,11 @@ public class kola : MonoBehaviour
     {
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
-            sp.enabled = false;
-            cd.enabled = false;
+            //sp.enabled = false;
+            //cd.enabled = false;
             particle.Play();
-            Invoke("Die", 1f);
+            Destroy(gameObject);
         }
-        else return;
-
+        //else return;
     }
 }
