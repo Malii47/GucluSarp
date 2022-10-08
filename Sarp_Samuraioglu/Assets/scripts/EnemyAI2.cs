@@ -6,6 +6,7 @@ public class EnemyAI2 : MonoBehaviour
 {
     public float speed;
     public float retreatDistance;
+    public float stoppingDistance;
     public Animator legAnim;
 
     int parametrelegWalk = Animator.StringToHash("legWalk");
@@ -14,25 +15,41 @@ public class EnemyAI2 : MonoBehaviour
 
     void Start()
     {
-
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
-
-        if (Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            legAnim.SetBool(parametrelegWalk, false);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             legAnim.SetBool(parametrelegWalk, true);
+            Debug.Log("cathing");
         }
+
+        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+        {
+            legAnim.SetBool(parametrelegWalk, false);
+            Debug.Log("stopping");
+        }
+
+        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            legAnim.SetBool(parametrelegWalk, true);
+            Debug.Log("retreat");
+        }
+
+        
+
+        /*if (Vector2.Distance(transform.position, player.position) > retreatDistance)
+        {
+            legAnim.SetBool(parametrelegWalk, true);
+        }*/
+
+        /*else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        {
+            legAnim.SetBool(parametrelegWalk, true);
+        }*/
 
     }
 }

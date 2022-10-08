@@ -8,6 +8,7 @@ public class EnemyGunDying : MonoBehaviour
     public float maxhealth = 10f;
     public float CurrentHealt;
     public Animator animator;
+    public GameObject gunEnemyLight;
     public LayerMask playerLayer;
     public Transform bloodpoint_gun;
     public float bloodarea_radius;
@@ -61,6 +62,7 @@ public class EnemyGunDying : MonoBehaviour
     //Temporary Die
     IEnumerator Die2()
     {
+        StartCoroutine(GunEnemyDeathLight());
         int parametredeath = Animator.StringToHash("Death");
         animator.SetTrigger(parametredeath);
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
@@ -72,5 +74,12 @@ public class EnemyGunDying : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
         oneTimeExecutionDarkRedPrint = true; 
         yield return new WaitForSeconds(2.1f);
+    }
+
+    IEnumerator GunEnemyDeathLight()
+    {
+        gunEnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.25f);
+        gunEnemyLight.SetActive(false);
     }
 }
