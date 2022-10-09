@@ -209,6 +209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1355688808, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2142944575, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: roadPoint
       value: 
@@ -628,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106918, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
