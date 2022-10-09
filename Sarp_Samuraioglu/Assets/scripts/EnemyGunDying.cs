@@ -8,11 +8,13 @@ public class EnemyGunDying : MonoBehaviour
     public float maxhealth = 10f;
     public float CurrentHealt;
     public Animator animator;
+    public Animator gunLegAnimator;
     public GameObject gunEnemyLight;
     public LayerMask playerLayer;
     public Transform bloodpoint_gun;
     public float bloodarea_radius;
     public bool oneTimeExecutionDarkRedPrint;
+    int parametrelegWalk = Animator.StringToHash("legWalk");
 
 
 
@@ -66,6 +68,7 @@ public class EnemyGunDying : MonoBehaviour
         int parametredeath = Animator.StringToHash("Death");
         animator.SetTrigger(parametredeath);
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
+        gunLegAnimator.SetBool(parametrelegWalk, false);
         GetComponent<EnemyAI2>().enabled = false;
         GetComponent<EnemyLookDir>().enabled = false;
         GetComponent<AIDestinationSetter>().enabled = false;

@@ -20,13 +20,8 @@ public class EnemyAI2 : MonoBehaviour
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-        {
-            legAnim.SetBool(parametrelegWalk, true);
-            Debug.Log("cathing");
-        }
 
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+        if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
         {
             legAnim.SetBool(parametrelegWalk, false);
             Debug.Log("stopping");
@@ -38,18 +33,9 @@ public class EnemyAI2 : MonoBehaviour
             legAnim.SetBool(parametrelegWalk, true);
             Debug.Log("retreat");
         }
-
-        
-
-        /*if (Vector2.Distance(transform.position, player.position) > retreatDistance)
+        else
         {
             legAnim.SetBool(parametrelegWalk, true);
-        }*/
-
-        /*else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            legAnim.SetBool(parametrelegWalk, true);
-        }*/
-
+        }
     }
 }
