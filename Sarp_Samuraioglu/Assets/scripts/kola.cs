@@ -13,6 +13,7 @@ public class kola : MonoBehaviour
     SpriteRenderer sp;
     BoxCollider2D cd;
     //public GameObject bulletLight;
+    bool a = false;
 
     void Start()
     {
@@ -32,37 +33,38 @@ public class kola : MonoBehaviour
 
         moveDirection = (target.transform.position - transform.position).normalized * speed;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-
-        desteroy();
+        Invoke("Die",5f);
+        a = true;
     }
 
-
-    void Update()
+    private void OnEnable()
     {
+        if (a)
+        {
+            Vector2 LookDir = PlayerPos - rb.position;
+            float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = angle;
 
+            moveDirection = (target.transform.position - transform.position).normalized * speed;
+            rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+            Invoke("Die", 5f);
+            Debug.Log("yarak");
+        }
         
-
-    }
-
-    private void desteroy()
-    {
-        Destroy(gameObject, 10f);
     }
 
     public void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
+
     
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
-            //sp.enabled = false;
-            //cd.enabled = false;
             particle.Play();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        //else return;
     }
 }

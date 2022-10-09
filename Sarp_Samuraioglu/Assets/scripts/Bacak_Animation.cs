@@ -36,13 +36,29 @@ public class Bacak_Animation : MonoBehaviour
                 {
                     if (bloodyStepCounter % 2 == 1)
                     {
-                        Instantiate(bloodyfootprint_r, bloodyfootprint_position.position, Quaternion.identity);
+
+                        GameObject foot_r = ObjectPool.SharedInstance.GetPooledFoot_r();
+                        if (foot_r != null)
+                        {
+                            foot_r.transform.position = bloodyfootprint_position.position;
+                            foot_r.transform.rotation = bloodyfootprint_position.rotation;
+                            foot_r.SetActive(true);
+                        }
+
                         StartCoroutine(bloodystep());
                         oneTimeDarkRedPrint = false;
                     }
                     else if (bloodyStepCounter % 2 == 0)
                     {
-                        Instantiate(bloodyfootprint_l, bloodyfootprint_position.position, Quaternion.identity);
+
+                        GameObject foot_l = ObjectPool.SharedInstance.GetPooledFoot_l();
+                        if (foot_l != null)
+                        {
+                            foot_l.transform.position = bloodyfootprint_position.position;
+                            foot_l.transform.rotation = bloodyfootprint_position.rotation;
+                            foot_l.SetActive(true);
+                        }
+
                         StartCoroutine(bloodystep());
                         oneTimeDarkRedPrint = false;
                     }

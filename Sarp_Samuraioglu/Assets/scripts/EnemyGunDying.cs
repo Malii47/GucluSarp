@@ -22,7 +22,7 @@ public class EnemyGunDying : MonoBehaviour
     {
         CurrentHealt = maxhealth;
         GetComponent<EnemyShooting>().enabled = true;
-        GetComponent<EnemyShooting>().kola.SetActive(true);
+        //GetComponent<EnemyShooting>().kola.SetActive(true);
         animator = GetComponent<Animator>();
     }
 
