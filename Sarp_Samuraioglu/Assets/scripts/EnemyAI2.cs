@@ -24,14 +24,12 @@ public class EnemyAI2 : MonoBehaviour
         if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
         {
             legAnim.SetBool(parametrelegWalk, false);
-            Debug.Log("stopping");
         }
 
         else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
             legAnim.SetBool(parametrelegWalk, true);
-            Debug.Log("retreat");
         }
         else
         {
