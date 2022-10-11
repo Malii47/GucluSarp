@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class kola : MonoBehaviour
 {
-    [SerializeField] ParticleSystem particle = null;
+    /*[SerializeField]*/public  ParticleSystem particle = null;
 
     public float speed = 7f;
     PlayerMovement target;
@@ -41,6 +41,10 @@ public class kola : MonoBehaviour
     {
         if (a)
         {
+
+            this.sp.enabled = true;
+            this.cd.enabled = true;
+
             Vector2 LookDir = PlayerPos - rb.position;
             float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg - 90f;
             rb.rotation = angle;
@@ -63,8 +67,15 @@ public class kola : MonoBehaviour
     {
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
+            Debug.Log("bum");
             particle.Play();
-            gameObject.SetActive(false);
+            this.sp.enabled = false;
+            this.cd.enabled = false;
+            Invoke("BackToPool", 1f);
         }
+    }
+    void BackToPool()
+    {
+        gameObject.SetActive(false);
     }
 }
