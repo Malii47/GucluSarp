@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355688807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -448,19 +448,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7257337751296684370}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &7257337751296684369
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -698,7 +698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_attackposition: {fileID: 7257337750918238073}
-  kola: {fileID: 2546825168724480915, guid: d53fb2ed23545894ea9ff974c0572b03, type: 3}
   animator: {fileID: 0}
   muzzleFlash: {fileID: 7257337751486347665}
   muzzleAnimator: {fileID: 7257337751486347670}

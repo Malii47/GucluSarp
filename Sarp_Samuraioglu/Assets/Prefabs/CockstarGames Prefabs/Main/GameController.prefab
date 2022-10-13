@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2118102624379003462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118102624379003480}
+  - component: {fileID: 2118102624379003463}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118102624379003480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118102624379003462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118102624379003463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118102624379003462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a53ee5a23e0d7458dbe6f65a72317f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledBullets: []
+  pooledFoot_r: []
+  pooledFoot_l: []
+  bloodyFootPrint_r: {fileID: 3276622774434617920, guid: 6aeb3278cc41f604fb92b586c223e4c2, type: 3}
+  bloodyFootPrint_l: {fileID: 7009644468926705628, guid: 87be6e69a46401446a08533b48e85a9a, type: 3}
+  bullets: {fileID: 2546825168724480915, guid: d53fb2ed23545894ea9ff974c0572b03, type: 3}
+  foot_rToPool: 5
+  foot_lToPool: 5
+  bulletsToPool: 10

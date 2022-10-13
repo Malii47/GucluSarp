@@ -18,6 +18,7 @@ public class Enemy_Death : MonoBehaviour
     float count;
     public bool oneTimeExecutionDarkRedPrint;
     public bool oneTimeExecutionLightRedPrint;
+    
 
     public bool deadnormal = false;
     public bool deadstun = false;
@@ -33,7 +34,7 @@ public class Enemy_Death : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
         count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().sarpAttackDirectionCounter;
 
@@ -77,6 +78,11 @@ public class Enemy_Death : MonoBehaviour
             anim.SetBool(parametreattackBool, false);
             anim.SetTrigger(parametredeathTrigger2);
         }
+
+        Vector3 pos = transform.position;
+        pos.z = 0.5f;
+        transform.position = pos;
+
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
         oneTimeExecutionLightRedPrint = true;

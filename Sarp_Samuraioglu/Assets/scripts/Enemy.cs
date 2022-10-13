@@ -13,14 +13,14 @@ public class Enemy : MonoBehaviour
         CurrentHealt = maxhealth;
     }
 
-   
+   /*
     void Update()
     {
-        /*Vector3 pos = transform.position;
+        Vector3 pos = transform.position;
         pos.z = 0;
-        transform.position = pos;*/
+        transform.position = pos;
     }
-
+   */
     public void TakeDamage(float damage)
     {
         CurrentHealt = CurrentHealt - damage;

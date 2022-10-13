@@ -12,15 +12,9 @@ public class SarpSwingsSword : MonoBehaviour
 
     }
 
-    public void CallIEnumerator()
-    {
-        StartCoroutine(SarpSwordSwinging());
-    }
-
-    public IEnumerator SarpSwordSwinging()
+    public void SarpSwordSwinging()
     {
         source.clip = sounds[Random.Range(0, 1)];
-        yield return new WaitForSeconds(.2f);
         source.PlayOneShot(source.clip);
     }
 

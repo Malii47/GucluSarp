@@ -61,9 +61,10 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                GetComponentInChildren<SarpSwingsSword>().CallIEnumerator();
+                //GetComponentInChildren<SarpSwingsSword>().SarpSwordSwinging();
                 sarpAttackDirectionCounter++;
-                Invoke("Attack", .3f);
+                //Invoke("Attack", .3f);
+                StartCoroutine(Attack());
                 nextAttackTime = Time.time + 1f / attackRate;
                 if (sarpAttackDirectionCounter % 2 == 0)
                 {
@@ -82,7 +83,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
+                //GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
                 sarpAttackDirectionCounter++;
                 Deflect();
                 nextDeflectTime = Time.time + 1f / deflectRate;
@@ -101,9 +102,9 @@ public class Combat : MonoBehaviour
         }
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
-
+        yield return new WaitForSeconds(.3f);
         Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
 
         foreach (Collider2D enemy in hitswordenemy)
@@ -122,6 +123,11 @@ public class Combat : MonoBehaviour
             BloodParticlePlay();
         }
 
+    }
+
+    public void AttackSoundCaller()
+    {
+        GetComponentInChildren<SarpSwingsSword>().SarpSwordSwinging();
     }
 
     void Deflect()
