@@ -52,7 +52,6 @@ public class kola : MonoBehaviour
             moveDirection = (target.transform.position - transform.position).normalized * speed;
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
             Invoke("Die", 5f);
-            Debug.Log("yarak");
         }
         
     }

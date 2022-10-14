@@ -53,5 +53,4 @@ public class EnemyShooting : MonoBehaviour
     {
         StopAllCoroutines();
     }
-
 }

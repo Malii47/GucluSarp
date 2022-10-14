@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684374, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_Mass
@@ -308,6 +308,10 @@ PrefabInstance:
     - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_Name
       value: Enemy_Sword (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
@@ -385,6 +389,10 @@ PrefabInstance:
     - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_RootOrder
@@ -597,6 +605,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: foot_lToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: foot_rToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: lightfoot_lToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: lightfoot_rToPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: bloodyLightFootPrint_l
+      value: 
+      objectReference: {fileID: 7009644468926705628, guid: f624a037be05feb44b772b6c38467a4b, type: 3}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: bloodyLightFootPrint_r
+      value: 
+      objectReference: {fileID: 3276622774434617920, guid: 79878e12f904c414a9b4c4db06f65030, type: 3}
     - target: {fileID: 2118102624379003480, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -777,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106921, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
