@@ -80,7 +80,7 @@ public class Enemy_Death : MonoBehaviour
         }
 
         Vector3 pos = transform.position;
-        pos.z = 0.5f;
+        pos.z = 0.9f;
         transform.position = pos;
 
         GetComponent<AIDestinationSetter>().enabled = false;

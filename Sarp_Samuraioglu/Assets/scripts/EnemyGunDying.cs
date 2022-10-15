@@ -96,7 +96,7 @@ public class EnemyGunDying : MonoBehaviour
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
 
         Vector3 pos = transform.position;
-        pos.z = 0.5f;
+        pos.z = 0.9f;
         transform.position = pos;
 
         gunLegAnimator.SetBool(parametrelegWalk, false);

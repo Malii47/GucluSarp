@@ -43,6 +43,7 @@ public class kola : MonoBehaviour
 
             this.sp.enabled = true;
             this.cd.enabled = true;
+            bulletLight.SetActive(true);
 
             Vector2 LookDir = PlayerPos - rb.position;
             float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg - 90f;

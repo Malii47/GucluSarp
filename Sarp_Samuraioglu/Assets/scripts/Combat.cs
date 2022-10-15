@@ -83,7 +83,7 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                //GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
+                GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
                 sarpAttackDirectionCounter++;
                 Deflect();
                 nextDeflectTime = Time.time + 1f / deflectRate;
