@@ -37,7 +37,6 @@ public class Enemy_Death : MonoBehaviour
     void Update()
     {
         count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().sarpAttackDirectionCounter;
-
         if (oneTimeExecutionDarkRedPrint)
         {
             Collider2D[] bloodarea = Physics2D.OverlapCircleAll(blood_point.position, blood_area_radius, playerLayer);
@@ -85,6 +84,7 @@ public class Enemy_Death : MonoBehaviour
 
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
+        Invoke("bagirsakpirthead", 0.5f);
         oneTimeExecutionLightRedPrint = true;
         deadnormal = true;
     }
@@ -112,6 +112,11 @@ public class Enemy_Death : MonoBehaviour
     {
         GetComponentInChildren<BagirsakPirt>().bowelBool = true;
         GetComponentInChildren<BagirsakPirt>().pantBool = true;
+    }
+
+    void bagirsakpirthead()
+    {
+        GetComponentInChildren<BagirsakPirt>().headBool = true;
     }
 
     private void OnDrawGizmos()
