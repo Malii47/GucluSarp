@@ -106,9 +106,13 @@ public class EnemyGunDying : MonoBehaviour
         GetComponent<EnemyShooting>().stopIEnumerator();
         GetComponent<EnemyShooting>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
-        oneTimeExecutionDarkRedPrint = true;
+        Invoke("bloodprintdelayer", 1f);
     }
 
+    private void bloodprintdelayer()
+    {
+        oneTimeExecutionDarkRedPrint = true;
+    }
     IEnumerator GunEnemyDeathLight()
     {
         gunEnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
