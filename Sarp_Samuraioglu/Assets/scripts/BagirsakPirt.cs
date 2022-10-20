@@ -81,8 +81,8 @@ public class BagirsakPirt : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawCube(point_pant.position, boyut_pant);
-        //Gizmos.DrawCube(point_bowel.position, boyut_bowel);
+        Gizmos.DrawCube(point_pant.position, boyut_pant);
+        Gizmos.DrawCube(point_bowel.position, boyut_bowel);
         Gizmos.DrawCube(point_head.position, boyut_head);
     }
 }

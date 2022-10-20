@@ -121,8 +121,8 @@ public class Enemy_Death : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(blood_point.position, blood_area_radius);
-        Gizmos.DrawSphere(blood_point2.position, blood_area_radius2);
+        //Gizmos.DrawSphere(blood_point.position, blood_area_radius);
+        //Gizmos.DrawSphere(blood_point2.position, blood_area_radius2);
     }
     
     IEnumerator EnemyDeathLight()
