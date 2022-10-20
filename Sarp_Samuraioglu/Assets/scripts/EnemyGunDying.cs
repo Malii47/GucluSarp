@@ -96,7 +96,7 @@ public class EnemyGunDying : MonoBehaviour
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
 
         Vector3 pos = transform.position;
-        pos.z = 0.9f;
+        pos.z = GameObject.Find("GameController").GetComponent<DeathPosition>().PositionStacker();
         transform.position = pos;
 
         gunLegAnimator.SetBool(parametrelegWalk, false);
