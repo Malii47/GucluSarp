@@ -40,7 +40,8 @@ public class kola : MonoBehaviour
     {
         if (a)
         {
-
+        
+            PlayerPos = playerrb.position;
             this.sp.enabled = true;
             this.cd.enabled = true;
             bulletLight.SetActive(true);
@@ -53,7 +54,6 @@ public class kola : MonoBehaviour
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
             Invoke("Die", 5f);
         }
-        
     }
 
     public void Die()
@@ -67,7 +67,6 @@ public class kola : MonoBehaviour
     {
         if (col.transform.CompareTag("Player") || col.transform.CompareTag("Obstacle"))
         {
-            Debug.Log("bum");
             particle.Play();
             this.sp.enabled = false;
             this.cd.enabled = false;

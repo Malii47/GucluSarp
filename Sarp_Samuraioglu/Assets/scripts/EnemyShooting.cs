@@ -42,7 +42,6 @@ public class EnemyShooting : MonoBehaviour
             bullet.transform.rotation = enemy_attackposition.rotation;
             bullet.SetActive(true);
         }
-
         muzzleFlash.SetActive(true);
         muzzleAnimator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);
