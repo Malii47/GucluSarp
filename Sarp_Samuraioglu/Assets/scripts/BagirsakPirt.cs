@@ -6,23 +6,29 @@ using UnityEngine;
 public class BagirsakPirt : MonoBehaviour
 {
     Animator anim;
-
+    public Animator animA;
     public Transform point_pant;
     public Transform point_bowel;
-    public bool pantBool, bowelBool;
+    public Transform point_head;
+    public bool pantBool, bowelBool, headBool;
     public Vector2 boyut_pant;
     public Vector2 boyut_bowel;
+    public Vector2 boyut_head;
     public LayerMask playerLayer;
     public GameObject mash;
+    float count;
+
     void Start()
     {
         anim = GetComponent<Animator>();
         pantBool = false;
         bowelBool = false;
+        headBool = false;
     }
 
     void Update()
     {
+        count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().sarpAttackDirectionCounter;
 
         if (pantBool)
         {
@@ -34,7 +40,7 @@ public class BagirsakPirt : MonoBehaviour
                 int parametrepant = Animator.StringToHash("pant");
                 anim.SetTrigger(parametrepant);
                 GetComponent<BagirsakPirt>().enabled = false;
-                
+                animA.SetTrigger("empty");
             }
         }
         if (bowelBool)
@@ -47,14 +53,36 @@ public class BagirsakPirt : MonoBehaviour
                 int parametrebowel = Animator.StringToHash("bowel");
                 anim.SetTrigger(parametrebowel);
                 GetComponent<BagirsakPirt>().enabled = false;
-                
+                animA.SetTrigger("empty");
+            }
+        }
+        if (headBool)
+        {
+            Collider2D[] playerstep3 = Physics2D.OverlapBoxAll(point_head.position, boyut_head, 0f, playerLayer);
+            foreach (Collider2D sarpingen3 in playerstep3)
+            {
+                mash.GetComponent<EnemyDeathSoundRandomizer>().SarpMashesEnemy();
+                int parametrehead = Animator.StringToHash("head");
+                int parametrehead2 = Animator.StringToHash("head2"); 
+                if (count % 2 == 1)
+                {
+                    anim.SetTrigger(parametrehead2);
+                }
+                else if (count % 2 == 0)
+                {
+                    anim.SetTrigger(parametrehead);
+                }
+                GetComponent<BagirsakPirt>().enabled = false;
+
+                animA.SetTrigger("empty");
             }
         }
     }
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawCube(point_pant.position, boyut_pant);
-        //Gizmos.DrawCube(point_bowel.position, boyut_bowel);
+        Gizmos.DrawCube(point_pant.position, boyut_pant);
+        Gizmos.DrawCube(point_bowel.position, boyut_bowel);
+        Gizmos.DrawCube(point_head.position, boyut_head);
     }
 }

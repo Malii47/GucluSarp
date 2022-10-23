@@ -37,7 +37,6 @@ public class Enemy_Death : MonoBehaviour
     void Update()
     {
         count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().sarpAttackDirectionCounter;
-
         if (oneTimeExecutionDarkRedPrint)
         {
             Collider2D[] bloodarea = Physics2D.OverlapCircleAll(blood_point.position, blood_area_radius, playerLayer);
@@ -78,13 +77,10 @@ public class Enemy_Death : MonoBehaviour
             anim.SetBool(parametreattackBool, false);
             anim.SetTrigger(parametredeathTrigger2);
         }
-
-        Vector3 pos = transform.position;
-        pos.z = 0.9f;
-        transform.position = pos;
-
+        DeathPosition();
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
+        Invoke("bagirsakpirthead", 0.5f);
         oneTimeExecutionLightRedPrint = true;
         deadnormal = true;
     }
@@ -101,6 +97,7 @@ public class Enemy_Death : MonoBehaviour
         anim.SetBool(parametrewalkBool, false);
         anim.SetBool(parametreattackBool, false);
         anim.SetTrigger(parametrestundeathTrigger);
+        DeathPosition();
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
         Invoke("bagirsakpirt", 0.5f);
@@ -108,16 +105,27 @@ public class Enemy_Death : MonoBehaviour
         deadstun = true;
     }
 
+    void DeathPosition()
+    {
+        Vector3 pos = transform.position;
+        pos.z = GameObject.Find("GameController").GetComponent<DeathPosition>().PositionStacker();
+        transform.position = pos;
+    }
     void bagirsakpirt()
     {
         GetComponentInChildren<BagirsakPirt>().bowelBool = true;
         GetComponentInChildren<BagirsakPirt>().pantBool = true;
     }
 
+    void bagirsakpirthead()
+    {
+        GetComponentInChildren<BagirsakPirt>().headBool = true;
+    }
+
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(blood_point.position, blood_area_radius);
-        Gizmos.DrawSphere(blood_point2.position, blood_area_radius2);
+        //Gizmos.DrawSphere(blood_point.position, blood_area_radius);
+        //Gizmos.DrawSphere(blood_point2.position, blood_area_radius2);
     }
     
     IEnumerator EnemyDeathLight()
