@@ -10,6 +10,9 @@ public class EnemyShooting : MonoBehaviour
     public GameObject muzzleFlash;
     public Animator muzzleAnimator;
 
+    int gunTrigger = Animator.StringToHash("Gun");
+    int fadeInTrigger = Animator.StringToHash("FadeIn");
+
     float Timer;
 
     private void Start()
@@ -23,7 +26,8 @@ public class EnemyShooting : MonoBehaviour
 
         if (Timer % 3 == 1)
         {
-            animator.SetTrigger("Gun");
+            //animator.SetTrigger("Gun");
+            animator.SetTrigger(gunTrigger);
             StartCoroutine(MuzzleFlash());
         }
 
@@ -44,7 +48,8 @@ public class EnemyShooting : MonoBehaviour
         }
 
         muzzleFlash.SetActive(true);
-        muzzleAnimator.SetTrigger("FadeIn");
+        //muzzleAnimator.SetTrigger("FadeIn");
+        muzzleAnimator.SetTrigger(fadeInTrigger);
         yield return new WaitForSeconds(1f);
         muzzleFlash.SetActive(false);
     }
