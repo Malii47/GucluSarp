@@ -38,6 +38,7 @@ public class Combat : MonoBehaviour
     public LayerMask GunenemyLayer;
     public LayerMask BulletLayer;
     public LayerMask SwordLayer;
+    public LayerMask BossSwordLayer;
 
     public Vector2 boyut;
 
@@ -153,6 +154,18 @@ public class Combat : MonoBehaviour
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
             StartCoroutine("CamZoom");
+            StartCoroutine(DeflectLight());
+        }
+
+        Collider2D[] deflectbossSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BossSwordLayer);
+
+        foreach (Collider2D bosssword in deflectbossSword)
+        {
+            bosssword.GetComponentInParent<Boss_Shooting>().deflected = true;
+            //camZoom = true;
+            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+            ParticlePlay();
+            //StartCoroutine("CamZoom");
             StartCoroutine(DeflectLight());
         }
     }

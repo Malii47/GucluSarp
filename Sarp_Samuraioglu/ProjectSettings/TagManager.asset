@@ -23,6 +23,7 @@ TagManager:
   - GunEnemy
   - Road
   - Grass
+  - BossSword
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - bagirsak
   - Road
   - Grass
-  - 
+  - BossSword
   - 
   - 
   - 

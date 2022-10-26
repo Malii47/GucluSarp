@@ -117,7 +117,7 @@ public class SwordEnemyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(attackPoint.position, attackRadius);
+        //Gizmos.DrawSphere(attackPoint.position, attackRadius);
     }
     
 }
