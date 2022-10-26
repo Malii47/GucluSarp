@@ -16,14 +16,6 @@ public class EnemyLookDir : MonoBehaviour
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
-    
-    void Update()
-    {
-        
-
-        
-    }
-
     void FixedUpdate()
     {
         PlayerPosition = playerrb.position;
