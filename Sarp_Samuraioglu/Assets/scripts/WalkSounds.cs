@@ -11,10 +11,23 @@ public class WalkSounds : MonoBehaviour
     public Vector2 size;
     public AudioClip[] sounds;
     private AudioSource source;
+    public GameObject PauseMenu;
 
     void Start()
     {
         source = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if (PauseMenu.GetComponent<PauseMenu>().gameIsPaused == false)
+        {
+            source.Play();
+        }
+        else
+        {
+            source.Pause();
+        }
     }
 
     public void Step1()

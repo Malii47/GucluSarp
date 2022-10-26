@@ -5,11 +5,23 @@ using UnityEngine;
 public class EnemyDeathSoundRandomizer : MonoBehaviour
 {
     public AudioClip[] sounds;
+    public GameObject PauseMenu;
     private AudioSource source;
     void Start()
     {
         source = GetComponent<AudioSource>();
-        
+    }
+
+    void Update()
+    {
+        if (PauseMenu.GetComponent<PauseMenu>().gameIsPaused == false)
+        {
+            source.Play();
+        }
+        else
+        {
+            source.Pause();
+        }
     }
 
     public void SarpKillsEnemy()

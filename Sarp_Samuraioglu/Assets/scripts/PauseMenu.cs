@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
+    public bool gameIsPaused = false;
     public bool pauseMenu = false;
     public bool deactive = false;
     public GameObject pauseMenuUI;
     public Animator animator;
+    //public AudioSource SarpSoundRandomizer;
+    //public AudioSource EnemySoundRandomizer;
+    //public AudioSource WalkSounds;
 
     private int mainMenu;
     GameObject a;
@@ -57,9 +60,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenu = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().enabled = true;
         GameObject.FindGameObjectWithTag("Katana").GetComponent<KatanaFunction>().enabled = true;
+        //SarpSoundRandomizer.Play();
+        //EnemySoundRandomizer.Play();
+        //WalkSounds.Play();
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -67,6 +73,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenu = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().enabled = false;
         GameObject.FindGameObjectWithTag("Katana").GetComponent<KatanaFunction>().enabled = false;
+        //SarpSoundRandomizer.Pause();
+        //EnemySoundRandomizer.Pause();
+        //WalkSounds.Pause();
     }
 
     public void Exit()
