@@ -16,6 +16,8 @@ public class SwitchTogglePaused : MonoBehaviour
 
     Vector2 handlePosition;
 
+    GameObject SaveToggle;
+
     public float rate;
 
     void Start()
@@ -30,18 +32,51 @@ public class SwitchTogglePaused : MonoBehaviour
         toggle.onValueChanged.AddListener(OnSwitch);
 
         if (toggle.isOn == true)
+        {
             OnSwitch(true);
+        }
     }
 
     void OnSwitch(bool on)
     {
+        //uiHandleReactTransform.anchoredPosition = on ? handlePosition : handlePosition * -1;
 
-        uiHandleReactTransform.anchoredPosition = on ? handlePosition : handlePosition * -1;
-        //uiHandleReactTransform.DOAnchorPos(on ? handlePosition : handlePosition * -1, .4f).SetEase(Ease.InOutBack);
-        backgroundImage.color = on ? backgroundDefaultColor : backgroundDeactiveColor;
-        //backgroundImage.DOColor(on ? backgroundDefaultColor : backgroundDeactiveColor, .6f);
-        handleImage.color = on ? handleDefaultColor : handleDeactiveColor; 
-        //handleImage.DOColor(on ? handleDefaultColor : handleDeactiveColor, .4f);
+        if (on)
+        {
+            uiHandleReactTransform.anchoredPosition = handlePosition;
+
+        }
+        else
+        {
+            uiHandleReactTransform.anchoredPosition = handlePosition * -1;
+        }
+
+        //backgroundImage.color = on ? backgroundDefaultColor : backgroundDeactiveColor;
+
+        if (on)
+        {
+            backgroundImage.color = backgroundDefaultColor;
+
+
+        }
+        else
+        {
+            backgroundImage.color = backgroundDeactiveColor;
+
+        }
+
+        //handleImage.color = on ? handleDefaultColor : handleDeactiveColor; 
+
+        if (on)
+        {
+            handleImage.color = handleDefaultColor;
+
+        }
+        else
+        {
+            handleImage.color = handleDeactiveColor;
+
+        }
     }
 
     void OnDestroy()
