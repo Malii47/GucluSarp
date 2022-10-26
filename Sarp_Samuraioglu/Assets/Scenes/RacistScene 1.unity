@@ -1261,6 +1261,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 212216663570240227, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 212216663570240227, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 212216663570240227, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212216663570240227, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4550871773538734203, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
       propertyPath: m_Name
       value: Canvas(InGame)
@@ -1348,6 +1364,22 @@ PrefabInstance:
     - target: {fileID: 4550871773538734207, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550871773593694436, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5687252577610204092}
+    - target: {fileID: 4550871773593694436, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550871773914673569, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5687252577610204092}
+    - target: {fileID: 4550871773914673569, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 738dd847d6f7ec84fb2d2d6f4b16bcd1, type: 3}
@@ -1474,6 +1506,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6569072585156811267, guid: 18b9b783723096a42865b1984f6a6385, type: 3}
   m_PrefabInstance: {fileID: 5687252577610204090}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5687252577610204092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8628658515279654021, guid: 18b9b783723096a42865b1984f6a6385, type: 3}
+  m_PrefabInstance: {fileID: 5687252577610204090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687252577610204091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1febb4f2ac7f44ba5a5c8f3914ed15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6438175127085579795
 PrefabInstance:
   m_ObjectHideFlags: 0
