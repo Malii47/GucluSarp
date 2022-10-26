@@ -47,7 +47,7 @@ public class PlayerDie : MonoBehaviour
             GameObject.FindGameObjectWithTag("Katana").SetActive(false);
             GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
             GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().enabled = false;
-            GameObject.Find("Canvas").GetComponent<PauseMenu>().deactive = true;
+            GameObject.Find("PauseMenuManager").GetComponent<PauseMenu>().deactive = true;
             Invoke("SarpDie", 1f);
 
         }
@@ -66,7 +66,7 @@ public class PlayerDie : MonoBehaviour
         GetComponentInChildren<KatanaFunction>().enabled = false;
         GameObject.FindGameObjectWithTag("Katana").SetActive(false);
         GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChanger>().FadeToNextLevel();
-        GameObject.Find("Canvas").GetComponent<PauseMenu>().deactive = true;
+        GameObject.Find("PauseMenuManager").GetComponent<PauseMenu>().deactive = true;
         Invoke("SarpDie", 1f);
     }
 

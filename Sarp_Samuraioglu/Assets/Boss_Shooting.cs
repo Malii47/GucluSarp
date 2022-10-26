@@ -40,7 +40,7 @@ public class Boss_Shooting : MonoBehaviour
 
         moveSpeed = GetComponent<AIPath>().maxSpeed;
 
-        if (Random.value > 0.25) StartCoroutine(Shoot(2));
+        if (Random.value > 0.01) StartCoroutine(Shoot(0f));
         else startBool = true;
     }
 
@@ -51,8 +51,8 @@ public class Boss_Shooting : MonoBehaviour
             if (Vector2.Distance(transform.position, player.transform.position) > attackDist)
             {
                 float a = Random.value;
-                if (a >= 0.50) StartCoroutine(Shoot(0.4f));
-                if (a < 0.50) StartCoroutine(Dash());
+                if (a >= 0.15) StartCoroutine(Shoot(0.1f));
+                if (a < 0.15) StartCoroutine(Dash());
                 startBool = false;
             }
         }
@@ -65,8 +65,6 @@ public class Boss_Shooting : MonoBehaviour
                 b = false;
             }
         }
-        
-        
 
         if (dashLander)
         {
