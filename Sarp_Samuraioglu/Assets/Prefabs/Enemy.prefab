@@ -229,6 +229,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e853eb5e4e73bc94c8163a074ced90ac, type: 3}
   - {fileID: 8300000, guid: 99e6c7d7e7c511f4cb93649b560d26f2, type: 3}
   - {fileID: 8300000, guid: 5401d4473b917114880cad2769cd98bd, type: 3}
+  PauseMenu: {fileID: 0}
 --- !u!1 &2107965903
 GameObject:
   m_ObjectHideFlags: 0

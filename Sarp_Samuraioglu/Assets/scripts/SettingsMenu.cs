@@ -65,7 +65,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetAudio(float audio)
     {
         audioVolumeValue = audio;
-        audioMixer.SetFloat("audio", Mathf.Log10(audio) * 20);
+        audioMixer.SetFloat("audio", audio);
     }
 
     public void OnButtonPress()

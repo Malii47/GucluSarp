@@ -5477,6 +5477,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e853eb5e4e73bc94c8163a074ced90ac, type: 3}
   - {fileID: 8300000, guid: 99e6c7d7e7c511f4cb93649b560d26f2, type: 3}
   - {fileID: 8300000, guid: 5401d4473b917114880cad2769cd98bd, type: 3}
+  PauseMenu: {fileID: 0}
 --- !u!1 &2985594623285838234
 GameObject:
   m_ObjectHideFlags: 0
@@ -15713,6 +15714,9 @@ MonoBehaviour:
   SwordLayer:
     serializedVersion: 2
     m_Bits: 512
+  BossSwordLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   boyut: {x: 2.8, y: 2.8}
 --- !u!1 &2985594624010153275
 GameObject:

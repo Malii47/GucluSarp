@@ -5,11 +5,12 @@ using UnityEngine;
 public class SarpSwingsSword : MonoBehaviour
 {
     public AudioClip[] sounds;
-    public AudioSource source;
+    private AudioSource source;
     public GameObject PauseMenu;
     void Start()
     {
-        //source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
+
     }
 
     void Update()

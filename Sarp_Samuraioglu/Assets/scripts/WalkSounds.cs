@@ -20,13 +20,16 @@ public class WalkSounds : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.GetComponent<PauseMenu>().gameIsPaused == false)
+        void Update()
         {
-            source.Play();
-        }
-        else
-        {
-            source.Pause();
+            if (PauseMenu.GetComponent<PauseMenu>().gameIsPaused == false)
+            {
+                source.Play();
+            }
+            else
+            {
+                source.Pause();
+            }
         }
     }
 

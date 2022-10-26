@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyDeathSoundRandomizer : MonoBehaviour
 {
     public AudioClip[] sounds;
-    public GameObject PauseMenu;
     private AudioSource source;
+    public GameObject PauseMenu;
     void Start()
     {
         source = GetComponent<AudioSource>();
+        
     }
 
     void Update()
