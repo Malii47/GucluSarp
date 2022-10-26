@@ -17,6 +17,8 @@ public class BagirsakPirt : MonoBehaviour
     public LayerMask playerLayer;
     public GameObject mash;
     float count;
+    public float count2;
+    bool a = true;
 
     void Start()
     {
@@ -58,17 +60,23 @@ public class BagirsakPirt : MonoBehaviour
         }
         if (headBool)
         {
+            if (a)
+            {
+                count2 = count;
+                a = false;
+            }
             Collider2D[] playerstep3 = Physics2D.OverlapBoxAll(point_head.position, boyut_head, 0f, playerLayer);
             foreach (Collider2D sarpingen3 in playerstep3)
             {
+                
                 mash.GetComponent<EnemyDeathSoundRandomizer>().SarpMashesEnemy();
                 int parametrehead = Animator.StringToHash("head");
                 int parametrehead2 = Animator.StringToHash("head2"); 
-                if (count % 2 == 1)
+                if (count2 % 2 == 1)
                 {
                     anim.SetTrigger(parametrehead2);
                 }
-                else if (count % 2 == 0)
+                else if (count2 % 2 == 0)
                 {
                     anim.SetTrigger(parametrehead);
                 }
