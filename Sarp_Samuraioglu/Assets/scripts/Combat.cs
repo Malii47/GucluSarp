@@ -36,6 +36,7 @@ public class Combat : MonoBehaviour
 
     public LayerMask SwordenemyLayer;
     public LayerMask GunenemyLayer;
+    public LayerMask BossLayer;
     public LayerMask BulletLayer;
     public LayerMask SwordLayer;
     public LayerMask BossSwordLayer;
@@ -106,6 +107,7 @@ public class Combat : MonoBehaviour
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(.3f);
+
         Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
 
         foreach (Collider2D enemy in hitswordenemy)
@@ -120,6 +122,15 @@ public class Combat : MonoBehaviour
         foreach (Collider2D enemy in hitgunenemy)
         {
             enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
+            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            BloodParticlePlay();
+        }
+
+        Collider2D[] hitboss = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, BossLayer);
+
+        foreach (Collider2D boss in hitboss)
+        {
+            boss.GetComponent<Boss_Shooting>().BossHealth(damage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
             BloodParticlePlay();
         }
@@ -161,6 +172,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D bosssword in deflectbossSword)
         {
+            bosssword.GetComponentInParent<Boss_Shooting>().BossHealth(damage);
             bosssword.GetComponentInParent<Boss_Shooting>().deflected = true;
             //camZoom = true;
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);

@@ -13,6 +13,7 @@ public class Boss_Shooting : MonoBehaviour
     public Transform player;
     public Transform playerTracker;
     public Transform attackPoint;
+    public Transform dashattackPoint;
     public BoxCollider2D cd;
 
     public LayerMask playerLayer;
@@ -29,7 +30,10 @@ public class Boss_Shooting : MonoBehaviour
     public float dashSpeed;
     public float attackDist;
     public float attackRadius;
-    public float landDist;
+    public float dashattackRadius;
+    public float landDist; 
+    public float maxhealth;
+    public float CurrentHealt;
 
     void Start()
     {
@@ -37,10 +41,11 @@ public class Boss_Shooting : MonoBehaviour
         playerrb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         b = true;
         deflected = false;
+        CurrentHealt = maxhealth;
 
         moveSpeed = GetComponent<AIPath>().maxSpeed;
 
-        if (Random.value > 0.01) StartCoroutine(Shoot(0f));
+        if (Random.value > 0.10) StartCoroutine(Shoot(0,0.4f));
         else startBool = true;
     }
 
@@ -51,7 +56,7 @@ public class Boss_Shooting : MonoBehaviour
             if (Vector2.Distance(transform.position, player.transform.position) > attackDist)
             {
                 float a = Random.value;
-                if (a >= 0.15) StartCoroutine(Shoot(0.1f));
+                if (a >= 0.15) StartCoroutine(Shoot(0.1f,0.5f));
                 if (a < 0.15) StartCoroutine(Dash());
                 startBool = false;
             }
@@ -73,17 +78,13 @@ public class Boss_Shooting : MonoBehaviour
                 GetComponent<AIPath>().maxSpeed = moveSpeed;
                 GetComponent<AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Player").transform;
 
-                Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
+                Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(dashattackPoint.position, dashattackRadius, playerLayer);
                 foreach (Collider2D player in hitPlayer)
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDie>().DeathbySwordEnemy();
                 }
 
                 dashing = false;
-                if (Vector2.Distance(transform.position, player.position) > attackDist)
-                {
-                    StartCoroutine(Shoot(0));
-                }
                 dashLander = false;
             }
         }
@@ -108,6 +109,19 @@ public class Boss_Shooting : MonoBehaviour
         }
     }
 
+    public void BossHealth(float damage)
+    {
+        CurrentHealt = CurrentHealt - damage;
+
+        if (CurrentHealt <= 0)
+        {
+            Destroy(gameObject);
+        }
+        //if (CurrentHealt == 15)
+        //{
+        //    GetComponent<Enemy_Death>().StunDeath();
+        //}
+    }
     IEnumerator Dash()
     {
         //Debug.Log("Dashing");
@@ -127,10 +141,10 @@ public class Boss_Shooting : MonoBehaviour
         startBool = true;
     }
 
-    IEnumerator Shoot(float time)
+    IEnumerator Shoot(float entrytime, float exittime)
     {
         //Debug.Log("Shooting");
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(entrytime);
 
         GameObject bullet2 = ObjectPool.SharedInstance.GetPooledBullets();
         if (bullet2 != null)
@@ -140,7 +154,7 @@ public class Boss_Shooting : MonoBehaviour
             bullet2.SetActive(true);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(exittime);
 
         startBool = true;
     }
@@ -177,6 +191,7 @@ public class Boss_Shooting : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawSphere(attackPoint.position, attackRadius);
+        Gizmos.DrawSphere(attackPoint.position, attackRadius);
+        Gizmos.DrawSphere(dashattackPoint.position, dashattackRadius);
     }
 }

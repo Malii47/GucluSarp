@@ -24,6 +24,7 @@ TagManager:
   - Road
   - Grass
   - BossSword
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -41,7 +42,7 @@ TagManager:
   - Road
   - Grass
   - BossSword
-  - 
+  - Boss
   - 
   - 
   - 
