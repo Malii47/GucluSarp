@@ -36,15 +36,15 @@ public class WalkSounds : MonoBehaviour
 
             foreach (Collider2D road in roads)
             {
-                source.clip = sounds[Random.Range(0, 0)];
+                source.clip = sounds[0];
                 source.PlayOneShot(source.clip);
             }
 
             Collider2D[] roads2 = Physics2D.OverlapBoxAll(grassPoint.position, size, 0f, playerLayer2);
 
             foreach (Collider2D road2 in roads2)
-            {
-                source.clip = sounds[Random.Range(2, 2)];
+            {       
+                source.clip = sounds[2];
                 source.PlayOneShot(source.clip);
             }
 
@@ -55,16 +55,16 @@ public class WalkSounds : MonoBehaviour
             Collider2D[] roads = Physics2D.OverlapBoxAll(roadPoint.position, size, 0f, playerLayer);
 
             foreach (Collider2D road in roads)
-            {
-                source.clip = sounds[Random.Range(1, 1)];
+            {                
+                source.clip = sounds[1];
                 source.PlayOneShot(source.clip);
             }
 
             Collider2D[] roads2 = Physics2D.OverlapBoxAll(grassPoint.position, size, 0f, playerLayer2);
 
             foreach (Collider2D road2 in roads2)
-            {   
-                source.clip = sounds[Random.Range(3, 3)];
+            {               
+                source.clip = sounds[3];
                 source.PlayOneShot(source.clip);
             }
     }

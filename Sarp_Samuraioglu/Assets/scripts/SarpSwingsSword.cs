@@ -39,7 +39,7 @@ public class SarpSwingsSword : MonoBehaviour
 
     public void SarpDash()
     {
-        source.clip = sounds[Random.Range(4, 4)];
+        source.clip = sounds[4];
         source.PlayOneShot(source.clip);
     }
 
