@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2238231560032052426, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_Size.x
@@ -473,6 +473,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 399631023, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 5687252577610204091}
     - target: {fileID: 2142944575, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: PauseMenu
       value: 
@@ -541,6 +545,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6833190658432483301}
+    - target: {fileID: 7257337751621997965, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 5687252577610204091}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
 --- !u!1 &1003631755 stripped
@@ -1238,7 +1246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106921, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}

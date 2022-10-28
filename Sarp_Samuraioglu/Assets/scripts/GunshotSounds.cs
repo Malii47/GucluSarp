@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyGunRandomizerTemp : MonoBehaviour
+public class GunshotSounds : MonoBehaviour
 {
     public AudioClip[] sounds;
-    private AudioSource source;
+    public AudioSource source;
     public GameObject pauseMenu;
     void Start()
     {
@@ -17,6 +17,7 @@ public class EnemyGunRandomizerTemp : MonoBehaviour
         if (pauseMenu.GetComponent<PauseMenu>().gameIsPaused == false)
         {
             source.Play();
+
         }
         else
         {
@@ -24,9 +25,9 @@ public class EnemyGunRandomizerTemp : MonoBehaviour
         }
     }
 
-    public void SarpKillsGunEnemy()
+    public void EnemyGunShot()
     {
-        source.clip = sounds[Random.Range(0, 5)];
+        source.clip = sounds[Random.Range(0, 1)];
         source.PlayOneShot(source.clip);
     }
 }

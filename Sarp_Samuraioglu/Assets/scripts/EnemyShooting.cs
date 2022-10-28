@@ -8,7 +8,9 @@ public class EnemyShooting : MonoBehaviour
     //public GameObject kola;
     public Animator animator;
     public GameObject muzzleFlash;
+    public GameObject gunEnemySoundRandomizer;
     public Animator muzzleAnimator;
+    public GameObject gunEnemyGunshot;
 
     int gunTrigger = Animator.StringToHash("Gun");
     int fadeInTrigger = Animator.StringToHash("FadeIn");
@@ -30,10 +32,7 @@ public class EnemyShooting : MonoBehaviour
             animator.SetTrigger(gunTrigger);
             StartCoroutine(MuzzleFlash());
         }
-
-
     }
-
 
     IEnumerator MuzzleFlash()
     {
@@ -56,5 +55,10 @@ public class EnemyShooting : MonoBehaviour
     public void stopIEnumerator()
     {
         StopAllCoroutines();
+    }
+    
+    public void EnemyGunshotCall()
+    {
+        gunEnemyGunshot.GetComponent<GunshotSounds>().EnemyGunShot();
     }
 }
