@@ -14,7 +14,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider audioVolumeSlider;
     [SerializeField] Image vibrationOnIcon;
     [SerializeField] Image vibrationOffIcon;
-    private bool noVibration = false;
+    public bool noVibration = false;
     void Start()
     {
         soundVolumeSlider.value = PlayerPrefs.GetFloat("volumeValue", 0.75f);
