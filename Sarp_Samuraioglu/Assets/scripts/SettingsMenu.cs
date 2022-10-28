@@ -17,34 +17,8 @@ public class SettingsMenu : MonoBehaviour
     private bool noVibration = false;
     void Start()
     {
-        //soundVolumeSlider.value = PlayerPrefs.GetFloat("volume");
-        //audioVolumeSlider.value = PlayerPrefs.GetFloat("audio");
-
-
-
-        if (!PlayerPrefs.HasKey("volume"))
-        {
-            soundMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("volume", 1) * 20));
-            
-        }
-        else
-        {
-            LoadSound();
-        }
-
-        if (!PlayerPrefs.HasKey("audio"))
-        {
-            audioMixer.SetFloat("audio", Mathf.Log10(PlayerPrefs.GetFloat("audio", 1) * 20));
-            
-        }
-
-        else
-        {
-            LoadAudio();
-        }
-
-        //soundMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("volume", 1) * 20));
-        //audioMixer.SetFloat("audio", Mathf.Log10(PlayerPrefs.GetFloat("audio", 1) * 20));
+        soundVolumeSlider.value = PlayerPrefs.GetFloat("volumeValue", 0.75f);
+        audioVolumeSlider.value = PlayerPrefs.GetFloat("audioValue", 0.75f);
 
         if (!PlayerPrefs.HasKey("noVibration"))
         {
@@ -57,41 +31,27 @@ public class SettingsMenu : MonoBehaviour
         }
         UpdateButtonIcon();
     }
-    void Update()
-    {
-        //PlayerPrefs.SetFloat("volume", soundVolumeValue);
-        //PlayerPrefs.SetFloat("audio", audioVolumeValue);
-        //soundVolumeValue = Mathf.Log10(PlayerPrefs.GetFloat("volume", 1) * 20);
-
-        //PlayerPrefs.Save();
-    }
 
     public void SetSound(float volume)
     {
-        
         soundMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
-        soundVolumeValue = volume;
-        PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("volumeValue", volume);
     }
 
     public void SetAudio(float audio)
     {
         
-        audioMixer.SetFloat("audio", audio);
-        audioVolumeValue = audio;
-        PlayerPrefs.Save();
+        audioMixer.SetFloat("audio", Mathf.Log10(audio)*20);
+        PlayerPrefs.SetFloat("audioValue", audio);
     }
 
     public void OnButtonPress()
     {
         if (noVibration == false)
-        {
             noVibration = true;
-        }
+
         else
-        {
             noVibration = false;
-        }        
 
         Save();
         UpdateButtonIcon();
@@ -101,28 +61,15 @@ public class SettingsMenu : MonoBehaviour
     {
         noVibration = PlayerPrefs.GetInt("noVibration") == 1;
     }
-    private void LoadSound()
-    {
-        //soundVolumeSlider.value = PlayerPrefs.GetFloat("volume", soundVolumeValue);
-        soundMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("volume", soundVolumeValue)));
-    }
-    private void LoadAudio()
-    {
-        audioMixer.SetFloat("audio", Mathf.Log10(PlayerPrefs.GetFloat("audio", audioVolumeValue)));
-    }
 
     private void Save()
     {
         PlayerPrefs.SetInt("noVibration", noVibration ? 1 : 0);
     }
-    private void SaveSound()
-    {
-        
-    }
 
     private void UpdateButtonIcon()
     {
-        if(noVibration== false)
+        if (noVibration == false)
         {
             vibrationOnIcon.enabled = true;
             vibrationOffIcon.enabled = false;
