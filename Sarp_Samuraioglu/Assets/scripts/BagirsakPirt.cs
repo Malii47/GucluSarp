@@ -18,7 +18,7 @@ public class BagirsakPirt : MonoBehaviour
     public GameObject mash;
     float count;
     public float count2;
-    bool a = true;
+    bool countChecker = true;
 
     void Start()
     {
@@ -60,10 +60,10 @@ public class BagirsakPirt : MonoBehaviour
         }
         if (headBool)
         {
-            if (a)
+            if (countChecker)
             {
                 count2 = count;
-                a = false;
+                countChecker = false;
             }
             Collider2D[] playerstep3 = Physics2D.OverlapBoxAll(point_head.position, boyut_head, 0f, playerLayer);
             foreach (Collider2D sarpingen3 in playerstep3)

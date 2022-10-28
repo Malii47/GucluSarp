@@ -305,8 +305,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+  count: 0
   oneTimeExecutionDarkRedPrint: 0
   oneTimeExecutionLightRedPrint: 0
+  countChecker: 1
   deadnormal: 0
   deadstun: 0
 --- !u!50 &4832940410238184370
@@ -449,7 +451,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 9ef8fa6632fce3344be60aff924d2bbe, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -469,13 +471,22 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.6166115
+      value: 0.2
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 0.61803436
+      value: 0.2
+      inSlope: -0.03484358
+      outSlope: -0.03484358
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.76156616
       value: 0
@@ -583,6 +594,14 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 9ef8fa6632fce3344be60aff924d2bbe, type: 2}
+    - target: {fileID: 7619781356581563287, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
+      propertyPath: sounds.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e5c35fb9be01824caf371feced346ca, type: 3}
+    - target: {fileID: 7619781356581563287, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
+      propertyPath: sounds.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: c0a03d121984c964c8b3c0e5f7b14b2a, type: 3}
     - target: {fileID: 7777336040241076368, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
       propertyPath: m_RootOrder
       value: 1
