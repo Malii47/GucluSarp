@@ -143,9 +143,9 @@ MonoBehaviour:
   dashSpeed: 25
   attackDist: 6
   attackRadius: 3
-  dashattackRadius: 1.5
+  dashattackRadius: 3
   landDist: 1
-  maxhealth: 0
+  maxhealth: 55
   CurrentHealt: 0
 --- !u!114 &3932453348147044920
 MonoBehaviour:
