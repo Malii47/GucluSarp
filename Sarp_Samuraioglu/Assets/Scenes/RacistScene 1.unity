@@ -402,85 +402,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6438175127281371621, guid: c39f842da27204b4bbee75f991eb1a13, type: 3}
   m_PrefabInstance: {fileID: 6438175127085579795}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &632164232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 659801472182082513, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-  m_PrefabInstance: {fileID: 8728677718686788447}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &632164238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632164232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42341bbefeeebcd4aab6cde60d658cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Object1: {fileID: 820364900}
-  Object2: {fileID: 165595869}
-  Object3: {fileID: 0}
---- !u!114 &632164239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632164232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790023c9cf8e6404baf2d40d75b7f7a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &632164240
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632164232}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!50 &632164241
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632164232}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!1 &820364900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8072170792801412254, guid: e156482a08b724a48bfb62fe72b32056, type: 3}
@@ -1267,6 +1188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sarp Miami(Mali)
       objectReference: {fileID: 0}
+    - target: {fileID: 2985594623646280058, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106916, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2044,57 +1969,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 659801471912093152, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801471912093152, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801471912093152, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 632164238, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
+      propertyPath: Object1
+      value: 
+      objectReference: {fileID: 820364900}
+    - target: {fileID: 632164238, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
+      propertyPath: Object2
+      value: 
+      objectReference: {fileID: 165595869}
+    - target: {fileID: 1144547830, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 5687252577610204091}
     - target: {fileID: 659801471912093153, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 6833190658432483301}
-    - target: {fileID: 659801471912093153, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801472182082516, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -19.900002
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801472182082516, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801472182082516, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801472182082519, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: near clip plane
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 659801472182082519, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2773088232852619598, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2773088232852619598, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.61
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 2773088232852619598, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.71
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 2773088232852619598, guid: 35ee1ce105bfd0e4bbb81bbedd25578f, type: 3}
       propertyPath: m_LocalPosition.z
