@@ -562,8 +562,8 @@ MonoBehaviour:
   playerLayer2:
     serializedVersion: 2
     m_Bits: 64
-  roadPoint: {fileID: 0}
-  grassPoint: {fileID: 0}
+  roadPoint: {fileID: 6467647799622858192, guid: 474d6a588bc78544ea7bc6f98fbfd7be, type: 3}
+  grassPoint: {fileID: 5805267886050769554, guid: 78caa730422a60948a6ff0d1cb54c1e2, type: 3}
   size: {x: 39, y: 26}
   sounds:
   - {fileID: 8300000, guid: d85699489a80d5c4b8f5045a7d2bd07a, type: 3}
@@ -717,11 +717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.27727294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7227274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -733,15 +733,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4174750999109867093, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -762,6 +762,10 @@ PrefabInstance:
     - target: {fileID: 6844157174933230899, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: m_Name
       value: EnemySoundRandomizer 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: PauseMenu
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}

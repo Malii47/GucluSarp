@@ -10,6 +10,7 @@ public class EnemyGunRandomizerTemp : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
+        pauseMenu = GameObject.Find("PauseMenuManager");
     }
 
     void Update()

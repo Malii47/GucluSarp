@@ -16,6 +16,7 @@ public class WalkSounds : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
+        PauseMenu = GameObject.Find("PauseMenuManager");
     }
 
     void Update()

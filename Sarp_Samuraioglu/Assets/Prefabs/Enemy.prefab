@@ -394,8 +394,8 @@ MonoBehaviour:
   playerLayer2:
     serializedVersion: 2
     m_Bits: 2048
-  roadPoint: {fileID: 0}
-  grassPoint: {fileID: 0}
+  roadPoint: {fileID: 6467647799622858192, guid: 474d6a588bc78544ea7bc6f98fbfd7be, type: 3}
+  grassPoint: {fileID: 5805267886050769554, guid: 78caa730422a60948a6ff0d1cb54c1e2, type: 3}
   size: {x: 39, y: 26}
   sounds:
   - {fileID: 8300000, guid: d85699489a80d5c4b8f5045a7d2bd07a, type: 3}
@@ -1129,6 +1129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7257337751296684375}
     m_Modifications:
+    - target: {fileID: 1677505796586902312, guid: ed83ee0788b3b3445b5c362959d9f8c1, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1677505796586902312, guid: ed83ee0788b3b3445b5c362959d9f8c1, type: 3}
       propertyPath: sounds.Array.size
       value: 6
