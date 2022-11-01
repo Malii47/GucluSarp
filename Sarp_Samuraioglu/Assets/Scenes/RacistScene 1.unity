@@ -522,6 +522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -600,6 +604,10 @@ PrefabInstance:
     - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_RootOrder
@@ -958,6 +966,18 @@ PrefabInstance:
       propertyPath: grassPoint
       value: 
       objectReference: {fileID: 1356766023}
+    - target: {fileID: 2985594621901044372, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985594621901044372, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.624
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985594621901044377, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6f5a69032189f2499cb0a0909d4a0bd, type: 3}
     - target: {fileID: 2985594622653480475, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: PauseMenu
       value: 
