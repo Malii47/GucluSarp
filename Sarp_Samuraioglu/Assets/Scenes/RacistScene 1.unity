@@ -1049,6 +1049,10 @@ PrefabInstance:
       propertyPath: grassPoint
       value: 
       objectReference: {fileID: 1356766023}
+    - target: {fileID: 1190859094335154033, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2985594622653480475, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: PauseMenu
       value: 
@@ -1056,6 +1060,22 @@ PrefabInstance:
     - target: {fileID: 2985594623646280058, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045236897847704545, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106916, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_RootOrder
