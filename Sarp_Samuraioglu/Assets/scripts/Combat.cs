@@ -31,8 +31,7 @@ public class Combat : MonoBehaviour
     public float deflectRate = 2f;
     float nextDeflectTime = 0f;
     public bool camZoom;
-
-    
+    public bool deathblowSound;
 
     public LayerMask SwordenemyLayer;
     public LayerMask GunenemyLayer;
@@ -42,7 +41,6 @@ public class Combat : MonoBehaviour
     public LayerMask BossSwordLayer;
 
     public Vector2 boyut;
-
 
     private void OnEnable()
     {
@@ -63,10 +61,9 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                //GetComponentInChildren<SarpSwingsSword>().SarpSwordSwinging();
                 sarpAttackDirectionCounter++;
-                //Invoke("Attack", .3f);
-                StartCoroutine(Attack());
+                DeathblowBeforeAttack();
+                StartCoroutine(Attack());                
                 nextAttackTime = Time.time + 1f / attackRate;
                 if (sarpAttackDirectionCounter % 2 == 0)
                 {
@@ -101,6 +98,17 @@ public class Combat : MonoBehaviour
                     animator.SetTrigger(parametreisDeflect2);
                 }
             }
+        }
+    }
+
+    void DeathblowBeforeAttack()
+    {
+        Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
+
+        foreach (Collider2D enemy in hitswordenemy)
+        {
+            if (deathblowSound)
+                GetComponentInChildren<SarpSwingsSword>().Deathblow();
         }
     }
 
@@ -195,8 +203,8 @@ public class Combat : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(DeflectPoint2.position, boyut);
-        //Gizmos.DrawSphere(attackPoint.position, AttackRadius);
+        //Gizmos.DrawCube(DeflectPoint2.position, boyut);
+        Gizmos.DrawSphere(attackPoint.position, AttackRadius);
     }
 
     IEnumerator CamZoom()

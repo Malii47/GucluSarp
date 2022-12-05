@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &173629506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173629507}
+  m_Layer: 0
+  m_Name: deathblowArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &173629507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173629506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: -0.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5849508958227364118}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1836332955573654090
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +315,12 @@ MonoBehaviour:
   EnemyLight: {fileID: 4481955039886022210}
   EnemyLeg: {fileID: 7812216679396532145}
   col: {fileID: 5129321988446929919}
+  deathblowAreaCenter: {fileID: 173629507}
+  deathblowAreaRadius: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  damage: 5
 --- !u!114 &3963538595315589343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,6 +729,11 @@ GameObject:
 --- !u!4 &5726260271248426830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 524710916881298417, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
+  m_PrefabInstance: {fileID: 5206133321432265919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5849508958227364118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1806585341504654761, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
   m_PrefabInstance: {fileID: 5206133321432265919}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7634638377212984226 stripped

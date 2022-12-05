@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float activeMoveSpeed;
     public float dashSpeed;
+    public float raycastDistance;
 
     public float dashLength =.5f, dashCooldown=1f;
 
@@ -28,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         cam = GameObject.FindObjectOfType<Camera>();
@@ -43,8 +43,6 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -76,8 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
-
-        
     }
 
     private void FixedUpdate()

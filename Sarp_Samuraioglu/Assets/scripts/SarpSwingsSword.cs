@@ -54,4 +54,10 @@ public class SarpSwingsSword : MonoBehaviour
         source.clip = sounds[Random.Range(7, 9)];
         source.PlayOneShot(source.clip);
     }
+
+    public void Deathblow()
+    {
+        source.clip = sounds[10];
+        source.PlayOneShot(source.clip);
+    }
 }
