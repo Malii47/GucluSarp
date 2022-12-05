@@ -12,6 +12,7 @@ public class Enemy_Death : MonoBehaviour
     public GameObject bagirsak;
     public GameObject StunLight;
     public GameObject EnemyLight;
+    public GameObject KatanaLight;
     public float blood_area_radius;
     public float blood_area_radius2;
     public LayerMask playerLayer;
@@ -85,10 +86,12 @@ public class Enemy_Death : MonoBehaviour
         oneTimeExecutionLightRedPrint = true;
         deadnormal = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+        KatanaLight.SetActive(false);
     }
     public void StunDeath()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+        KatanaLight.SetActive(false);
         StartCoroutine(EnemyStunDeathLight());
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
         GetComponentInChildren<BoxCollider2D>().enabled = false;

@@ -42,6 +42,8 @@ public class Combat : MonoBehaviour
 
     public Vector2 boyut;
 
+
+
     private void OnEnable()
     {
         camZoom = false;
@@ -172,7 +174,7 @@ public class Combat : MonoBehaviour
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
-            StartCoroutine("CamZoom");
+            StartCoroutine(CamZoom());
             StartCoroutine(DeflectLight());
         }
 
@@ -216,7 +218,8 @@ public class Combat : MonoBehaviour
     IEnumerator DeflectLight()
     {
         deflectLight.SetActive(true);
-        deflectLightanim.SetTrigger("FadeIn");
+        int parametreFadeInTrigger = Animator.StringToHash("FadeIn");
+        deflectLightanim.SetTrigger(parametreFadeInTrigger);
         yield return new WaitForSeconds(1f);
         deflectLight.SetActive(false);
     }
