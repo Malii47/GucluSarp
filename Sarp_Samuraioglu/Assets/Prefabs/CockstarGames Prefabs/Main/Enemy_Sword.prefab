@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6212530279191327850
 Transform:
   m_ObjectHideFlags: 0
@@ -314,6 +314,7 @@ MonoBehaviour:
   StunLight: {fileID: 949392810859029927}
   EnemyLight: {fileID: 4481955039886022210}
   EnemyLeg: {fileID: 7812216679396532145}
+  KatanaLight: {fileID: 0}
   col: {fileID: 5129321988446929919}
   deathblowAreaCenter: {fileID: 173629507}
   deathblowAreaRadius: 1
@@ -338,6 +339,7 @@ MonoBehaviour:
   bagirsak: {fileID: 2725715054466625322}
   StunLight: {fileID: 949392810859029927}
   EnemyLight: {fileID: 4481955039886022210}
+  KatanaLight: {fileID: 0}
   blood_area_radius: 0.39
   blood_area_radius2: 0.3
   playerLayer:
