@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6212530279191327850
 Transform:
   m_ObjectHideFlags: 0
@@ -767,6 +767,14 @@ PrefabInstance:
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e5c35fb9be01824caf371feced346ca, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: c0a03d121984c964c8b3c0e5f7b14b2a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
 --- !u!1 &1140783788860400388 stripped

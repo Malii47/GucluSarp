@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Boss_Shooting : MonoBehaviour
@@ -20,7 +21,7 @@ public class Boss_Shooting : MonoBehaviour
     Vector2 PlayerPosition;
     Vector2 playertrackerPosition;
 
-    bool startBool;
+    public bool startBool;
     bool dashLander;
     bool dashing;
     bool b;
@@ -45,7 +46,7 @@ public class Boss_Shooting : MonoBehaviour
 
         moveSpeed = GetComponent<AIPath>().maxSpeed;
 
-        if (Random.value > 0.10) StartCoroutine(Shoot(0,0.4f));
+        if (Random.value > 0.99) StartCoroutine(Shoot(0,0));
         else startBool = true;
     }
 
@@ -56,8 +57,22 @@ public class Boss_Shooting : MonoBehaviour
             if (Vector2.Distance(transform.position, player.transform.position) > attackDist)
             {
                 float a = Random.value;
-                if (a >= 0.15) StartCoroutine(Shoot(0.1f,0.5f));
-                if (a < 0.15) StartCoroutine(Dash());
+
+                if (a >= 0.55)
+                {
+                    Debug.Log("STOP");
+                    Debug.Log("shooting");
+                    StopAllCoroutines();
+                    StartCoroutine(Shoot(1, 2));
+                }
+                if (a < 0.55)
+                {
+                    Debug.Log("STOP");
+                    Debug.Log("dashing");
+                    StopAllCoroutines();
+                    StartCoroutine(Dash(1));
+                }
+
                 startBool = false;
             }
         }
@@ -66,7 +81,8 @@ public class Boss_Shooting : MonoBehaviour
         {
             if (b)
             {
-                StartCoroutine(Attack());
+                StartCoroutine(Attack(1.5f));
+                Debug.Log("attacking");
                 b = false;
             }
         }
@@ -85,6 +101,7 @@ public class Boss_Shooting : MonoBehaviour
                 }
 
                 dashing = false;
+                b = true;
                 dashLander = false;
             }
         }
@@ -117,17 +134,14 @@ public class Boss_Shooting : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //if (CurrentHealt == 15)
-        //{
-        //    GetComponent<Enemy_Death>().StunDeath();
-        //}
     }
-    IEnumerator Dash()
+
+    IEnumerator Dash(float entrytime)
     {
-        //Debug.Log("Dashing");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(entrytime);
 
         GetComponent<AIPath>().maxSpeed = dashSpeed;
+        b = false;
 
         //yield return new WaitForSeconds(0.3f);
 
@@ -136,14 +150,13 @@ public class Boss_Shooting : MonoBehaviour
         dashing = true;
         dashLander = true;
 
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1);
 
         startBool = true;
     }
 
     IEnumerator Shoot(float entrytime, float exittime)
     {
-        //Debug.Log("Shooting");
         yield return new WaitForSeconds(entrytime);
 
         GameObject bullet2 = ObjectPool.SharedInstance.GetPooledBullets();
@@ -154,14 +167,16 @@ public class Boss_Shooting : MonoBehaviour
             bullet2.SetActive(true);
         }
 
+        b = true;
+
         yield return new WaitForSeconds(exittime);
 
         startBool = true;
     }
 
-    IEnumerator Attack()
+    IEnumerator Attack(float entrytime)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(entrytime);
 
         Debug.Log("DEFLECT!!!!!");
         deflected = false;
@@ -169,7 +184,7 @@ public class Boss_Shooting : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        cd.enabled = !cd.enabled;
+        cd.enabled = false;
 
         if (deflected == false)
         {
@@ -177,6 +192,7 @@ public class Boss_Shooting : MonoBehaviour
 
             yield return new WaitForSeconds(.3f);
 
+            Debug.Log("swinging");
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
             foreach (Collider2D player in hitPlayer)
             {
@@ -184,14 +200,15 @@ public class Boss_Shooting : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(2f);
-
+        yield return new WaitForSeconds(1f);
+        startBool = true;
         b = true;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(attackPoint.position, attackRadius);
-        Gizmos.DrawSphere(dashattackPoint.position, dashattackRadius);
+        //Gizmos.DrawSphere(attackPoint.position, attackRadius);
+        //Gizmos.DrawSphere(dashattackPoint.position, dashattackRadius);
+        Gizmos.DrawSphere(transform.position, attackDist);
     }
 }
