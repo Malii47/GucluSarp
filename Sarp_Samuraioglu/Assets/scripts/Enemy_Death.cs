@@ -84,9 +84,11 @@ public class Enemy_Death : MonoBehaviour
         GetComponentInChildren<BagirsakPirt>().headBool = true;
         oneTimeExecutionLightRedPrint = true;
         deadnormal = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
     }
     public void StunDeath()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
         StartCoroutine(EnemyStunDeathLight());
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
@@ -103,7 +105,7 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<EnemyLookDirSword>().enabled = false;
         Invoke("bagirsakpirt", 0.5f);
         oneTimeExecutionDarkRedPrint = true;
-        deadstun = true;
+        deadstun = true;        
     }
 
     void DeathPosition()

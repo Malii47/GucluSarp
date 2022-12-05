@@ -11,13 +11,19 @@ public class EnemyStun : MonoBehaviour
     public GameObject EnemyLight;
     public GameObject EnemyLeg;
     public Collider2D col;
+    public Transform deathblowAreaCenter;
+    public float deathblowAreaRadius;
+    public LayerMask playerLayer;
+    public float damage = 5f;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
     }
+
     public void Stun()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
         col.isTrigger = true;
         GetComponentInChildren<EnemyDeathSoundRandomizer>().stopcorputines();
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
@@ -37,9 +43,8 @@ public class EnemyStun : MonoBehaviour
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
         StartCoroutine(StunTime());
-
-
     }
+
 
     IEnumerator StunTime()
     {
@@ -64,11 +69,15 @@ public class EnemyStun : MonoBehaviour
         yield return new WaitForSeconds(.01f);
         StunLight.SetActive(false);
         col.isTrigger = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
     }
     public void Ineedsomesleep()
     {
         StopAllCoroutines();
     }
 
-        
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(deathblowAreaCenter.position, deathblowAreaRadius);
+    }
 }
