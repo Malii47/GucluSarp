@@ -31,9 +31,13 @@ public class EnemyStun : MonoBehaviour
 
     public void Stun()
     {
+        GameObject.Find("GameController").GetComponent<StunCounter>().counter++;
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound == false)
+        {
+            KatanaLight.SetActive(true);
+            KatanaLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
+        }
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
-        KatanaLight.SetActive(true);
-        KatanaLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
         col.isTrigger = true;
         GetComponentInChildren<EnemyDeathSoundRandomizer>().stopcorputines();
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
@@ -57,10 +61,7 @@ public class EnemyStun : MonoBehaviour
     IEnumerator StunTime()
     {
         yield return new WaitForSeconds(.2f);
-        StunLight.SetActive(true);
-
-        
-
+        StunLight.SetActive(true);        
         StunLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
         EnemyLight.GetComponent<Animator>().SetTrigger(parametreFadeOutTrigger);
         yield return new WaitForSeconds(.15f);
@@ -82,9 +83,14 @@ public class EnemyStun : MonoBehaviour
         yield return new WaitForSeconds(.01f);
         StunLight.SetActive(false);
         col.isTrigger = false;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
-        KatanaLight.SetActive(false);
+        if (GameObject.Find("GameController").GetComponent<StunCounter>().counter == 1)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+            KatanaLight.SetActive(false);
+        }
+        GameObject.Find("GameController").GetComponent<StunCounter>().counter--;
     }
+
     public void Ineedsomesleep()
     {
         StopAllCoroutines();
