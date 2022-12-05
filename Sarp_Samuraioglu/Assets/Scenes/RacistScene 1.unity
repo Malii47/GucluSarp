@@ -987,34 +987,6 @@ PrefabInstance:
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 5687252577610204091}
-    - target: {fileID: 2985594622653480475, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: sounds.Array.data[10]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0c30ab60a03a66b45a70769569d688b6, type: 3}
-    - target: {fileID: 2985594623285838234, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985594623469479354, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985594623469479359, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985594623469479359, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985594623469479359, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: ShapeModule.m_Scale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985594623469479359, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 2985594623646280058, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
@@ -1062,14 +1034,6 @@ PrefabInstance:
     - target: {fileID: 8627393641410106916, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8627393641410106919, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: deathblowSound
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8627393641410106921, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
