@@ -15775,7 +15775,7 @@ MonoBehaviour:
   attackRate: 2.2
   deflectRate: 2.2
   camZoom: 0
-  deathblowSound: 1
+  deathblowSound: 0
   SwordenemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -15987,7 +15987,7 @@ PrefabInstance:
     - target: {fileID: 4847096056068809754, guid: 258092071c9c3aa4ea62abb09580142b, type: 3}
       propertyPath: sounds.Array.data[10]
       value: 
-      objectReference: {fileID: 8300000, guid: b96b70a7a45ce71468a1751af0f57dbc, type: 3}
+      objectReference: {fileID: 8300000, guid: 0c30ab60a03a66b45a70769569d688b6, type: 3}
     - target: {fileID: 4847096056068809755, guid: 258092071c9c3aa4ea62abb09580142b, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
