@@ -32,6 +32,7 @@ public class EnemyStun : MonoBehaviour
     public void Stun()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().chargeBool = true;
         KatanaLight.SetActive(true);
         KatanaLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
         col.isTrigger = true;
@@ -42,7 +43,6 @@ public class EnemyStun : MonoBehaviour
         GetComponent<SwordEnemyAI>().enabled = false;
         EnemyLeg.GetComponent<Animator>().enabled = false;
         EnemyLeg.GetComponent<Renderer>().enabled = false;
-        
 
         anim.SetBool(parametreattackBool, false);
         anim.SetBool(parametrewalkBool, false);

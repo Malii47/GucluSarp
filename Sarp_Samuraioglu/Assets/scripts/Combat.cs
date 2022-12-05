@@ -14,6 +14,9 @@ public class Combat : MonoBehaviour
     [SerializeField] ParticleSystem particle = null;
     [SerializeField] ParticleSystem bloodParticle1 = null;
     [SerializeField] ParticleSystem bloodParticle2 = null;
+    [SerializeField] ParticleSystem chargedParticle = null;
+    [SerializeField] ParticleSystem chargedAttackParticle = null;
+    [SerializeField] ParticleSystem chargingParticle = null;
 
     public Animator animator;
 
@@ -42,6 +45,8 @@ public class Combat : MonoBehaviour
 
     public Vector2 boyut;
 
+    public bool chargeBool;
+
 
 
     private void OnEnable()
@@ -63,6 +68,15 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+
+                if (chargeBool)
+                {
+                    chargedAttackParticle.Play();
+                    chargingParticle.Stop();
+                    chargedParticle.Stop();
+                    chargeBool = false;
+                }
+
                 sarpAttackDirectionCounter++;
                 DeathblowBeforeAttack();
                 StartCoroutine(Attack());                
@@ -195,6 +209,8 @@ public class Combat : MonoBehaviour
     void ParticlePlay()
     {
         particle.Play();
+        chargedParticle.Play();
+        chargingParticle.Play();
     }
 
     void BloodParticlePlay()
