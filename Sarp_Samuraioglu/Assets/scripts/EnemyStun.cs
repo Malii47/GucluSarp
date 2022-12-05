@@ -10,20 +10,30 @@ public class EnemyStun : MonoBehaviour
     public GameObject StunLight;
     public GameObject EnemyLight;
     public GameObject EnemyLeg;
+    public GameObject KatanaLight;
     public Collider2D col;
     public Transform deathblowAreaCenter;
     public float deathblowAreaRadius;
     public LayerMask playerLayer;
     public float damage = 5f;
+    int parametreattackBool = Animator.StringToHash("attackBool");
+    int parametrewalkBool = Animator.StringToHash("walkBool");
+    int parametrestunTrigger = Animator.StringToHash("stunTrigger");
+    int parametreFadeInTrigger = Animator.StringToHash("FadeIn");
+    int parametreFadeOutTrigger = Animator.StringToHash("FadeOut");
+    int parametreStunTriggerExit = Animator.StringToHash("stunTriggerExit");
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+
     }
 
     public void Stun()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
+        KatanaLight.SetActive(true);
+        KatanaLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
         col.isTrigger = true;
         GetComponentInChildren<EnemyDeathSoundRandomizer>().stopcorputines();
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
@@ -32,9 +42,7 @@ public class EnemyStun : MonoBehaviour
         GetComponent<SwordEnemyAI>().enabled = false;
         EnemyLeg.GetComponent<Animator>().enabled = false;
         EnemyLeg.GetComponent<Renderer>().enabled = false;
-        int parametreattackBool = Animator.StringToHash("attackBool");
-        int parametrewalkBool = Animator.StringToHash("walkBool");
-        int parametrestunTrigger = Animator.StringToHash("stunTrigger");
+        
 
         anim.SetBool(parametreattackBool, false);
         anim.SetBool(parametrewalkBool, false);
@@ -50,8 +58,11 @@ public class EnemyStun : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         StunLight.SetActive(true);
-        StunLight.GetComponent<Animator>().SetTrigger("FadeIn");
-        EnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
+
+        
+
+        StunLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
+        EnemyLight.GetComponent<Animator>().SetTrigger(parametreFadeOutTrigger);
         yield return new WaitForSeconds(.15f);
         EnemyLight.SetActive(false);
         yield return new WaitForSeconds(2.55f);
@@ -62,14 +73,17 @@ public class EnemyStun : MonoBehaviour
         EnemyLeg.GetComponent<Renderer>().enabled = true;
         GetComponent<EnemyLookDirSword>().enabled = true;
         yield return null;
-        anim.SetTrigger("stunTriggerExit");
+       
+        anim.SetTrigger(parametreStunTriggerExit);
         EnemyLight.SetActive(true);
-        StunLight.GetComponent<Animator>().SetTrigger("FadeOut");
-        EnemyLight.GetComponent<Animator>().SetTrigger("FadeIn");
+
+        StunLight.GetComponent<Animator>().SetTrigger(parametreFadeOutTrigger);
+        EnemyLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
         yield return new WaitForSeconds(.01f);
         StunLight.SetActive(false);
         col.isTrigger = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+        KatanaLight.SetActive(false);
     }
     public void Ineedsomesleep()
     {
