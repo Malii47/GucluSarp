@@ -36,7 +36,7 @@ public class EnemyStun : MonoBehaviour
         {
             KatanaLight.SetActive(true);
             KatanaLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
-        }
+        }        
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
         col.isTrigger = true;
         GetComponentInChildren<EnemyDeathSoundRandomizer>().stopcorputines();
@@ -86,6 +86,7 @@ public class EnemyStun : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
             KatanaLight.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
         }
         GameObject.Find("GameController").GetComponent<StunCounter>().counter--;
     }

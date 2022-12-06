@@ -1074,18 +1074,14 @@ PrefabInstance:
       propertyPath: grassPoint
       value: 
       objectReference: {fileID: 1356766023}
-    - target: {fileID: 1995428117, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+    - target: {fileID: 734919237848611766, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2985594622653480475, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 5687252577610204091}
-    - target: {fileID: 2985594622653480475, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: sounds.Array.data[10]
-      value: 
-      objectReference: {fileID: 8300000, guid: 99a7549bd4456894db2d4f9cd6452c62, type: 3}
     - target: {fileID: 2985594623646280058, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
@@ -1094,37 +1090,13 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.03
+    - target: {fileID: 4020047073035343819, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: lengthInSec
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6819983
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.73135376
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
+    - target: {fileID: 4020047073035343819, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: startDelay.scalar
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839915070514119336, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -94
       objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106916, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_RootOrder

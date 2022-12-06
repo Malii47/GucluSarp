@@ -45,8 +45,6 @@ public class Combat : MonoBehaviour
 
     public Vector2 boyut;
 
-    public bool chargeBool;
-
 
 
     private void OnEnable()
@@ -64,17 +62,16 @@ public class Combat : MonoBehaviour
     
     void Update()
     {
+        ParticleStopper();
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButtonDown(0))
             {
-
-                if (chargeBool)
+                if (deathblowSound)
                 {
                     chargedAttackParticle.Play();
-                    chargingParticle.Stop();
                     chargedParticle.Stop();
-                    chargeBool = false;
+                    StartCoroutine(AttackChargedParticle());
                 }
 
                 sarpAttackDirectionCounter++;
@@ -98,6 +95,13 @@ public class Combat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
+                if (deathblowSound)
+                {
+                    chargedParticle.Stop();
+                    StartCoroutine(DeflectChargedParticleCaller());
+                }                                    
+                                  
+
                 GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
                 sarpAttackDirectionCounter++;
                 Deflect();
@@ -187,6 +191,7 @@ public class Combat : MonoBehaviour
             sword.GetComponentInParent<Enemy>().TakeDamage(10);
             sword.GetComponentInParent<EnemyStun>().Stun();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+            StartCoroutine(DeflectChargedParticle());
             ParticlePlay();
             StartCoroutine(CamZoom());
             StartCoroutine(DeflectLight());
@@ -208,9 +213,26 @@ public class Combat : MonoBehaviour
 
     void ParticlePlay()
     {
-        particle.Play();
+        particle.Play();                
+    }
+
+    IEnumerator AttackChargedParticle()
+    {
+        yield return new WaitForSeconds(1.27f);
         chargedParticle.Play();
+    }
+
+    IEnumerator DeflectChargedParticle()
+    {
         chargingParticle.Play();
+        yield return new WaitForSeconds(.97f);
+        chargedParticle.Play();
+    }
+
+    IEnumerator DeflectChargedParticleCaller()
+    {
+        yield return new WaitForSeconds(.97f);
+        chargedParticle.Play();
     }
 
     void BloodParticlePlay()
@@ -238,5 +260,11 @@ public class Combat : MonoBehaviour
         deflectLightanim.SetTrigger(parametreFadeInTrigger);
         yield return new WaitForSeconds(1f);
         deflectLight.SetActive(false);
+    }
+
+    public void ParticleStopper()
+    {
+        if (deathblowSound == false)
+            chargedParticle.Stop();
     }
 }
