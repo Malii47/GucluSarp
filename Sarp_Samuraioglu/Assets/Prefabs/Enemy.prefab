@@ -935,6 +935,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   gunLegAnimator: {fileID: 1355688810}
   gunEnemyLight: {fileID: 2107965903}
+  KatanaLight: {fileID: 4026231279678013214, guid: 6e61defeb7b398f4d959aa6a1e6a69be, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024

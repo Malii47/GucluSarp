@@ -62,6 +62,8 @@ public class Enemy_Death : MonoBehaviour
     }
     public void Death()
     {
+        anim.SetBool(parametrewalkBool, false);
+        anim.SetBool(parametreattackBool, false);
         StartCoroutine(EnemyDeathLight());
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
@@ -70,14 +72,10 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
         if (count % 2 == 1)
         {
-            anim.SetBool(parametrewalkBool, false);
-            anim.SetBool(parametreattackBool, false);
             anim.SetTrigger(parametredeathTrigger);
         }
         else if (count % 2 == 0)
         {
-            anim.SetBool(parametrewalkBool, false);
-            anim.SetBool(parametreattackBool, false);
             anim.SetTrigger(parametredeathTrigger2);
         }
         DeathPosition();
