@@ -295,6 +295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Sword (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -378,11 +382,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.02
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.93
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -420,6 +424,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6833190658432483301}
+    - target: {fileID: 7257337751296684382, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: KatanaLight
+      value: 
+      objectReference: {fileID: 1995428117}
     - target: {fileID: 7257337751486347665, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -579,10 +587,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1497019969770363336, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: KatanaLight
+      value: 
+      objectReference: {fileID: 1995428117}
     - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_Name
       value: Enemy_Sword (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3963538595315589343, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: KatanaLight
+      value: 
+      objectReference: {fileID: 1995428117}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -651,6 +667,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   death_position: 0.9
+--- !u!114 &1683953733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683953727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9a1e3494e76644a96a59097bdd0f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
 --- !u!1 &1899787747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3932453348147044912, guid: 74b228f5a353baf4f97127c7456ad22d, type: 3}
@@ -1049,6 +1078,38 @@ PrefabInstance:
       propertyPath: grassPoint
       value: 
       objectReference: {fileID: 1356766023}
+    - target: {fileID: 734919237848611766, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877583989981444812, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_SortMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877583989981444812, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877583989981444812, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877583989981444812, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877583989981444812, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877583989981444812, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090411855347510914, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2985594622653480475, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: PauseMenu
       value: 
@@ -1056,6 +1117,30 @@ PrefabInstance:
     - target: {fileID: 2985594623646280058, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_Name
       value: Sarp Miami(Mali)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020047073035343819, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020047073035343819, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020047073035343819, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045236897847704545, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045236897847704545, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465001672051945256, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8627393641410106916, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
       propertyPath: m_RootOrder
@@ -1101,8 +1186,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8627393641410106919, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: EnemiesLayer.m_Bits
+      value: 2112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627393641410106919, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+      propertyPath: chargedAttackParticle
+      value: 
+      objectReference: {fileID: 2985594622473152962}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+--- !u!198 &2985594622473152962 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 545474120781585029, guid: 489e179093d221b4ead8f2a47f54a9c5, type: 3}
+  m_PrefabInstance: {fileID: 2985594622473152961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3316467496601281569
 PrefabInstance:
   m_ObjectHideFlags: 0

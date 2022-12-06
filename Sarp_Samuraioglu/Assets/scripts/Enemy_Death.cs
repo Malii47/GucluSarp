@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEditor;
 using UnityEngine;
 
@@ -111,7 +112,7 @@ public class Enemy_Death : MonoBehaviour
         GetComponent<EnemyLookDirSword>().enabled = false;
         Invoke("bagirsakpirt", 0.5f);
         oneTimeExecutionDarkRedPrint = true;
-        deadstun = true;        
+        deadstun = true;  
     }
 
     void DeathPosition()

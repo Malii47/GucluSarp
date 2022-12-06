@@ -273,8 +273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84807ae9e041a2a48b5a89aff5d5d897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 30
+  maxhealth: 5
+  posture: 0
   CurrentHealt: 0
+  CurrentPosture: 0
 --- !u!114 &6219407719742211241
 MonoBehaviour:
   m_ObjectHideFlags: 0

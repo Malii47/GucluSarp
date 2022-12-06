@@ -15725,7 +15725,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2985594623646280058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -15769,7 +15769,7 @@ MonoBehaviour:
   bloodParticle1: {fileID: 2985594623469479359}
   bloodParticle2: {fileID: 2985594623285838239}
   chargedParticle: {fileID: 4020047073035343819}
-  chargedAttackParticle: {fileID: 0}
+  chargedAttackParticle: {fileID: 545474120781585029}
   chargingParticle: {fileID: 5440386501668303378}
   animator: {fileID: 0}
   deflectLight: {fileID: 2985594623567360487}
@@ -15791,7 +15791,7 @@ MonoBehaviour:
     m_Bits: 2048
   EnemiesLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2112
   BossLayer:
     serializedVersion: 2
     m_Bits: 65536
@@ -16042,11 +16042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9191739060953420279, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
       propertyPath: lengthInSec
-      value: 2.03
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9191739060953420279, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
       propertyPath: startDelay.scalar
-      value: 0.97
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
@@ -16159,11 +16159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3061452927275786342, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.74000025
+      value: 0.7400002
       objectReference: {fileID: 0}
     - target: {fileID: 3061452927275786342, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4200001
+      value: -1.42
       objectReference: {fileID: 0}
     - target: {fileID: 3061452927275786342, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16201,8 +16201,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargeAttackParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: lengthInSec
+      value: 0.411
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.0588
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: VelocityModule.orbitalZ.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+--- !u!198 &545474120781585029 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8177021298426082565, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}
+  m_PrefabInstance: {fileID: 8569070666134302592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6671805123099742182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3061452927275786342, guid: 9e43adf0a88d4f74ca4937a0b7441c36, type: 3}

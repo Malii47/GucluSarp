@@ -27,7 +27,9 @@ public class Combat : MonoBehaviour
     public Transform DeflectPoint2;
 
     public float AttackRadius = 0.5f;
-    public float damage = 5f;
+    public float hpdamage = 5f;
+    public float attackposturedamage = 5f;
+    public float deflectposturedamage = 10f;
     public float sarpAttackDirectionCounter;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
@@ -101,8 +103,7 @@ public class Combat : MonoBehaviour
                     chargedParticle.Stop();
                     StartCoroutine(DeflectChargedParticleCaller());
                 }                                    
-                                  
-
+                             
                 GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
                 sarpAttackDirectionCounter++;
                 Deflect();
@@ -141,7 +142,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D enemy in hitswordenemy)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(damage);
+            enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
             BloodParticlePlay();
         }
@@ -150,7 +151,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D enemy in hitgunenemy)
         {
-            enemy.GetComponent<EnemyGunDying>().TakeDamage(damage);
+            enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
             BloodParticlePlay();
         }
@@ -159,7 +160,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D boss in hitboss)
         {
-            boss.GetComponent<Boss_Shooting>().BossHealth(damage);
+            boss.GetComponent<Boss_Shooting>().BossHealth(hpdamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
             BloodParticlePlay();
         }
@@ -189,8 +190,7 @@ public class Combat : MonoBehaviour
         foreach (Collider2D sword in deflectSword)
         {
             camZoom = true;
-            sword.GetComponentInParent<Enemy>().TakeDamage(10);
-            sword.GetComponentInParent<EnemyStun>().Stun();
+            sword.GetComponentInParent<Enemy>().TakeDamage(0, deflectposturedamage);
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             StartCoroutine(DeflectChargedParticle());
             ParticlePlay();
@@ -202,7 +202,7 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D bosssword in deflectbossSword)
         {
-            bosssword.GetComponentInParent<Boss_Shooting>().BossHealth(damage);
+            bosssword.GetComponentInParent<Boss_Shooting>().BossHealth(hpdamage);
             bosssword.GetComponentInParent<Boss_Shooting>().deflected = true;
             //camZoom = true;
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);

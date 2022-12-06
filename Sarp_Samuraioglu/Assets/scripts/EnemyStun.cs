@@ -66,7 +66,7 @@ public class EnemyStun : MonoBehaviour
         yield return new WaitForSeconds(.15f);
         EnemyLight.SetActive(false);
         yield return new WaitForSeconds(2.55f);
-        GetComponent<Enemy>().CurrentHealt += 10;
+        GetComponent<Enemy>().CurrentPosture -= 10;
         GetComponent<AIDestinationSetter>().enabled = true;
         GetComponent<SwordEnemyAI>().enabled = true;
         EnemyLeg.GetComponent<Animator>().enabled = true;
