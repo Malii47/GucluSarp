@@ -38,6 +38,7 @@ public class Combat : MonoBehaviour
 
     public LayerMask SwordenemyLayer;
     public LayerMask GunenemyLayer;
+    public LayerMask EnemiesLayer;
     public LayerMask BossLayer;
     public LayerMask BulletLayer;
     public LayerMask SwordLayer;
@@ -123,7 +124,7 @@ public class Combat : MonoBehaviour
 
     void DeathblowBeforeAttack()
     {
-        Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
+        Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, EnemiesLayer);
 
         foreach (Collider2D enemy in hitswordenemy)
         {

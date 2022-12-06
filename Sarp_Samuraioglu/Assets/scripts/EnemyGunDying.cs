@@ -11,6 +11,7 @@ public class EnemyGunDying : MonoBehaviour
     public Animator animator;
     public Animator gunLegAnimator;
     public GameObject gunEnemyLight;
+    public GameObject KatanaLight;
     public LayerMask playerLayer;
     public Transform bloodpoint_gun;
     public float bloodarea_radius;
@@ -90,6 +91,9 @@ public class EnemyGunDying : MonoBehaviour
 
     void Die31()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+        KatanaLight.SetActive(false);
         StartCoroutine(GunEnemyDeathLight());
         int parametredeath = Animator.StringToHash("Death");
         animator.SetTrigger(parametredeath);
