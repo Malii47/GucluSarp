@@ -12,8 +12,8 @@ public class Combat : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem particle = null;
-    [SerializeField] ParticleSystem bloodParticle1 = null;
-    [SerializeField] ParticleSystem bloodParticle2 = null;
+    //[SerializeField] ParticleSystem bloodParticle1 = null;
+    //[SerializeField] ParticleSystem bloodParticle2 = null;
     [SerializeField] ParticleSystem chargedParticle = null;
     [SerializeField] ParticleSystem chargedAttackParticle = null;
     [SerializeField] ParticleSystem chargingParticle = null;
@@ -144,7 +144,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            BloodParticlePlay();
+            enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
         }
 
         Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
@@ -153,7 +153,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            BloodParticlePlay();
+            enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
         }
 
         Collider2D[] hitboss = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, BossLayer);
@@ -162,7 +162,7 @@ public class Combat : MonoBehaviour
         {
             boss.GetComponent<Boss_Shooting>().BossHealth(hpdamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            BloodParticlePlay();
+            //BloodParticlePlay();
         }
 
     }
@@ -236,11 +236,11 @@ public class Combat : MonoBehaviour
         chargedParticle.Play();
     }
 
-    void BloodParticlePlay()
+    /*void BloodParticlePlay()
     {
         if (sarpAttackDirectionCounter % 2 == 0) bloodParticle1.Play();
         if(sarpAttackDirectionCounter % 2 == 1) bloodParticle2.Play();
-    }
+    }*/
 
     private void OnDrawGizmos()
     {
