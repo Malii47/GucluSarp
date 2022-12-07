@@ -299,6 +299,10 @@ PrefabInstance:
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 5687252577610204091}
+    - target: {fileID: 1183493984510515223, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2943942669335199286, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -565,6 +569,10 @@ PrefabInstance:
       propertyPath: grassPoint
       value: 
       objectReference: {fileID: 1356766023}
+    - target: {fileID: 6564552062647054900, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6564552062647054905, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -29,7 +29,7 @@ public class BloodSplashController : MonoBehaviour
             float splash = Random.value;
 
             if (count % 2 == 0)
-            {                
+            {
                 if (splash >= 0 && splash <= 0.33)
                     anim.SetTrigger(parametreBloodSplash);
 
