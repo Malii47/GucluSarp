@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 4067
+  controlID: 164
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4098
+  controlID: 18
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,9 +200,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 42820000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c4d3ffffcad3ffff0ad4ffff3ed5ffffb0f2ffffc4f2ffffcaf2ffff0af3ffff12f3ffff82f8ffff8ef8ffff
+      m_ExpandedIDs: 0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -293,22 +293,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animations/Enemy Animations/EnemyGun
+    - Assets/scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Animations/Enemy Animations/EnemyGun
+  - Assets/scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\mehme\OneDrive\Belgeler\GitHub\GucluSarp\Sarp_Samuraioglu
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 92}
-    m_SelectedIDs: d88b0000
-    m_LastClickedID: 35800
-    m_ExpandedIDs: 00000000588200005a8200005c8200005e82000060820000628200006482000066820000688200006a8200006c8200006e82000070820000728200007482000076820000788200007a8200007c8200007e8200008082000082820000848200004484000000ca9a3b
+    scrollPos: {x: 0, y: 495}
+    m_SelectedIDs: 06800000
+    m_LastClickedID: 32774
+    m_ExpandedIDs: 00000000927f0000947f0000967f0000987f00009a7f00009c7f00009e7f0000a07f0000a27f0000a47f0000a67f0000a87f0000aa7f0000ac7f0000ae7f0000b07f0000b27f0000b47f0000b67f0000b87f0000ba7f0000bc7f0000be7f0000ec7f00000a80000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -336,7 +336,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000588200005a8200005c8200005e82000060820000628200006482000066820000688200006a8200006c8200006e82000070820000728200007482000076820000788200007a8200007c8200007e82000080820000828200008482000000ca9a3b
+    m_ExpandedIDs: 00000000927f0000947f0000967f0000987f00009a7f00009c7f00009e7f0000a07f0000a27f0000a47f0000a67f0000a87f0000aa7f0000ac7f0000ae7f0000b07f0000b27f0000b47f0000b67f0000b87f0000ba7f0000bc7f0000be7f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,24 +361,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 42820000
-    m_LastClickedInstanceID: 33346
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004a710000ec13010000000000067f0000847f00003a790000007600001a780000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Stun
+      m_OriginalName: Stun
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 33612
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 6}
     m_CreateAssetUtility:
@@ -388,7 +388,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 185.5}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 163
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4068
+  controlID: 165
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -445,7 +445,7 @@ MonoBehaviour:
   - {fileID: 11}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 3
+  m_LastSelected: 2
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1216,9 +1216,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 2db16a97a89550147afd809161481e08, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: f38c247014986e24a8a6857ed4d2e1aa, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 6363484171923771779, guid: 2db16a97a89550147afd809161481e08, type: 2}
+  - m_Target: {fileID: 5506428826718350331, guid: f38c247014986e24a8a6857ed4d2e1aa, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1250,8 +1250,8 @@ MonoBehaviour:
     y: 718
     width: 1111
     height: 229
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -1316,7 +1316,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -11336
+  m_LastSelectedObjectID: -1278
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52

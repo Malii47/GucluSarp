@@ -28,7 +28,7 @@ public class EnemyLookDirSword : MonoBehaviour
         PlayerPosition = playerrb.position;
 
         Vector2 LookDir = PlayerPosition - rb.position;
-        float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg-90f;
+        float angle = Mathf.Atan2(LookDir.y, LookDir.x) * Mathf.Rad2Deg+90f;
         rb.rotation = angle;
 
     }
