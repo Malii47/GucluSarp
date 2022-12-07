@@ -31,6 +31,7 @@ public class EnemyStun : MonoBehaviour
 
     public void Stun()
     {
+        GetComponentInChildren<BloodSplashController>().SplashPointPositioner();
         GameObject.Find("GameController").GetComponent<StunCounter>().counter++;
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound == false)
         {
@@ -89,6 +90,7 @@ public class EnemyStun : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
         }
         GameObject.Find("GameController").GetComponent<StunCounter>().counter--;
+        GetComponentInChildren<BloodSplashController>().SplashPointPositionReverter();
     }
 
     public void Ineedsomesleep()

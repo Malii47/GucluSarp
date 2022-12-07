@@ -144,7 +144,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            //BloodParticlePlay();
+            enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
         }
 
         Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
@@ -153,7 +153,7 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            //BloodParticlePlay();
+            enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
         }
 
         Collider2D[] hitboss = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, BossLayer);
