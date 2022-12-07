@@ -105,6 +105,7 @@ public class EnemyGunDying : MonoBehaviour
         transform.position = pos;
 
         gunLegAnimator.SetBool(parametrelegWalk, false);
+        GetComponentInChildren<BagirsakPirt2>().headBool = true;
         GetComponent<EnemyAI2>().enabled = false;
         GetComponent<EnemyLookDir>().enabled = false;
         GetComponent<AIDestinationSetter>().enabled = false;
@@ -118,6 +119,7 @@ public class EnemyGunDying : MonoBehaviour
     {
         oneTimeExecutionDarkRedPrint = true;
     }
+
     IEnumerator GunEnemyDeathLight()
     {
         gunEnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
