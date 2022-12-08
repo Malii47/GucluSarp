@@ -210,7 +210,7 @@ public class Combat : MonoBehaviour
     IEnumerator DeflectChargedParticle()
     {
         chargingParticle.Play();
-        yield return new WaitForSeconds(.97f);
+        yield return new WaitForSeconds(.25f);
         chargedParticle.Play();
     }
 
