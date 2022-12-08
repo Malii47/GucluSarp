@@ -31037,6 +31037,10 @@ PrefabInstance:
       value: ChargedParticle
       objectReference: {fileID: 0}
     - target: {fileID: 9191739060953420279, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191739060953420279, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
       propertyPath: lengthInSec
       value: 3
       objectReference: {fileID: 0}
@@ -31050,11 +31054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9191739060953420279, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 9191739060953420279, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1e048a83aed5a4f85b6079005addb8, type: 3}

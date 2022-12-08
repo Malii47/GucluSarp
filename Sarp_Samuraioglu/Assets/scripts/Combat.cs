@@ -73,8 +73,6 @@ public class Combat : MonoBehaviour
                 if (deathblowSound)
                 {
                     chargedAttackParticle.Play();
-                    chargedParticle.Stop();
-                    StartCoroutine(AttackChargedParticle());
                 }
 
                 sarpAttackDirectionCounter++;
@@ -96,13 +94,7 @@ public class Combat : MonoBehaviour
         if (Time.time > nextDeflectTime)
         {
             if (Input.GetMouseButtonDown(1))
-            {
-                if (deathblowSound)
-                {
-                    chargedParticle.Stop();
-                    StartCoroutine(DeflectChargedParticleCaller());
-                }                                    
-                             
+            {                                                               
                 GetComponentInChildren<SarpSwingsSword>().SarpDeflectSwinging();
                 sarpAttackDirectionCounter++;
                 Deflect();
@@ -215,12 +207,6 @@ public class Combat : MonoBehaviour
         particle.Play();                
     }
 
-    IEnumerator AttackChargedParticle()
-    {
-        yield return new WaitForSeconds(1.27f);
-        chargedParticle.Play();
-    }
-
     IEnumerator DeflectChargedParticle()
     {
         chargingParticle.Play();
@@ -228,11 +214,6 @@ public class Combat : MonoBehaviour
         chargedParticle.Play();
     }
 
-    IEnumerator DeflectChargedParticleCaller()
-    {
-        yield return new WaitForSeconds(.97f);
-        chargedParticle.Play();
-    }
 
     /*void BloodParticlePlay()
     {
