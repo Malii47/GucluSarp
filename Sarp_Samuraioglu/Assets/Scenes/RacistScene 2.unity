@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: boyut_R.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1151026956051052498, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: boyut_SplashRevertingArea.x
+      value: 3.71
+      objectReference: {fileID: 0}
     - target: {fileID: 1497019969770363336, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: KatanaLight
       value: 
@@ -416,6 +420,10 @@ PrefabInstance:
       propertyPath: KatanaLight
       value: 
       objectReference: {fileID: 1958622688}
+    - target: {fileID: 5423536946562455325, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 21

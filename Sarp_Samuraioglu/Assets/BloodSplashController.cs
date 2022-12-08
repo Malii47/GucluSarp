@@ -3,6 +3,7 @@ using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class BloodSplashController : MonoBehaviour
@@ -10,6 +11,7 @@ public class BloodSplashController : MonoBehaviour
     public float count;
     public bool bloodSplashManager;
     public bool bloodSplashManager2;
+    public bool reverterBool;
     int parametreBloodSplash = Animator.StringToHash("BloodSplash");
     int parametreBloodSplash2 = Animator.StringToHash("BloodSplash2");
     int parametreBloodSplash3 = Animator.StringToHash("BloodSplash3");
@@ -19,12 +21,9 @@ public class BloodSplashController : MonoBehaviour
     Animator anim;
     public Transform splashPoint;
     public Transform temp;
-    public Transform player;
-    public GameObject R;
-    public GameObject L;
-    public Vector2 boyut_R;
-    public Vector2 boyut_L;
-    public LayerMask katanaLayer;
+    public Transform SplashRevertingArea;
+    public Vector2 boyut_SplashRevertingArea;
+    public LayerMask playerLayer;
 
     void Start()
     {
@@ -37,22 +36,46 @@ public class BloodSplashController : MonoBehaviour
         {
             if (bloodSplashManager2)
             {
-                Collider2D[] splash = Physics2D.OverlapBoxAll(R.transform.position, boyut_R, 0f, katanaLayer);
-                foreach (Collider2D katana in splash)
+                Collider2D[] splash = Physics2D.OverlapBoxAll(SplashRevertingArea.position, boyut_SplashRevertingArea, 0f, playerLayer);
+
+                foreach (Collider2D sarpingen in splash)
                 {
-                    RandomParticlePlayer0();
-                    L.SetActive(false);
-                    bloodSplashManager = false;
+                    reverterBool = true;
                 }
 
-                Collider2D[] splash2 = Physics2D.OverlapBoxAll(L.transform.position, boyut_L, 0f, katanaLayer);
-                foreach (Collider2D katana in splash2)
+                if (reverterBool)
                 {
-                    RandomParticlePlayer1();
-                    R.SetActive(false);
-                    bloodSplashManager = false;
+                    Debug.Log("yarrak2");
+                    if (count % 2 == 0)
+                    {
+                        RandomParticlePlayer1();
+                        bloodSplashManager = false;
+                    }
+
+                    if (count % 2 == 1)
+                    {
+                        RandomParticlePlayer0();
+                        bloodSplashManager = false;
+                    }
                 }
+                else
+                {
+                    Debug.Log("yarrak2");
+                    if (count % 2 == 0)
+                    {
+                        RandomParticlePlayer0();
+                        bloodSplashManager = false;
+                    }
+
+                    if (count % 2 == 1)
+                    {
+                        RandomParticlePlayer1();
+                        bloodSplashManager = false;
+                    }
+                }
+
             }
+
             
             else
             {
@@ -130,7 +153,6 @@ public class BloodSplashController : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(R.transform.position, boyut_R);
-        Gizmos.DrawCube(L.transform.position, boyut_L);
+        Gizmos.DrawCube(SplashRevertingArea.position, boyut_SplashRevertingArea);
     }
 }
