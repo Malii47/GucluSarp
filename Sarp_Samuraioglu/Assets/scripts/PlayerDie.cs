@@ -9,11 +9,12 @@ public class PlayerDie : MonoBehaviour
 
 
     public Animator animator;
+    public Animator splashAnimator;
     public PlayerMovement pm;
     public Rigidbody2D rb;
     public CapsuleCollider2D cd;
     public GameObject PlayerLight;
-    [SerializeField] ParticleSystem playerDieParticle = null;
+    //[SerializeField] ParticleSystem playerDieParticle = null;
 
     int parametreisDead = Animator.StringToHash("isDead");
 
@@ -23,6 +24,7 @@ public class PlayerDie : MonoBehaviour
         cd = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        splashAnimator = GameObject.Find("SarpDeathBloodSplash").GetComponent<Animator>();
     }
 
     public void SarpDie()
@@ -35,7 +37,7 @@ public class PlayerDie : MonoBehaviour
         if (col.transform.CompareTag("Bullet"))
         {
             cd.enabled = false;
-            playerDieParticle.Play();
+            //playerDieParticle.Play();
             StartCoroutine(SarpDeath());
             GetComponentInChildren<SarpSwingsSword>().SarpDeath();
             animator.SetTrigger(parametreisDead);
@@ -54,7 +56,7 @@ public class PlayerDie : MonoBehaviour
     }
     public void DeathbySwordEnemy()
     {
-        playerDieParticle.Play();
+        //playerDieParticle.Play();
         StartCoroutine(SarpDeath());
         GetComponentInChildren<SarpSwingsSword>().SarpDeath();
         animator.SetTrigger(parametreisDead);
@@ -72,6 +74,7 @@ public class PlayerDie : MonoBehaviour
 
     IEnumerator SarpDeath()
     {
+        splashAnimator.SetTrigger(parametreisDead);
         GameObject.Find("PlayerLight").GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(.25f);
         PlayerLight.SetActive(false);
