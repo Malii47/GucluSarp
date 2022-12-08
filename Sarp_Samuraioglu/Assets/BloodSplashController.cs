@@ -151,8 +151,4 @@ public class BloodSplashController : MonoBehaviour
             Debug.Log("1.3");
         }
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(SplashRevertingArea.position, boyut_SplashRevertingArea);
-    }
 }

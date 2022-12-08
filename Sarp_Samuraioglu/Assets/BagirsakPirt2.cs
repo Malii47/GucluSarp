@@ -44,5 +44,9 @@ public class BagirsakPirt2 : MonoBehaviour
         animo.SetBool("lake", true);
         mashActivateBool = true;
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(point_head.position, boyut_head);
+    }
 
 }
