@@ -30,4 +30,10 @@ public class EnemyGunRandomizerTemp : MonoBehaviour
         source.clip = sounds[Random.Range(0, 5)];
         source.PlayOneShot(source.clip);
     }
+
+    public void SarpMashesGunEnemy()
+    {
+        source.clip = sounds[Random.Range(6, 7)];
+        source.PlayOneShot(source.clip);
+    }
 }

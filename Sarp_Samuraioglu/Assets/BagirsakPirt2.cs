@@ -30,9 +30,10 @@ public class BagirsakPirt2 : MonoBehaviour
                 Collider2D[] playerstep = Physics2D.OverlapBoxAll(point_head.position, boyut_head, 0f, playerLayer);
                 foreach (Collider2D sarpingen in playerstep)
                 {
-                    //mash.GetComponent<EnemyDeathSoundRandomizer>().SarpMashesEnemy();
+                    mash.GetComponent<EnemyGunRandomizerTemp>().SarpMashesGunEnemy();
                     int parametrehead = Animator.StringToHash("head");
                     anim.SetTrigger(parametrehead);
+                    GetComponent<BagirsakPirt2>().enabled = false;
                 }
             }
         }
