@@ -78,8 +78,7 @@ public class Combat : MonoBehaviour
                 }
 
                 sarpAttackDirectionCounter++;
-                DeathblowBeforeAttack();
-                StartCoroutine(Attack());                
+                DeathblowBeforeAttack();           
                 nextAttackTime = Time.time + 1f / attackRate;
                 if (sarpAttackDirectionCounter % 2 == 0)
                 {
@@ -134,9 +133,8 @@ public class Combat : MonoBehaviour
         }
     }
 
-    IEnumerator Attack()
+    public void Attack()
     {
-        yield return new WaitForSeconds(.3f);
 
         Collider2D[] hitswordenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, SwordenemyLayer);
 

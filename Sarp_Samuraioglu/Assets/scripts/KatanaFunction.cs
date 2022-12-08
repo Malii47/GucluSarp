@@ -23,7 +23,6 @@ public class KatanaFunction : MonoBehaviour
         sarpKatanaAttackDirectionCounter = 1;
     }
 
-
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
