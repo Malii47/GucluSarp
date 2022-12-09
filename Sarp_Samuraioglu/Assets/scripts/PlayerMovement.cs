@@ -20,9 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashCounter;
     private float dashCoolCounter;
     private float temp;
-    //[SerializeField] private TrailRenderer trailRenderer1;
-    //[SerializeField] private TrailRenderer trailRenderer2;
-    //[SerializeField] private TrailRenderer trailRenderer3;
     [SerializeField] public ParticleSystem dash;
 
     Vector2 movement;
@@ -35,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         cam = GameObject.FindObjectOfType<Camera>();
-        //trailRenderer = GetComponent<TrailRenderer>();
 
         activeMoveSpeed = moveSpeed;
     }
@@ -56,10 +52,6 @@ public class PlayerMovement : MonoBehaviour
                 activeMoveSpeed = dashSpeed;
                 moveSpeed = activeMoveSpeed;
                 dashCounter = dashLength;
-                //trailRenderer.emitting = true;
-                //trailRenderer1.emitting = true;
-                //trailRenderer2.emitting = true;
-                //trailRenderer3.emitting = true;
                 dash.Play();
             }
         }
@@ -73,10 +65,6 @@ public class PlayerMovement : MonoBehaviour
                 moveSpeed = temp;
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
-                //trailRenderer.emitting = false;
-                //trailRenderer1.emitting = false;
-                //trailRenderer2.emitting = false;
-                //trailRenderer3.emitting = false;
                 dash.Stop();
             }
         }

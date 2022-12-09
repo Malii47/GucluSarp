@@ -382,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3963538595315589343, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: KatanaLight
@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: grassPoint
       value: 
       objectReference: {fileID: 516960791}
+    - target: {fileID: 6564552062647054900, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6564552062647054905, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -546,6 +550,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6564552062647054905, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7984226019839721596, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -605,6 +613,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7257337751296684379, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 416934960}
     - target: {fileID: 7257337751296684382, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: KatanaLight
       value: 

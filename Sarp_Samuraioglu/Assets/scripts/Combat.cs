@@ -169,7 +169,12 @@ public class Combat : MonoBehaviour
         foreach (Collider2D bullet in deflectBullets)
         {
             GetComponentInChildren<SarpSwingsSword>().SarpBulletDeflect();
-            bullet.GetComponent<kola>().Die();
+            bullet.GetComponent<kola>().trailParticle.Stop();
+            bullet.GetComponent<SpriteRenderer>().enabled = false;
+            bullet.GetComponent<BoxCollider2D>().enabled = false;
+            bullet.GetComponent<kola>().bulletLight.SetActive(false);
+            bullet.GetComponent<kola>().DeflectDieCaller();
+            //bullet.GetComponent<kola>().Die();
             CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             ParticlePlay();
             StartCoroutine(DeflectLight());
