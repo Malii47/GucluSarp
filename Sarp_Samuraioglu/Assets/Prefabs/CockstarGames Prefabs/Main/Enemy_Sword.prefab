@@ -307,10 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84807ae9e041a2a48b5a89aff5d5d897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 5
-  posture: 0
-  CurrentHealt: 0
+  CurrentHealt: 5
   CurrentPosture: 0
+  MaxPosture: 10
 --- !u!114 &6219407719742211241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +357,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   damage: 5
+  temphp: 0
 --- !u!114 &3963538595315589343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1878813292983740133, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2435402360975216413, guid: dfc2b745905ce45468b95b8aeccd2244, type: 3}
       propertyPath: m_LocalPosition.x
