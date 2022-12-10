@@ -28,11 +28,12 @@ public class BloodSplashController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        bloodSplashManager = true;
     }
     void Update()
     {
         count = GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().sarpAttackDirectionCounter;
-        if (bloodSplashManager)
+        if (GetComponentInParent<Enemy>().CurrentHealt <= 0 && bloodSplashManager)
         {
             if (bloodSplashManager2)
             {
@@ -45,7 +46,6 @@ public class BloodSplashController : MonoBehaviour
 
                 if (reverterBool)
                 {
-                    Debug.Log("yarrak2");
                     if (count % 2 == 0)
                     {
                         RandomParticlePlayer1();
@@ -60,7 +60,6 @@ public class BloodSplashController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("yarrak2");
                     if (count % 2 == 0)
                     {
                         RandomParticlePlayer0();
@@ -79,7 +78,6 @@ public class BloodSplashController : MonoBehaviour
             
             else
             {
-                Debug.Log("yarrak1");
                 if (count % 2 == 0)
                 {
                     RandomParticlePlayer0();
@@ -114,19 +112,16 @@ public class BloodSplashController : MonoBehaviour
         if (splash >= 0 && splash <= 0.33)
         {
             anim.SetTrigger(parametreBloodSplash);
-            Debug.Log("0.1");
         }
 
         if (splash > 0.33 && splash <= 0.66)
         {
             anim.SetTrigger(parametreBloodSplash2);
-            Debug.Log("0.2");
         }
 
         if (splash > 0.66 && splash <= 1)
         {
             anim.SetTrigger(parametreBloodSplash3);
-            Debug.Log("0.3");
         }
     }
     public void RandomParticlePlayer1()
@@ -136,19 +131,16 @@ public class BloodSplashController : MonoBehaviour
         if (splash >= 0 && splash <= 0.33)
         {
             anim.SetTrigger(parametreBloodSplashMirror);
-            Debug.Log("1.1");
         }
 
         if (splash > 0.33 && splash <= 0.66)
         {
             anim.SetTrigger(parametreBloodSplashMirror2);
-            Debug.Log("1.2");
         }
 
         if (splash > 0.66 && splash <= 1)
         {
             anim.SetTrigger(parametreBloodSplashMirror3);
-            Debug.Log("1.3");
         }
     }
 }
