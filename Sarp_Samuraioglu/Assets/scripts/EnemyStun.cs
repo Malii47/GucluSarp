@@ -16,6 +16,7 @@ public class EnemyStun : MonoBehaviour
     public float deathblowAreaRadius;
     public LayerMask playerLayer;
     public float damage = 5f;
+    public float temphp;
     int parametreattackBool = Animator.StringToHash("attackBool");
     int parametrewalkBool = Animator.StringToHash("walkBool");
     int parametrestunTrigger = Animator.StringToHash("stunTrigger");
@@ -34,6 +35,7 @@ public class EnemyStun : MonoBehaviour
         GetComponentInChildren<BloodSplashController>().SplashPointPositioner();
         GetComponentInChildren<BloodSplashController>().bloodSplashManager2 = true;
         GameObject.Find("GameController").GetComponent<StunCounter>().counter++;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().EnemyStunned();
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound == false)
         {
             KatanaLight.SetActive(true);
@@ -55,6 +57,8 @@ public class EnemyStun : MonoBehaviour
 
         GetComponent<AIDestinationSetter>().enabled = false;
         GetComponent<EnemyLookDirSword>().enabled = false;
+        temphp = GetComponent<Enemy>().CurrentHealt;
+        GetComponent<Enemy>().CurrentHealt = 1;
         StartCoroutine(StunTime());
     }
 
@@ -68,7 +72,8 @@ public class EnemyStun : MonoBehaviour
         yield return new WaitForSeconds(.15f);
         EnemyLight.SetActive(false);
         yield return new WaitForSeconds(2.55f);
-        GetComponent<Enemy>().CurrentPosture -= 10;
+        if (GetComponent<Enemy>().CurrentPosture >= GetComponent<Enemy>().MaxPosture) GetComponent<Enemy>().CurrentPosture -= 10;
+        GetComponent<Enemy>().CurrentHealt = temphp;
         GetComponent<AIDestinationSetter>().enabled = true;
         GetComponent<SwordEnemyAI>().enabled = true;
         EnemyLeg.GetComponent<Animator>().enabled = true;

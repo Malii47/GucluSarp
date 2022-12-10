@@ -4,33 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float maxhealth = 5f;
-    public float posture = 0f;
+    
     public float CurrentHealt;
     public float CurrentPosture;
+    public float MaxPosture;
 
-
-    void Start()
-    {
-        CurrentHealt = maxhealth;
-        CurrentPosture = posture;
-    }
-
-   /*
-    void Update()
-    {
-        Vector3 pos = transform.position;
-        pos.z = 0;
-        transform.position = pos;
-    }
-   */
     public void TakeDamage(float hpdamage, float posturedamage)
     {
 
         CurrentHealt = CurrentHealt - hpdamage;
         CurrentPosture = CurrentPosture + posturedamage;
 
-        if (CurrentHealt <= 0 && CurrentPosture >= 10)
+        if (CurrentHealt <= 0 && CurrentPosture >= MaxPosture)
         {
             GetComponent<Enemy_Death>().StunDeath();
         }
@@ -40,12 +25,10 @@ public class Enemy : MonoBehaviour
             GetComponent<Enemy_Death>().Death();
         }     
         
-        else if (CurrentPosture == 10)
+        else if (CurrentPosture >= MaxPosture)
         {
             GetComponent<EnemyStun>().Stun();
         }
-
-        
     }
 
     public void Die()

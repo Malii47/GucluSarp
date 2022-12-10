@@ -12,8 +12,6 @@ public class Combat : MonoBehaviour
 {
 
     [SerializeField] ParticleSystem particle = null;
-    //[SerializeField] ParticleSystem bloodParticle1 = null;
-    //[SerializeField] ParticleSystem bloodParticle2 = null;
     [SerializeField] ParticleSystem chargedParticle = null;
     [SerializeField] ParticleSystem chargedAttackParticle = null;
     [SerializeField] ParticleSystem chargingParticle = null;
@@ -134,7 +132,8 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
+            //enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
+
         }
 
         Collider2D[] hitgunenemy = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, GunenemyLayer);
@@ -184,13 +183,8 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D sword in deflectSword)
         {
-            camZoom = true;
             sword.GetComponentInParent<Enemy>().TakeDamage(0, deflectposturedamage);
-            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
-            StartCoroutine(DeflectChargedParticle());
             ParticlePlay();
-            StartCoroutine(CamZoom());
-            StartCoroutine(DeflectLight());
         }
 
         Collider2D[] deflectbossSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BossSwordLayer);
@@ -251,5 +245,14 @@ public class Combat : MonoBehaviour
     {
         if (deathblowSound == false)
             chargedParticle.Stop();
+    }
+
+    public void EnemyStunned()
+    {
+        camZoom = true;
+        CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+        StartCoroutine(DeflectChargedParticle());
+        StartCoroutine(CamZoom());
+        StartCoroutine(DeflectLight());
     }
 }
