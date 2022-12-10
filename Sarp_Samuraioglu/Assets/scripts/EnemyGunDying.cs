@@ -9,6 +9,8 @@ public class EnemyGunDying : MonoBehaviour
 {
     public float maxhealth = 10f;
     public float CurrentHealt;
+    public float maxPosture;
+    public float CurrentPosture;
     public Animator animator;
     public Animator gunLegAnimator;
     public GameObject gunEnemyLight;
@@ -43,52 +45,25 @@ public class EnemyGunDying : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, float posture)
     {
         CurrentHealt = CurrentHealt - damage;
+        CurrentPosture = CurrentPosture - posture;
 
-        if (CurrentHealt == 5)
-        {
-            //Die();
-            //StartCoroutine(Die2());
+        if (CurrentHealt <= 0)
             Die31();
+
+        if(CurrentPosture >= maxPosture)
+        {
+            //Stun
         }
     }
-    /*
-    public void Die()
-    {
-        GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
-        Destroy(gameObject);
-        Vector3 pos = transform.position;
-        pos.z = 0.5f;
-        transform.position = pos;
-    }
-    */
-    void anan1()
+    /*void anan1()
     {
         Vector3 pos = transform.position;
         pos.z = 0.5f;
         transform.position = pos;
-    }
-    /*
-    IEnumerator Die2()
-    {
-        StartCoroutine(GunEnemyDeathLight());
-        int parametredeath = Animator.StringToHash("Death");
-        animator.SetTrigger(parametredeath);
-        GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
-        anan1();
-        gunLegAnimator.SetBool(parametrelegWalk, false);
-        GetComponent<EnemyAI2>().enabled = false;
-        GetComponent<EnemyLookDir>().enabled = false;
-        GetComponent<AIDestinationSetter>().enabled = false;
-        GetComponent<EnemyShooting>().stopIEnumerator();
-        GetComponent<EnemyShooting>().enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        oneTimeExecutionDarkRedPrint = true; 
-        yield return new WaitForSeconds(2.1f);
-    }
-    */
+    }*/
 
     void Die31()
     {

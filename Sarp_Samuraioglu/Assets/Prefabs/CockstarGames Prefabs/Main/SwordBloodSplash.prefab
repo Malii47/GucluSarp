@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 817122766282517953}
   - component: {fileID: 5372730686531025215}
   m_Layer: 0
-  m_Name: BloodSplash
+  m_Name: SwordBloodSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,3 +120,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 0
   bloodSplashManager: 0
+  bloodSplashManager2: 0
+  reverterBool: 0
+  splashPoint: {fileID: 0}
+  temp: {fileID: 0}
+  SplashRevertingArea: {fileID: 0}
+  boyut_SplashRevertingArea: {x: 0, y: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0

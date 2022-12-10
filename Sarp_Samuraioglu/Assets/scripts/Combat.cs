@@ -140,9 +140,9 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D enemy in hitgunenemy)
         {
-            enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage);
+            enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage,attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
+            //enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
         }
 
         Collider2D[] hitboss = Physics2D.OverlapCircleAll(attackPoint.position, AttackRadius, BossLayer);

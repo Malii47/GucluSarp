@@ -299,10 +299,6 @@ PrefabInstance:
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 5687252577610204091}
-    - target: {fileID: 1183493984510515223, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2943942669335199286, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -310,10 +306,6 @@ PrefabInstance:
     - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_RootOrder
@@ -453,14 +445,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 949392810859029927, guid: 567f13092a25e924880db4ebf799da55, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1151026956051052498, guid: 567f13092a25e924880db4ebf799da55, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1787879441}
     - target: {fileID: 1497019969770363336, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: KatanaLight
       value: 
@@ -473,14 +457,6 @@ PrefabInstance:
       propertyPath: KatanaLight
       value: 
       objectReference: {fileID: 1787879440}
-    - target: {fileID: 4481955039886022210, guid: 567f13092a25e924880db4ebf799da55, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5921393553486418522, guid: 567f13092a25e924880db4ebf799da55, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -632,10 +608,6 @@ PrefabInstance:
     - target: {fileID: 6564552062647054905, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7984226019839721596, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee551ccd942f787418381ccee5e80fc5, type: 3}
