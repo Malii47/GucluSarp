@@ -35,6 +35,7 @@ public class Combat : MonoBehaviour
     float nextDeflectTime = 0f;
     public bool camZoom;
     public bool deathblowSound;
+    float tempdmg;
 
     public LayerMask SwordenemyLayer;
     public LayerMask GunenemyLayer;
@@ -254,5 +255,17 @@ public class Combat : MonoBehaviour
         StartCoroutine(DeflectChargedParticle());
         StartCoroutine(CamZoom());
         StartCoroutine(DeflectLight());
+        DamageIncrease(15f);
+    }
+
+    public void DamageIncrease(float plusdamage)
+    {
+        tempdmg = hpdamage;
+        hpdamage = hpdamage + plusdamage;
+    }
+
+    public void DamageDecrease()
+    {
+        hpdamage = tempdmg;
     }
 }

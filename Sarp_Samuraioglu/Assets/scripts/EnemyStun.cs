@@ -97,6 +97,7 @@ public class EnemyStun : MonoBehaviour
         }
         GameObject.Find("GameController").GetComponent<StunCounter>().counter--;
         GetComponentInChildren<BloodSplashController>().SplashPointPositionReverter();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
         GetComponentInChildren<BloodSplashController>().bloodSplashManager2 = false;
     }
 

@@ -86,12 +86,14 @@ public class Enemy_Death : MonoBehaviour
         deadnormal = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
         KatanaLight.SetActive(false);
         
     }
     public void StunDeath()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
         KatanaLight.SetActive(false);        
         StartCoroutine(EnemyStunDeathLight());
