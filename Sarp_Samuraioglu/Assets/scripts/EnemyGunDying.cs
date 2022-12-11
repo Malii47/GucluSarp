@@ -11,17 +11,23 @@ public class EnemyGunDying : MonoBehaviour
     public float maxPosture;
     public float CurrentPosture;
     public float countt;
+    public float temphp;
     float Timer;
     public Animator animator;
     public Animator gunLegAnimator;
     public GameObject gunEnemyLight;
     public GameObject KatanaLight;
+    public GameObject EnemyLeg;
     public LayerMask playerLayer;
     public Transform bloodpoint_gun;
     public float bloodarea_radius;
     public bool oneTimeExecutionDarkRedPrint;
     public bool posturedecrease;
     int parametrelegWalk = Animator.StringToHash("legWalk");
+    int parametrestun = Animator.StringToHash("Stun");
+    int parametreStunTriggerExit = Animator.StringToHash("StunExit");
+    int parametreFadeInTrigger = Animator.StringToHash("FadeIn");
+    public Collider2D col;
 
 
 
@@ -75,8 +81,71 @@ public class EnemyGunDying : MonoBehaviour
         DeathPosition();
         GetComponentInChildren<GunBloodSplashController>().SplashPointPositioner();
         //GetComponentInChildren<GunBloodSplashController>().bloodSplashManager2 = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().EnemyStunned();
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound == false)
+        {
+            KatanaLight.SetActive(true);
+            KatanaLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
+        }
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
+        col.isTrigger = true;
+        //GetComponentInChildren<EnemyGunRandomizerTemp>().stopcorputines();
+
+        //GetComponentInChildren<BoxCollider2D>().enabled = false;
+        GetComponent<EnemyAI2>().enabled = false;
+        EnemyLeg.GetComponent<Animator>().enabled = false;
+        EnemyLeg.GetComponent<Renderer>().enabled = false;
+        animator.SetTrigger(parametrestun);
+        GetComponent<AIDestinationSetter>().enabled = false;
+        GetComponent<EnemyLookDir>().enabled = false;
+        GetComponent<EnemyShooting>().enabled = false;
+        temphp = CurrentHealt;
+        CurrentHealt = 1;
+        StartCoroutine(StunTime31());
 
         Debug.Log("STUNNED");
+    }
+
+    IEnumerator StunTime31()
+    {
+        yield return new WaitForSeconds(.2f);
+        //StunLight.SetActive(true);
+        //StunLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
+        //EnemyLight.GetComponent<Animator>().SetTrigger(parametreFadeOutTrigger);
+        yield return new WaitForSeconds(.15f);
+        //EnemyLight.SetActive(false);
+        yield return new WaitForSeconds(2.55f);
+        if (CurrentPosture >= maxPosture) CurrentPosture -= 10;
+        CurrentHealt = temphp;
+        GetComponent<AIDestinationSetter>().enabled = true;
+        GetComponent<EnemyAI2>().enabled = true;
+        GetComponent<EnemyShooting>().enabled = false;
+        EnemyLeg.GetComponent<Animator>().enabled = true;
+        EnemyLeg.GetComponent<Renderer>().enabled = true;
+        GetComponent<EnemyLookDir>().enabled = true;
+        yield return null;
+
+        animator.SetTrigger(parametreStunTriggerExit);
+        //EnemyLight.SetActive(true);
+
+        //StunLight.GetComponent<Animator>().SetTrigger(parametreFadeOutTrigger);
+        //EnemyLight.GetComponent<Animator>().SetTrigger(parametreFadeInTrigger);
+        yield return new WaitForSeconds(.01f);
+        //StunLight.SetActive(false);
+        col.isTrigger = false;
+        if (GameObject.Find("GameController").GetComponent<StunCounter>().counter == 1)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
+            KatanaLight.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
+        }
+        GameObject.Find("GameController").GetComponent<StunCounter>().counter--;
+        GetComponentInChildren<GunBloodSplashController>().SplashPointPositionReverter();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
+        GetComponentInChildren<GunBloodSplashController>().bloodSplashManager2 = false;
+        yield return new WaitForSeconds(1.5f);
+        GetComponent<EnemyGunDying>().posturedecrease = true;
+        countt = 0;
     }
 
     void Die31()
