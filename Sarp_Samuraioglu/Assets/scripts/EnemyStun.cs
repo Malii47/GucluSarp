@@ -33,6 +33,7 @@ public class EnemyStun : MonoBehaviour
 
     public void Stun()
     {
+        StunPosition();
         GetComponentInChildren<BloodSplashController>().SplashPointPositioner();
         GetComponentInChildren<BloodSplashController>().bloodSplashManager2 = true;
         GameObject.Find("GameController").GetComponent<StunCounter>().counter++;
@@ -114,5 +115,11 @@ public class EnemyStun : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(deathblowAreaCenter.position, deathblowAreaRadius);
+    }
+    void StunPosition()
+    {
+        Vector3 pos = transform.position;
+        pos.z = GameObject.Find("GameController").GetComponent<DeathPosition>().PositionStacker();
+        transform.position = pos;
     }
 }
