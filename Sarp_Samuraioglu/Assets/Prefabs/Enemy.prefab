@@ -530,6 +530,37 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 99e6c7d7e7c511f4cb93649b560d26f2, type: 3}
   - {fileID: 8300000, guid: 5401d4473b917114880cad2769cd98bd, type: 3}
   PauseMenu: {fileID: 0}
+--- !u!1 &1357207375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357207376}
+  m_Layer: 11
+  m_Name: TempSplashPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357207376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357207375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7257337751296684375}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688460665
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +860,7 @@ MonoBehaviour:
   bloodSplashManager2: 0
   reverterBool: 0
   splashPoint: {fileID: 150002188239303529}
-  temp: {fileID: 0}
+  temp: {fileID: 1357207376}
   SplashRevertingArea: {fileID: 0}
   boyut_SplashRevertingArea: {x: 0, y: 0}
   playerLayer:
@@ -1014,6 +1045,7 @@ Transform:
   - {fileID: 7257337751486347668}
   - {fileID: 2659771778686213292}
   - {fileID: 399631022}
+  - {fileID: 1357207376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1251,14 +1283,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa1ccb76f4817c44a10398245b8b66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealt: 5
+  CurrentHealt: 15
   maxPosture: 10
   CurrentPosture: 0
   countt: 0
+  temphp: 0
   animator: {fileID: 0}
   gunLegAnimator: {fileID: 1355688810}
   gunEnemyLight: {fileID: 2107965903}
   KatanaLight: {fileID: 0}
+  EnemyLeg: {fileID: 1355688807}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -1266,6 +1300,7 @@ MonoBehaviour:
   bloodarea_radius: 0.3
   oneTimeExecutionDarkRedPrint: 0
   posturedecrease: 0
+  col: {fileID: 7257337751296684369}
 --- !u!114 &7257337751296684377
 MonoBehaviour:
   m_ObjectHideFlags: 0
