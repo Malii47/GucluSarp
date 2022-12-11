@@ -103,6 +103,7 @@ public class EnemyStun : MonoBehaviour
         GetComponentInChildren<BloodSplashController>().bloodSplashManager2 = false;
         yield return new WaitForSeconds(1.5f);
         GetComponent<Enemy>().posturedecrease = true;
+        countt = 0;
     }
 
     public void Ineedsomesleep()

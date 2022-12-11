@@ -1160,6 +1160,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42933658161377104, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: CurrentHealt
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 350195057638123037, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: KatanaLight
       value: 
