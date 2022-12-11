@@ -17,6 +17,7 @@ public class EnemyStun : MonoBehaviour
     public LayerMask playerLayer;
     public float damage = 5f;
     public float temphp;
+    public float countt;
     int parametreattackBool = Animator.StringToHash("attackBool");
     int parametrewalkBool = Animator.StringToHash("walkBool");
     int parametrestunTrigger = Animator.StringToHash("stunTrigger");
@@ -27,7 +28,7 @@ public class EnemyStun : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-
+        countt = 0;
     }
 
     public void Stun()
@@ -44,7 +45,8 @@ public class EnemyStun : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = true;
         col.isTrigger = true;
         GetComponentInChildren<EnemyDeathSoundRandomizer>().stopcorputines();
-        GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
+        //GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpStunDeflect();
+
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<SwordEnemyAI>().enabled = false;

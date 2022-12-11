@@ -327,6 +327,7 @@ MonoBehaviour:
     m_Bits: 1024
   damage: 5
   temphp: 0
+  countt: 0
 --- !u!114 &350195057638123037
 MonoBehaviour:
   m_ObjectHideFlags: 0

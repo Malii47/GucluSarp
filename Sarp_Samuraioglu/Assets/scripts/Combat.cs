@@ -55,7 +55,6 @@ public class Combat : MonoBehaviour
 }
     void Start()
     {
-
         animator = GetComponent<Animator>();
         sarpAttackDirectionCounter = 1;
         camZoom = false;
@@ -133,6 +132,11 @@ public class Combat : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            if (enemy.GetComponent<Enemy>().CurrentPosture >= enemy.GetComponent<Enemy>().MaxPosture && enemy.GetComponent<Enemy>().CurrentHealt != 1 - hpdamage && enemy.GetComponent<EnemyStun>().countt == 0)
+            {
+                Debug.Log("stun by attack sound");
+                enemy.GetComponent<EnemyStun>().countt++;
+            }
             //enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
 
         }
@@ -186,6 +190,14 @@ public class Combat : MonoBehaviour
         {
             sword.GetComponentInParent<Enemy>().TakeDamage(0, deflectposturedamage);
             ParticlePlay();
+            if (sword.GetComponentInParent<Enemy>().CurrentPosture < sword.GetComponentInParent<Enemy>().MaxPosture)
+            {
+                Debug.Log("normal deflect sound");
+            }
+            else if (sword.GetComponentInParent<Enemy>().CurrentPosture >= sword.GetComponentInParent<Enemy>().MaxPosture)
+            {
+                Debug.Log("stun by deflect sound");
+            }
         }
 
         Collider2D[] deflectbossSword = Physics2D.OverlapBoxAll(DeflectPoint2.position, boyut, 0f, BossSwordLayer);
