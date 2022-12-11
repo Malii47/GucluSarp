@@ -69,6 +69,7 @@ public class Enemy_Death : MonoBehaviour
         GetComponentInChildren<BoxCollider2D>().enabled = false;
         GetComponent<SwordEnemyAI>().stoppingIEnumerators();
         GetComponent<SwordEnemyAI>().enabled = false;
+        GameObject.Find("Enemy_Bacak").SetActive(false);
         GetComponent<CapsuleCollider2D>().enabled = false;
         if (count % 2 == 1)
         {

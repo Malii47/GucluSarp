@@ -306,6 +306,6 @@ public class Combat : MonoBehaviour
 
     public void DamageDecrease()
     {
-        hpdamage = tempdmg;
+        hpdamage = 5;
     }
 }
