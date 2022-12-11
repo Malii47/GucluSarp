@@ -130,7 +130,11 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D enemy in hitswordenemy)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
+            if (0 >= enemy.GetComponent<Enemy>().CurrentHealt - hpdamage)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(hpdamage, 0);
+            }
+            else enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
             if (enemy.GetComponent<Enemy>().CurrentPosture >= enemy.GetComponent<Enemy>().MaxPosture && enemy.GetComponent<Enemy>().CurrentHealt != 1 - hpdamage && enemy.GetComponent<EnemyStun>().countt == 0)
             {

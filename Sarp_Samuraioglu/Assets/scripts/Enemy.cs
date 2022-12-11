@@ -46,11 +46,11 @@ public class Enemy : MonoBehaviour
 
             if (Timer % 1 == 0)
             {
-                if (CurrentPosture == MaxPosture)
+                if (CurrentPosture == 0)
                 {
                     posturedecrease = false;
                 }
-                CurrentPosture--;
+                else CurrentPosture--;
             }
         }
     }

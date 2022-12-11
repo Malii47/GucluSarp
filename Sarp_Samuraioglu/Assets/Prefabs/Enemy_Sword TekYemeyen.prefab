@@ -279,6 +279,7 @@ MonoBehaviour:
   CurrentHealt: 15
   CurrentPosture: 0
   MaxPosture: 20
+  posturedecrease: 0
 --- !u!114 &7319109742994293355
 MonoBehaviour:
   m_ObjectHideFlags: 0
