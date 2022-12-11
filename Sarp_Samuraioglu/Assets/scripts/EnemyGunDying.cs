@@ -7,10 +7,11 @@ using UnityEngine.Rendering.Universal;
 
 public class EnemyGunDying : MonoBehaviour
 {
-    public float maxhealth = 10f;
     public float CurrentHealt;
     public float maxPosture;
     public float CurrentPosture;
+    public float countt;
+    float Timer;
     public Animator animator;
     public Animator gunLegAnimator;
     public GameObject gunEnemyLight;
@@ -19,13 +20,14 @@ public class EnemyGunDying : MonoBehaviour
     public Transform bloodpoint_gun;
     public float bloodarea_radius;
     public bool oneTimeExecutionDarkRedPrint;
+    public bool posturedecrease;
     int parametrelegWalk = Animator.StringToHash("legWalk");
 
 
 
     void Start()
     {
-        CurrentHealt = maxhealth;
+        countt = 0;
         GetComponent<EnemyShooting>().enabled = true;
         //GetComponent<EnemyShooting>().kola.SetActive(true);
         animator = GetComponent<Animator>();
@@ -45,25 +47,33 @@ public class EnemyGunDying : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, float posture)
+    public void TakeDamage(float hpdamage, float posturedamage)
     {
-        CurrentHealt = CurrentHealt - damage;
-        CurrentPosture = CurrentPosture - posture;
-
-        if (CurrentHealt <= 0)
-            Die31();
-
-        if(CurrentPosture >= maxPosture)
+        posturedecrease = false;
+        CurrentHealt = CurrentHealt - hpdamage;
+        CurrentPosture = CurrentPosture + posturedamage;
+        if (CurrentPosture < maxPosture) Invoke("A", 1.5f);
+        /*
+        if (CurrentHealt <= 0 && CurrentPosture >= maxPosture)
         {
-            //Stun
+            //StunDeath
+        }
+        */
+        if (CurrentHealt <= 0)
+        {
+            Die31();
+        }
+
+        else if (CurrentPosture >= maxPosture)
+        {
+            Stun31();
         }
     }
-    /*void anan1()
+
+    void Stun31()
     {
-        Vector3 pos = transform.position;
-        pos.z = 0.5f;
-        transform.position = pos;
-    }*/
+        Debug.Log("STUNNED");
+    }
 
     void Die31()
     {
@@ -74,11 +84,7 @@ public class EnemyGunDying : MonoBehaviour
         int parametredeath = Animator.StringToHash("Death");
         animator.SetTrigger(parametredeath);
         GetComponentInChildren<EnemyGunRandomizerTemp>().SarpKillsGunEnemy();
-
-        Vector3 pos = transform.position;
-        pos.z = GameObject.Find("GameController").GetComponent<DeathPosition>().PositionStacker();
-        transform.position = pos;
-
+        DeathPosition();
         gunLegAnimator.SetBool(parametrelegWalk, false);
         GetComponentInChildren<BagirsakPirt2>().headBool = true;
         GetComponent<EnemyAI2>().enabled = false;
@@ -88,6 +94,12 @@ public class EnemyGunDying : MonoBehaviour
         GetComponent<EnemyShooting>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         Invoke("bloodprintdelayer", 1f);
+    }
+    void DeathPosition()
+    {
+        Vector3 pos = transform.position;
+        pos.z = GameObject.Find("GameController").GetComponent<DeathPosition>().PositionStacker();
+        transform.position = pos;
     }
 
     private void bloodprintdelayer()
@@ -100,5 +112,27 @@ public class EnemyGunDying : MonoBehaviour
         gunEnemyLight.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(.25f);
         gunEnemyLight.SetActive(false);
+    }
+
+    private void FixedUpdate()
+    {
+        if (posturedecrease)
+        {
+            Timer = Time.time;
+
+            if (Timer % 1 == 0)
+            {
+                if (CurrentPosture == 0)
+                {
+                    posturedecrease = false;
+                }
+                else CurrentPosture--;
+            }
+        }
+    }
+
+    public void A()
+    {
+        posturedecrease = true;
     }
 }

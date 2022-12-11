@@ -149,8 +149,17 @@ public class Combat : MonoBehaviour
 
         foreach (Collider2D enemy in hitgunenemy)
         {
-            enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage,attackposturedamage);
+            if (0 >= enemy.GetComponent<EnemyGunDying>().CurrentHealt - hpdamage)
+            {
+                enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage, 0);
+            }
+            else enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            if (enemy.GetComponent<EnemyGunDying>().CurrentPosture >= enemy.GetComponent<EnemyGunDying>().maxPosture && enemy.GetComponent<EnemyGunDying>().CurrentHealt != 1 - hpdamage && enemy.GetComponent<EnemyGunDying>().countt == 0)
+            {
+                Debug.Log("stun by attack sound");
+                //enemy.GetComponent<EnemyGunDying>().countt++;
+            }
             //enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
         }
 

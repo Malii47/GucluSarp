@@ -1251,10 +1251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa1ccb76f4817c44a10398245b8b66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 5
-  CurrentHealt: 0
-  maxPosture: 0
+  CurrentHealt: 5
+  maxPosture: 10
   CurrentPosture: 0
+  countt: 0
   animator: {fileID: 0}
   gunLegAnimator: {fileID: 1355688810}
   gunEnemyLight: {fileID: 2107965903}
@@ -1265,6 +1265,7 @@ MonoBehaviour:
   bloodpoint_gun: {fileID: 4663743641056415835}
   bloodarea_radius: 0.3
   oneTimeExecutionDarkRedPrint: 0
+  posturedecrease: 0
 --- !u!114 &7257337751296684377
 MonoBehaviour:
   m_ObjectHideFlags: 0
