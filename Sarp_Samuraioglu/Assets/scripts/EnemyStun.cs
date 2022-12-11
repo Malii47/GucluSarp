@@ -101,6 +101,8 @@ public class EnemyStun : MonoBehaviour
         GetComponentInChildren<BloodSplashController>().SplashPointPositionReverter();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
         GetComponentInChildren<BloodSplashController>().bloodSplashManager2 = false;
+        yield return new WaitForSeconds(1.5f);
+        GetComponent<Enemy>().posturedecrease = true;
     }
 
     public void Ineedsomesleep()
