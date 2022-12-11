@@ -774,6 +774,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
       propertyPath: sounds.Array.data[10]
       value: 
       objectReference: {fileID: 8300000, guid: 8e5c35fb9be01824caf371feced346ca, type: 3}
@@ -781,6 +785,30 @@ PrefabInstance:
       propertyPath: sounds.Array.data[11]
       value: 
       objectReference: {fileID: 8300000, guid: c0a03d121984c964c8b3c0e5f7b14b2a, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: a6e82ae252d6f164c8f23922035076eb, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: 39fe5c94008623f4f9ae2fe4f2a16c44, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[16]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf33716c5acc0394fb877e5b394f31c3, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[17]
+      value: 
+      objectReference: {fileID: 8300000, guid: d5297768260c5b84c8e453c431e46b71, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[18]
+      value: 
+      objectReference: {fileID: 8300000, guid: dedc85822dce50b4a9d3bf8cc3ff133f, type: 3}
+    - target: {fileID: 8301082523808456176, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
+      propertyPath: sounds.Array.data[19]
+      value: 
+      objectReference: {fileID: 8300000, guid: 430af7113078b6a4bb4de26b26738de0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156ae59b5fa37484289b180b0f3c839d, type: 3}
 --- !u!1 &4326152852532913606 stripped

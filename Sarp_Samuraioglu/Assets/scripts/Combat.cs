@@ -133,12 +133,20 @@ public class Combat : MonoBehaviour
             if (0 >= enemy.GetComponent<Enemy>().CurrentHealt - hpdamage)
             {
                 enemy.GetComponent<Enemy>().TakeDamage(hpdamage, 0);
+                CameraShaker.Instance.ShakeOnce(10f, 50f, .1f, 1f);
+                Debug.Log("ATTACK SHAKE");
             }
-            else enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            else
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
+                GameObject.Find("EnemySoundRandomizer 1").GetComponent<EnemyDeathSoundRandomizer>().SarpHitEnemy();
+                CameraShaker.Instance.ShakeOnce(7f, 12.5f, .1f, .5f);
+                Debug.Log("HIT SHAKE");
+            }
+            
             if (enemy.GetComponent<Enemy>().CurrentPosture >= enemy.GetComponent<Enemy>().MaxPosture && enemy.GetComponent<Enemy>().CurrentHealt > 0 && enemy.GetComponent<EnemyStun>().countt == 0)
             {
-                Debug.Log("stun by attack sound");
+                GameObject.Find("EnemySoundRandomizer 1").GetComponent<EnemyDeathSoundRandomizer>().SarpAttackStun();
                 enemy.GetComponent<EnemyStun>().countt++;
             }
             //enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
@@ -150,14 +158,20 @@ public class Combat : MonoBehaviour
         foreach (Collider2D enemy in hitgunenemy)
         {
             if (0 >= enemy.GetComponent<EnemyGunDying>().CurrentHealt - hpdamage)
-            {
+            {                
                 enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage, 0);
+                CameraShaker.Instance.ShakeOnce(10f, 50f, .1f, 1f);
             }
-            else enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage, attackposturedamage);
-            CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
+            else
+            {
+                enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage, attackposturedamage);
+                GameObject.Find("GunEnemySoundRandomizer 1").GetComponent<EnemyGunRandomizerTemp>().SarpHitEnemy2();
+                CameraShaker.Instance.ShakeOnce(7f, 12.5f, .1f, .5f);
+            }
+            
             if (enemy.GetComponent<EnemyGunDying>().CurrentPosture >= enemy.GetComponent<EnemyGunDying>().maxPosture && enemy.GetComponent<EnemyGunDying>().CurrentHealt != 1 - hpdamage && enemy.GetComponent<EnemyGunDying>().countt == 0)
             {
-                Debug.Log("stun by attack sound");
+                GameObject.Find("GunEnemySoundRandomizer 1").GetComponent<EnemyGunRandomizerTemp>().SarpAttackStun2();
                 //enemy.GetComponent<EnemyGunDying>().countt++;
             }
             //enemy.GetComponentInChildren<BloodSplashController>().bloodSplashManager = true;
@@ -205,11 +219,12 @@ public class Combat : MonoBehaviour
             ParticlePlay();
             if (sword.GetComponentInParent<Enemy>().CurrentPosture < sword.GetComponentInParent<Enemy>().MaxPosture)
             {
-                Debug.Log("normal deflect sound");
+                GameObject.Find("EnemySoundRandomizer 1").GetComponent<EnemyDeathSoundRandomizer>().SarpNormalDeflect();
+                CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
             }
             else if (sword.GetComponentInParent<Enemy>().CurrentPosture >= sword.GetComponentInParent<Enemy>().MaxPosture)
-            {
-                Debug.Log("stun by deflect sound");
+            {               
+                GameObject.Find("EnemySoundRandomizer 1").GetComponent<EnemyDeathSoundRandomizer>().SarpStunDeflect();
             }
         }
 

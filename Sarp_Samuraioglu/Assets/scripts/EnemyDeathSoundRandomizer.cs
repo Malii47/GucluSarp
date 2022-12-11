@@ -37,6 +37,24 @@ public class EnemyDeathSoundRandomizer : MonoBehaviour
         source.PlayOneShot(source.clip);
     }
 
+    public void SarpNormalDeflect()
+    {
+        source.clip = sounds[Random.Range(17, 19)];
+        source.PlayOneShot(source.clip);
+    }
+
+    public void SarpAttackStun()
+    {
+        source.clip = sounds[Random.Range(14, 16)];
+        source.PlayOneShot(source.clip);
+    }
+
+    public void SarpHitEnemy()
+    {
+        source.clip = sounds[Random.Range(20, 27)];
+        source.PlayOneShot(source.clip);
+    }
+
     public void SarpMashesEnemy()
     {
         source.clip = sounds[Random.Range(10, 11)];

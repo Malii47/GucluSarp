@@ -1024,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7257337751296684375
 Transform:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1677505796586902312, guid: ed83ee0788b3b3445b5c362959d9f8c1, type: 3}
       propertyPath: sounds.Array.size
-      value: 8
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1677505796586902312, guid: ed83ee0788b3b3445b5c362959d9f8c1, type: 3}
       propertyPath: sounds.Array.data[6]
