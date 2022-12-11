@@ -136,7 +136,7 @@ public class Combat : MonoBehaviour
             }
             else enemy.GetComponent<Enemy>().TakeDamage(hpdamage, attackposturedamage);
             CameraShaker.Instance.ShakeOnce(7f, 50f, .1f, 1f);
-            if (enemy.GetComponent<Enemy>().CurrentPosture >= enemy.GetComponent<Enemy>().MaxPosture && enemy.GetComponent<Enemy>().CurrentHealt != 1 - hpdamage && enemy.GetComponent<EnemyStun>().countt == 0)
+            if (enemy.GetComponent<Enemy>().CurrentPosture >= enemy.GetComponent<Enemy>().MaxPosture && enemy.GetComponent<Enemy>().CurrentHealt > 0 && enemy.GetComponent<EnemyStun>().countt == 0)
             {
                 Debug.Log("stun by attack sound");
                 enemy.GetComponent<EnemyStun>().countt++;

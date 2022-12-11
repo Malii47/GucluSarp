@@ -72,6 +72,10 @@ public class EnemyGunDying : MonoBehaviour
 
     void Stun31()
     {
+        DeathPosition();
+        GetComponentInChildren<GunBloodSplashController>().SplashPointPositioner();
+        //GetComponentInChildren<GunBloodSplashController>().bloodSplashManager2 = true;
+
         Debug.Log("STUNNED");
     }
 
