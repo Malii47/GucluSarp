@@ -206,7 +206,7 @@ public class Combat : MonoBehaviour
             bullet.GetComponent<kola>().bulletLight.SetActive(false);
             bullet.GetComponent<kola>().DeflectDieCaller();
             //bullet.GetComponent<kola>().Die();
-            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+            CameraShaker.Instance.ShakeOnce(4f, 25f, .1f, 1f);
             ParticlePlay();
             StartCoroutine(DeflectLight());
         }
@@ -220,7 +220,7 @@ public class Combat : MonoBehaviour
             if (sword.GetComponentInParent<Enemy>().CurrentPosture < sword.GetComponentInParent<Enemy>().MaxPosture)
             {
                 GameObject.Find("EnemySoundRandomizer 1").GetComponent<EnemyDeathSoundRandomizer>().SarpNormalDeflect();
-                CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+                CameraShaker.Instance.ShakeOnce(4f, 25f, .1f, 1f);
             }
             else if (sword.GetComponentInParent<Enemy>().CurrentPosture >= sword.GetComponentInParent<Enemy>().MaxPosture)
             {               
@@ -235,7 +235,7 @@ public class Combat : MonoBehaviour
             bosssword.GetComponentInParent<Boss_Shooting>().BossHealth(hpdamage);
             bosssword.GetComponentInParent<Boss_Shooting>().deflected = true;
             //camZoom = true;
-            CameraShaker.Instance.ShakeOnce(2f, 25f, .1f, 1f);
+            CameraShaker.Instance.ShakeOnce(4f, 25f, .1f, 1f);
             ParticlePlay();
             //StartCoroutine("CamZoom");
             StartCoroutine(DeflectLight());
