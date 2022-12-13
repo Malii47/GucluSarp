@@ -14,18 +14,21 @@ public class ObjectPool : MonoBehaviour
     public List<GameObject> pooledFoot_l;
     public List<GameObject> pooledLightFoot_r;
     public List<GameObject> pooledLightFoot_l;
+    public List<GameObject> pooledHitSplasher;
 
     public GameObject bullets;
     public GameObject bloodyFootPrint_r;
     public GameObject bloodyFootPrint_l;
     public GameObject bloodyLightFootPrint_r;
     public GameObject bloodyLightFootPrint_l;
+    public GameObject HitSplasher;
 
     public int foot_rToPool;
     public int foot_lToPool;
     public int lightfoot_rToPool;
     public int lightfoot_lToPool;
     public int bulletsToPool;
+    public int HitSplasherToPool;
 
     int count = 0;
     int count2 = 0;
@@ -87,6 +90,15 @@ public class ObjectPool : MonoBehaviour
             tmp5 = Instantiate(bloodyLightFootPrint_l);
             tmp5.SetActive(false);
             pooledLightFoot_l.Add(tmp5);
+        }
+
+        pooledHitSplasher = new List<GameObject>();
+        GameObject tmp6;
+        for (int n = 0; n < HitSplasherToPool; n++)
+        {
+            tmp6 = Instantiate(HitSplasher);
+            tmp6.SetActive(false);
+            pooledHitSplasher.Add(tmp6);
         }
     }
 
@@ -190,6 +202,18 @@ public class ObjectPool : MonoBehaviour
                 return pooledLightFoot_l[m];
             }
 
+        }
+        return null;
+    }
+
+    public GameObject GetPooledHitSplasher()
+    {
+        for (int n = 0; n < HitSplasherToPool; n++)
+        {
+            if (!pooledHitSplasher[n].activeInHierarchy)
+            {
+                return pooledHitSplasher[n];
+            }
         }
         return null;
     }

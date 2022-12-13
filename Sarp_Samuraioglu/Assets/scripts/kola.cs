@@ -42,7 +42,6 @@ public class kola : MonoBehaviour
     {
         if (a)
         {
-            
             PlayerPos = playerrb.position;
             this.sp.enabled = true;
             this.cd.enabled = true;

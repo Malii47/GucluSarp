@@ -142,6 +142,14 @@ public class Combat : MonoBehaviour
                 GameObject.Find("EnemySoundRandomizer 1").GetComponent<EnemyDeathSoundRandomizer>().SarpHitEnemy();
                 CameraShaker.Instance.ShakeOnce(7f, 12.5f, .1f, .5f);
                 Debug.Log("HIT SHAKE");
+
+                GameObject HitSplasher = ObjectPool.SharedInstance.GetPooledHitSplasher();
+                if (HitSplasher != null)
+                {
+                    HitSplasher.transform.position = enemy.transform.position;
+                    HitSplasher.transform.rotation = enemy.transform.rotation;
+                    HitSplasher.SetActive(true);
+                }
             }
             
             if (enemy.GetComponent<Enemy>().CurrentPosture >= enemy.GetComponent<Enemy>().MaxPosture && enemy.GetComponent<Enemy>().CurrentHealt > 0 && enemy.GetComponent<EnemyStun>().countt == 0)
@@ -167,6 +175,14 @@ public class Combat : MonoBehaviour
                 enemy.GetComponent<EnemyGunDying>().TakeDamage(hpdamage, attackposturedamage);
                 GameObject.Find("GunEnemySoundRandomizer 1").GetComponent<EnemyGunRandomizerTemp>().SarpHitEnemy2();
                 CameraShaker.Instance.ShakeOnce(7f, 12.5f, .1f, .5f);
+
+                GameObject HitSplasher = ObjectPool.SharedInstance.GetPooledHitSplasher();
+                if (HitSplasher != null)
+                {
+                    HitSplasher.transform.position = enemy.transform.position;
+                    HitSplasher.transform.rotation = enemy.transform.rotation;
+                    HitSplasher.SetActive(true);
+                }
             }
             
             if (enemy.GetComponent<EnemyGunDying>().CurrentPosture >= enemy.GetComponent<EnemyGunDying>().maxPosture && enemy.GetComponent<EnemyGunDying>().CurrentHealt != 1 - hpdamage && enemy.GetComponent<EnemyGunDying>().countt == 0)

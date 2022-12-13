@@ -170,12 +170,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836332955573654090, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3963538595315589343, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: KatanaLight
       value: 
       objectReference: {fileID: 1958622688}
+    - target: {fileID: 5629924149593940780, guid: 567f13092a25e924880db4ebf799da55, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6212530279191327850, guid: 567f13092a25e924880db4ebf799da55, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -709,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684370, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7257337751296684375, guid: 2e207cd1a314ec24ab2f566b99ff74df, type: 3}
       propertyPath: m_RootOrder
@@ -869,6 +873,10 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: HitSplasher
+      value: 
+      objectReference: {fileID: 8773009356248117486, guid: c7b3d911b1e250e4db85c48654352e10, type: 3}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
       propertyPath: foot_lToPool
       value: 5
       objectReference: {fileID: 0}
@@ -878,7 +886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
       propertyPath: bulletsToPool
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
+      propertyPath: HitSplasherToPool
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2118102624379003463, guid: 4c422dc1f1d8a36448318197e20bd676, type: 3}
       propertyPath: lightfoot_lToPool
@@ -1148,6 +1160,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42933658161377104, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: MaxPosture
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 42933658161377104, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: CurrentHealt
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 350195057638123037, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: KatanaLight
       value: 
@@ -1162,7 +1182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3073287620852683912, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6648636070597546995, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: target
