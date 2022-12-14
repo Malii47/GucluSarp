@@ -14,6 +14,7 @@ public class Enemy_Death : MonoBehaviour
     public GameObject StunLight;
     public GameObject EnemyLight;
     public GameObject KatanaLight;
+    public GameObject Canvas;
     public float blood_area_radius;
     public float blood_area_radius2;
     public LayerMask playerLayer;
@@ -65,10 +66,13 @@ public class Enemy_Death : MonoBehaviour
         anim.SetBool(parametrewalkBool, false);
         anim.SetBool(parametreattackBool, false);
         StartCoroutine(EnemyDeathLight());
+        GetComponent<SwordEnemyAI>().stoppingIEnumerators();
+        GetComponent<EnemyStun>().stoppingIEnumerators();
+        GetComponent<SwordEnemyAI>().enabled = false;
+        GetComponent<EnemyStun>().enabled = false;
+        Canvas.SetActive(false);
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
         GetComponentInChildren<BoxCollider2D>().enabled = false;
-        GetComponent<SwordEnemyAI>().stoppingIEnumerators();
-        GetComponent<SwordEnemyAI>().enabled = false;
         GameObject.Find("Enemy_Bacak").SetActive(false);
         GetComponent<CapsuleCollider2D>().enabled = false;
         if (count % 2 == 1)
@@ -93,17 +97,18 @@ public class Enemy_Death : MonoBehaviour
     }
     public void StunDeath()
     {
+        GetComponentInChildren<BoxCollider2D>().enabled = false;
+        GetComponent<SwordEnemyAI>().stoppingIEnumerators();
+        GetComponent<EnemyStun>().stoppingIEnumerators();
+        GetComponent<SwordEnemyAI>().enabled = false;
+        GetComponent<EnemyStun>().enabled = false;
+        Canvas.SetActive(false);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().ParticleStopper();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().deathblowSound = false;
         KatanaLight.SetActive(false);        
         StartCoroutine(EnemyStunDeathLight());
         GetComponentInChildren<EnemyDeathSoundRandomizer>().SarpKillsEnemy();
-        GetComponentInChildren<BoxCollider2D>().enabled = false;
-        GetComponent<SwordEnemyAI>().stoppingIEnumerators();
-        GetComponent<EnemyStun>().Ineedsomesleep();
-        GetComponent<SwordEnemyAI>().enabled = false;
-        GetComponent<EnemyStun>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         anim.SetBool(parametrewalkBool, false);
         anim.SetBool(parametreattackBool, false);

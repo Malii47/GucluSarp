@@ -9,14 +9,27 @@ public class Enemy : MonoBehaviour
     public float CurrentPosture;
     public float MaxPosture;
     public bool posturedecrease;
+    public HealthBar healthBar;
+    public PostureBar postureBar;
+    public PostureBar postureBar2;
     float Timer;
+
+    private void Start()
+    {
+        healthBar.SetStartingHealth(CurrentHealt);
+        postureBar.SetMaxPosture(MaxPosture);
+        postureBar2.SetMaxPosture(MaxPosture);
+    }
 
     public void TakeDamage(float hpdamage, float posturedamage)
     {
         posturedecrease = false;
         CurrentHealt = CurrentHealt - hpdamage;
         CurrentPosture = CurrentPosture + posturedamage;
-        if(CurrentPosture < MaxPosture) Invoke("A", 1.5f);
+        healthBar.TakeDamage(hpdamage);
+        postureBar.TakePostureDamage(posturedamage);
+        postureBar2.TakePostureDamage(posturedamage);
+        if (CurrentPosture < MaxPosture) Invoke("A", 1.5f);
 
         if (CurrentHealt <= 0 && CurrentPosture >= MaxPosture)
         {
@@ -50,7 +63,12 @@ public class Enemy : MonoBehaviour
                 {
                     posturedecrease = false;
                 }
-                else CurrentPosture--;
+                else 
+                {
+                    CurrentPosture--;
+                    postureBar.TakePostureDamage(-1);
+                    postureBar2.TakePostureDamage(-1);
+                }
             }
         }
     }
@@ -59,4 +77,5 @@ public class Enemy : MonoBehaviour
     {
         posturedecrease = true;
     }
+
 }

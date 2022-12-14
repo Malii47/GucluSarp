@@ -107,7 +107,7 @@ public class EnemyStun : MonoBehaviour
         countt = 0;
     }
 
-    public void Ineedsomesleep()
+    public void stoppingIEnumerators()
     {
         StopAllCoroutines();
     }

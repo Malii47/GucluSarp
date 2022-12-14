@@ -1160,13 +1160,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 42933658161377104, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
-      propertyPath: MaxPosture
-      value: 200
+    - target: {fileID: 543353336, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 42933658161377104, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
-      propertyPath: CurrentHealt
-      value: 200
+    - target: {fileID: 543353336, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543353336, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 653183319, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 653183319, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804141398, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 350195057638123037, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: KatanaLight
@@ -1180,10 +1196,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Sword TekYemeyen
       objectReference: {fileID: 0}
-    - target: {fileID: 3073287620852683912, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6648636070597546995, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: target
       value: 
@@ -1194,11 +1206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7343720116204778152, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.06
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: 7343720116204778152, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.86
+      value: 6.53
       objectReference: {fileID: 0}
     - target: {fileID: 7343720116204778152, guid: ce4ac43ce79e6504197d61d23e31bcab, type: 3}
       propertyPath: m_LocalPosition.z
