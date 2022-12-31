@@ -26,7 +26,7 @@ public class EnemyShooting : MonoBehaviour
     {
         Timer = Time.time;
 
-        if (Timer % 3.1f == 1)
+        if (Timer % 3 == 1)
         {
             Debug.Log(Timer);
             //animator.SetTrigger("Gun");
