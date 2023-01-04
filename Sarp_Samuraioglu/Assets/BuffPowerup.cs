@@ -56,6 +56,7 @@ public class BuffPowerup : MonoBehaviour
             default:
                 break;
         }
+
     }
 
     private void RemoveBuff()
@@ -76,5 +77,6 @@ public class BuffPowerup : MonoBehaviour
             default:
                 break;
         }
+        CollectibleItem.activeBuffs.Remove(buffType);
     }
 }

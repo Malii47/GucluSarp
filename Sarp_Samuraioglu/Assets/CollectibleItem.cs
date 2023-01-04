@@ -5,7 +5,7 @@ using static BuffPowerup;
 
 public class CollectibleItem : MonoBehaviour
 {
-    private static BuffType previousBuffType;
+    public static Dictionary<BuffType, BuffPowerup> activeBuffs = new Dictionary<BuffType, BuffPowerup>();
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,11 +21,15 @@ public class CollectibleItem : MonoBehaviour
         BuffPowerup buffPowerup = player.AddComponent<BuffPowerup>();
         BuffPowerup.BuffType[] buffTypes = (BuffPowerup.BuffType[])System.Enum.GetValues(typeof(BuffPowerup.BuffType));
         BuffType buffType;
+        if (activeBuffs.Count == buffTypes.Length)
+        {
+            activeBuffs.Clear();
+        }
         do
         {
             buffType = buffTypes[Random.Range(0, buffTypes.Length)];
-        } while (buffType == previousBuffType);
-        previousBuffType = buffType;
+        } while (activeBuffs.ContainsKey(buffType));
+        activeBuffs[buffType] = buffPowerup;
         buffPowerup.buffType = buffType;
     }
 }
