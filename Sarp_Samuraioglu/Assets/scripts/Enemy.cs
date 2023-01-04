@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         healthBar.TakeDamage(hpdamage);
         postureBar.TakePostureDamage(posturedamage);
         postureBar2.TakePostureDamage(posturedamage);
-        if (CurrentPosture < MaxPosture) Invoke("A", 1.5f);
+        if (CurrentPosture < MaxPosture) Invoke("A", 2f);
 
         if (CurrentHealt <= 0 && CurrentPosture >= MaxPosture)
         {
@@ -44,12 +44,24 @@ public class Enemy : MonoBehaviour
         else if (CurrentPosture >= MaxPosture)
         {
             GetComponent<EnemyStun>().Stun();
+            postureBar.fill.color = postureBar.gradient.Evaluate(1f);
+            postureBar.PostureBarMaxtoZero();
+            postureBar2.fill.color = postureBar2.gradient.Evaluate(1f);
+            postureBar2.PostureBarMaxtoZero();
         }
     }
 
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        if (CurrentPosture > 15f)
+        {
+            CurrentPosture = 15f;
+        }
     }
     private void FixedUpdate()
     {

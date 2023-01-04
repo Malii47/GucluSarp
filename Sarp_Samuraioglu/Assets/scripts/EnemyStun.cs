@@ -75,7 +75,7 @@ public class EnemyStun : MonoBehaviour
         yield return new WaitForSeconds(.15f);
         EnemyLight.SetActive(false);
         yield return new WaitForSeconds(2.55f);
-        if (GetComponent<Enemy>().CurrentPosture >= GetComponent<Enemy>().MaxPosture) GetComponent<Enemy>().CurrentPosture -= 10;
+        if (GetComponent<Enemy>().CurrentPosture >= GetComponent<Enemy>().MaxPosture) GetComponent<Enemy>().CurrentPosture = 0;
         GetComponent<Enemy>().CurrentHealt = temphp;
         GetComponent<AIDestinationSetter>().enabled = true;
         GetComponent<SwordEnemyAI>().enabled = true;
@@ -103,7 +103,6 @@ public class EnemyStun : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<Combat>().DamageDecrease();
         GetComponentInChildren<BloodSplashController>().bloodSplashManager2 = false;
         yield return new WaitForSeconds(1.5f);
-        GetComponent<Enemy>().posturedecrease = true;
         countt = 0;
     }
 

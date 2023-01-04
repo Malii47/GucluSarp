@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float activeMoveSpeed;
     public float dashSpeed;
     public float raycastDistance;
-
+    public bool a;
     public float dashLength =.5f, dashCooldown=1f;
 
     private float dashCounter;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         cam = GameObject.FindObjectOfType<Camera>();
-
+        a = true;
         activeMoveSpeed = moveSpeed;
     }
 
@@ -62,8 +62,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (dashCounter <= 0)
             {
-                moveSpeed = temp;
-                activeMoveSpeed = moveSpeed;
+                if (a)
+                {
+                    moveSpeed = temp;
+                    activeMoveSpeed = moveSpeed;
+                }
+                else
+                {
+                    moveSpeed = 10f;
+                }
                 dashCoolCounter = dashCooldown;
                 dash.Stop();
             }
