@@ -14,7 +14,7 @@ public class EnemyShooting : MonoBehaviour
 
     int gunTrigger = Animator.StringToHash("Gun");
     int fadeInTrigger = Animator.StringToHash("FadeIn");
-
+    float timer2;
     float Timer;
 
     private void Start()
@@ -28,12 +28,20 @@ public class EnemyShooting : MonoBehaviour
 
         if (Timer % 3 == 1)
         {
+            Debug.Log(Timer);
             //animator.SetTrigger("Gun");
-            animator.SetTrigger(gunTrigger);
-            StartCoroutine(MuzzleFlash());
+            //animator.SetTrigger(gunTrigger);
+            //StartCoroutine(MuzzleFlash());
+            StartCoroutine(a());
+            timer2 = Random.value;
         }
     }
-
+    IEnumerator a()
+    {
+        yield return new WaitForSeconds(timer2);
+        animator.SetTrigger(gunTrigger);
+        StartCoroutine(MuzzleFlash());
+    }
     IEnumerator MuzzleFlash()
     {
         yield return new WaitForSeconds(1.6f);
